@@ -1,0 +1,61 @@
+var uvel[50, 69]: 31.0622 MB # of bin : 39
+size: 260568256in bytes, 31.0622 MB
+var vvel[13, 23]: 13.2069 MB # of bin : 21
+size: 110787288in bytes, 13.2069 MB
+var temp[680, 740]: 5.60984 MB # of bin : 12
+size: 47058784in bytes, 5.60984 MB
+var wvel[45, 48]: 0.170152 MB # of bin : 7
+size: 1427340in bytes, 0.170152 MB
+var [50.000000, 69.000000]: 6.111514 MB, 9 touched bins , total size: 51267092 in bytes
+ var [13.000000, 23.000000]: 3.469366 MB, 14 touched bins , total size: 29103152 in bytes
+ var [680.000000, 740.000000]: 5.607757 MB, 3 touched bins , total size: 47041276 in bytes
+ var [45.000000, 48.000000]: 0.062754 MB, 3 touched bins , total size: 526420 in bytes
+ var uvel[50, 64]: 26.9785 MB # of bin : 29
+size: 226312400in bytes, 26.9785 MB
+var vvel[-8.9, 19]: 150.496 MB # of bin : 2386
+size: 1262449396in bytes, 150.496 MB
+var temp[690, 750]: 9.25352 MB # of bin : 13
+size: 77624180in bytes, 9.25352 MB
+var wvel[-10, -11]: 0 MB # of bin : -1
+size: 0in bytes, 0 MB
+var [50.000000, 64.000000]: 5.739138 MB, 8 touched bins , total size: 48143376 in bytes
+ var [-8.900000, 19.000000]: 31.055761 MB, 768 touched bins , total size: 260514608 in bytes
+ var [690.000000, 750.000000]: 5.607757 MB, 3 touched bins , total size: 47041276 in bytes
+ var [-10.000000, -11.000000]: 0.000000 MB, 0 touched bins , total size: 0 in bytes
+ var uvel[42, 80]: 53.8278 MB # of bin : 77
+size: 451540508in bytes, 53.8278 MB
+var vvel[3, 5]: 15.7702 MB # of bin : 41
+size: 132290264in bytes, 15.7702 MB
+var temp[750, 1400]: 20.4159 MB # of bin : 59
+size: 171261156in bytes, 20.4159 MB
+var wvel[10, 14]: 6.40166 MB # of bin : 9
+size: 53701032in bytes, 6.40166 MB
+var [42.000000, 80.000000]: 10.227692 MB, 16 touched bins , total size: 85796096 in bytes
+ var [3.000000, 5.000000]: 3.136220 MB, 13 touched bins , total size: 26308524 in bytes
+ var [750.000000, 1400.000000]: 8.029030 MB, 15 touched bins , total size: 67352388 in bytes
+ var [10.000000, 14.000000]: 2.245792 MB, 9 touched bins , total size: 18839068 in bytes
+ var uvel[21, 95]: 76.3691 MB # of bin : 149
+size: 640630680in bytes, 76.3691 MB
+var vvel[-15, 27]: 166.651 MB # of bin : 2434
+size: 1397972100in bytes, 166.651 MB
+var temp[720, 750]: 6.73458 MB # of bin : 7
+size: 56493748in bytes, 6.73458 MB
+var wvel[6.3, 15]: 29.755 MB # of bin : 85
+size: 249602940in bytes, 29.755 MB
+var [21.000000, 95.000000]: 14.244588 MB, 35 touched bins , total size: 119492268 in bytes
+ var [-15.000000, 27.000000]: 34.899251 MB, 789 touched bins , total size: 292756132 in bytes
+ var [720.000000, 750.000000]: 5.190475 MB, 2 touched bins , total size: 43540864 in bytes
+ var [6.300000, 15.000000]: 6.079829 MB, 22 touched bins , total size: 51001304 in bytes
+ var uvel[53, 93]: 31.8501 MB # of bin : 80
+size: 267178260in bytes, 31.8501 MB
+var vvel[-5.7, 4.2]: 95.4504 MB # of bin : 2188
+size: 800695784in bytes, 95.4504 MB
+var temp[680, 1900]: 34.4685 MB # of bin : 83
+size: 289142756in bytes, 34.4685 MB
+var wvel[3.7, 5.7]: 13.4602 MB # of bin : 40
+size: 112912332in bytes, 13.4602 MB
+var [53.000000, 93.000000]: 6.120096 MB, 14 touched bins , total size: 51339088 in bytes
+ var [-5.700000, 4.200000]: 20.285154 MB, 722 touched bins , total size: 170164208 in bytes
+ var [680.000000, 1900.000000]: 11.597230 MB, 25 touched bins , total size: 97284620 in bytes
+ var [3.700000, 5.700000]: 2.521867 MB, 10 touched bins , total size: 21154952 in bytes
+ 

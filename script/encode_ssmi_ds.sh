@@ -1,0 +1,25 @@
+#!/bin/bash
+#This script is for encode ds into different format 
+O=(x r h)  # option
+Y=(2007 2008 2009)  # year
+M=(pfd pfd_epd pfd_rle)  #subfolder
+D=(latitude longitude vapor) #var name
+
+INPUT_PATH=/scratch/data/climate_SSMI
+OUTPUT_PATH=/scratch/data/climate_SSMI/4part
+
+for m in ${M[*]} ; do
+   mkdir -p ${OUTPUT_PATH}/${m}
+done
+
+for year in ${Y[*]}  ; do
+  
+   for n in 0 1 2 ; do 
+	for ds in ${D[*]} ; do 
+         ../build/bin/alac encode -${O[n]} -edouble -s16 -p207360000E ${INPUT_PATH}/${ds}${year}.bin $OUTPUT_PATH/${M[n]}/${ds}
+        done
+   done 
+done
+
+
+

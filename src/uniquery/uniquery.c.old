@@ -1,0 +1,1120 @@
+/*
+#include <iostream>
+#include "query_engine.h"
+#include <zlib.h>
+#include <bzlib.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include "globalflags.h"
+#include <iostream>
+#include "stats.h"
+
+class Query_Engine
+{
+    public:
+    // Variables
+    uint64_t N; // Changed to uint64_t to match compressor.cpp
+    unsigned short int nbins;
+    unsigned short int * nbins_per_part;
+    uint64_t total_elements;
+    uint64_t n_parts;
+    uint64_t partition_metadata_size;
+
+    uint64_t compressed_data_length; // Total number of bytes of compressed data (useful for finding the very last end offset)
+
+    double * bin_values;
+    uint64_t * bin_offsets;   		// byte offsets into compressed bin file
+    uint64_t * bin_element_offsets;	// element offsets into decompressed bin file, or index
+    unsigned char * bin_compressed;
+    unsigned short int * index;
+    unsigned long int partition_size;
+
+    uint32_t **column_index;
+    unsigned short int * query_bins;
+    unsigned short int  nbins_touched;
+    uint64_t  max_bin_metadata_size;
+
+    uint64_t * metadata_offset_per_part;
+    uint64_t * data_offset_per_part;
+    uint64_t * idx_offset_per_part;
+    unsigned char * buffer ;
+
+    FILE * fp_metadata;
+    FILE * fp_index;
+    FILE * fp_query_index;
+    FILE * fp_compressed_data;
+
+
+    std::string metadata_filename;
+    std::string idx_filename;
+    std::string compressed_data_filename;
+    std::string query_idx_filename;
+    std::string input_path;
+
+    // Presteps
+    void  read_partitions_metadata();
+    void read_metadata(uint64_t partition_num);
+    void  load_index(uint64_t partition_num);
+
+    // Query Processing
+
+    uint64_t answer_query(double start_value, double end_value ,int region_query);
+    void select_bins(double start, double end);
+    void select_bins_assume_fully_sorted(double start, double end);
+    int scan_bins_within_range(double start , double end, uint64_t partition_num, int region_query);
+    int scan_bins_within_range_pll(double start , double end, uint64_t partition_num, int region_query);
+    void create_query_index();
+
+    double io_time, decompress_time, bin_determination_time, other_cpu_time;
+
+    Query_Engine(std::string dataset_name, std::string input_folder_path)
+    {
+/ *
+        metadata_filename = "compressed_output/" + dataset_name + "-metadata.dat";
+        idx_filename =  "compressed_output/" + dataset_name + "-index.dat";
+        compressed_data_filename =  "compressed_output/" + dataset_name + "-compressed_data.dat";
+        query_idx_filename = "compressed_output/" + dataset_name + "-query_index.dat";
+* /
+        input_path = input_folder_path;
+        metadata_filename = input_folder_path+ "/" + dataset_name + "-metadata.dat";
+        idx_filename =  input_folder_path+ "/" + dataset_name + "-index.dat";
+        compressed_data_filename =   input_folder_path+ "/" + dataset_name + "-compressed_data.dat";
+        query_idx_filename =  input_folder_path + "/" + dataset_name + "-query_index.dat";
+
+
+//        read_metadata();
+        read_partitions_metadata();
+
+        int possible_bin_values = 65536;
+        max_bin_metadata_size =  sizeof(uint64_t) + sizeof(unsigned short int) + possible_bin_values * ( sizeof(unsigned short int) +  2 * sizeof(uint64_t) + sizeof(unsigned char) );
+
+#ifndef METADATA_PART_SIZE
+        if(total_elements % n_parts == 0)
+            N = total_elements / n_parts;
+        else
+            N = total_elements/(n_parts -1);
+
+        partition_size = N;
+#endif
+
+
+        buffer = ( unsigned char * )malloc(max_bin_metadata_size * sizeof( unsigned char * ));
+        if(buffer == NULL)
+            printf("Malloc failed at %d %s %s\n", __LINE__, __FUNCTION__, __FILE__);
+        bin_values = (double *) malloc(possible_bin_values * sizeof(double));
+        bin_offsets = (uint64_t *) malloc(possible_bin_values * sizeof(uint64_t));
+        bin_element_offsets = (uint64_t *)malloc(possible_bin_values * sizeof(uint64_t));
+        bin_compressed = (unsigned char *) malloc(possible_bin_values * sizeof(unsigned char)) ;
+        query_bins =  (unsigned short int *) malloc(possible_bin_values * sizeof(unsigned short int));
+
+        // File Open
+
+    }
+
+    ~Query_Engine()
+    {
+        printf("IO Time = %lf\n", io_time/CLOCKS_PER_SEC);
+        print_stats();
+
+        //printf("Decompression time = %lf\n", decompress_time);
+        //printf("Bin_determination time  = %lf \n", bin_determination_time);
+        free(bin_offsets);
+        free(bin_compressed);
+        free(bin_values);
+        free(bin_element_offsets);
+        free(query_bins);
+        free(nbins_per_part);
+
+        free(metadata_offset_per_part);
+        free(data_offset_per_part);
+        free(idx_offset_per_part);
+
+        // close files
+        fclose(fp_metadata);
+
+    }
+
+ private:
+    uint64_t get_bin_compressed_end_offset(unsigned short int bin_num, uint64_t partition_num);
+    uint64_t get_bin_compressed_length(unsigned short int bin_num, uint64_t partition_num);
+};
+
+
+
+#define COLUMNS 6
+//#define debug
+using namespace std;
+
+double dclock2(void)
+{
+  struct timeval tv;
+  gettimeofday(&tv,0);
+  return (double) tv.tv_sec + (double) tv.tv_usec * 1e-6;
+}
+
+void Query_Engine :: read_partitions_metadata()
+{
+    fp_metadata = fopen(metadata_filename.c_str(), "rb");
+    if(fp_metadata== NULL)
+        printf("metadata file open error!!\n");
+    //<Total_elements>
+    fread(&total_elements , sizeof(uint64_t), 1, fp_metadata);
+
+#ifdef METADATA_PART_SIZE
+    //<Partition Size>
+    fread(&N, sizeof(uint64_t), 1, fp_metadata); // We set N here, and the code calculating N in the constructor is #ifdef'ed out
+    n_parts = (total_elements+N-1)/N; // ceil(total_elements/N)
+#else
+    //<Total Partitions>
+    fread(&n_parts , sizeof(uint64_t), 1, fp_metadata);
+#endif
+
+    nbins_per_part = (unsigned short int *)malloc(n_parts * sizeof(unsigned short int));
+#ifdef debug
+   printf("DEBUG: Total elements: %llu, number of partitions: %llu, partition size: %lu \n", total_elements, n_parts, N);
+#endif
+
+    metadata_offset_per_part = (uint64_t *) malloc(n_parts * sizeof(uint64_t));
+    data_offset_per_part = (uint64_t *) malloc(n_parts * sizeof(uint64_t));
+    idx_offset_per_part = (uint64_t *) malloc(n_parts * sizeof(uint64_t));
+
+    //<Metadata file offsets for each partition>
+    fread(metadata_offset_per_part , sizeof(uint64_t), n_parts, fp_metadata);
+#ifdef debug
+    for(int i = 0 ; i < n_parts ;i++ )
+        printf("\n metadata offset for partition %u : %u\n", i, metadata_offset_per_part[i]);
+#endif
+    //Compressed Data file offsets for each partition>
+    fread(data_offset_per_part, sizeof(uint64_t), n_parts, fp_metadata);
+#ifdef debug
+    for(int i = 0 ; i < n_parts ;i++ )
+        printf("\n compressed data offset for partition %d : %u\n", i, data_offset_per_part[i]);
+#endif
+    //<Index file offset for each partition>
+    fread(idx_offset_per_part, sizeof(uint64_t), n_parts, fp_metadata);
+    partition_metadata_size = 2 * sizeof(uint64_t) + 3 * n_parts *  sizeof(uint64_t);
+}
+
+void Query_Engine :: read_metadata(uint64_t partition_num)
+{
+    unsigned int size ;
+
+    if(partition_num < n_parts -1)
+        size = metadata_offset_per_part[partition_num + 1 ] -  metadata_offset_per_part[partition_num];
+    else
+    {
+        size = max_bin_metadata_size;
+    }
+#ifdef debug
+    printf("Metadata Size = %d\n", size);
+#endif
+
+
+    size = fread(buffer, 1, size, fp_metadata);
+#ifdef debug
+    printf("Bytes read from metadata = %d\n", size);
+#endif
+    int ptr = 0;
+
+    //<N>
+    memcpy(&N, buffer, sizeof(uint64_t));
+    ptr += sizeof(uint64_t);
+#ifdef debug
+    printf("N read from metadata = %u\n", N);
+#endif
+    //<nbins>
+    memcpy(&nbins, buffer + ptr , sizeof(unsigned short int));
+    ptr +=  sizeof(unsigned short int);
+    nbins_per_part[partition_num] = nbins;
+
+    //<bin_values>
+    memset(bin_values, 0, nbins *  sizeof(double));
+
+    for(int i = 0 ; i < nbins ; i++)
+    {
+    unsigned short int * temp = (unsigned short int *)&bin_values[i];
+        memcpy(temp + 3 , buffer + ptr , sizeof(unsigned short int));
+        ptr += sizeof(unsigned short int);
+    }
+
+    //<Bin_offsets>
+    memcpy(bin_offsets, buffer + ptr , nbins * sizeof(uint64_t));
+    ptr +=  nbins * sizeof(uint64_t);
+
+#ifdef debug
+    for(int i = 0 ; i < nbins ; i++)
+        printf("bin offset in compressed data%d : %u\n", i, bin_offsets[i]);
+#endif
+    //<Offset per bin in uncompressed data>
+    memcpy(bin_element_offsets,  buffer + ptr ,nbins *  sizeof(uint64_t));
+    ptr += nbins *  sizeof(uint64_t);
+
+#ifdef debug
+    for(int i = 0 ; i < nbins ; i++)
+        printf("bin offset uncompressed data : %u\n", bin_element_offsets[i]);
+#endif
+
+    //<Bin_compressed_or_not>
+    memcpy(bin_compressed, buffer + ptr , nbins * sizeof(unsigned char));
+#ifdef debug
+    printf("Returning from read metadata\n");
+#endif
+}
+
+void Query_Engine :: load_index(uint64_t partition_num)
+{
+    unsigned int size ;
+
+    if((n_parts > 1)&&(partition_num < n_parts -1))
+        size = idx_offset_per_part[partition_num + 1 ] -  idx_offset_per_part[partition_num];
+    else
+        size = N * sizeof(unsigned short int);
+
+    unsigned short int * buffer = (unsigned short int * ) malloc(N * sizeof(unsigned short int ));
+
+    size = fread(buffer, 1, size, fp_index);
+#ifdef debug
+    printf("N = %u\n", N);
+#endif
+    unsigned  int  dc_size =  N * sizeof(unsigned short int);
+    int bzerr = BZ2_bzBuffToBuffDecompress ((char *) index, &dc_size, (char *)buffer, size, 0 , 0);
+
+    if (bzerr != BZ_OK)
+    {
+        fprintf (stderr, "[%s : %s: %d] Decompression failed %d",__FILE__,  __FUNCTION__, __LINE__, bzerr);
+    }
+
+    free(buffer);
+
+    printf("Returning from load index \n");
+}
+
+void Query_Engine ::create_query_index()
+{
+
+    index  = (unsigned short int *)malloc(N * sizeof(unsigned short int));
+    fp_index =  fopen(idx_filename.c_str(),  "rb");
+    if(fp_index == NULL)
+    {
+        printf("index file open failed....at %d in %s in %s", __LINE__, __FUNCTION__, __FILE__)    ;
+    }
+
+    fp_query_index =  fopen(query_idx_filename.c_str(),  "wb");
+    if(fp_query_index == NULL)
+    {
+        printf("index file open failed....at %d in %s in %s", __LINE__, __FUNCTION__, __FILE__)    ;
+    }
+
+    uint32_t * query_index = (uint32_t *)malloc(N * sizeof(uint32_t));
+
+    for(int j = 0 ; j < n_parts ; j++)
+    {
+        printf("loading index for partition %d\n", j);
+        read_metadata(j);
+        load_index(j);
+        int nbins = nbins_per_part[j];
+
+        column_index = (uint32_t **)malloc( nbins * sizeof(uint32_t* ));
+
+
+        for(int i = 0 ; i < nbins ; i++)
+        {
+            column_index[i] = &query_index[bin_element_offsets[i]];
+        }
+
+        uint64_t bin_counter[nbins];
+
+        memset(bin_counter, 0, nbins * sizeof(uint64_t));
+
+
+        for(int i = 0 ; i < N ; i++)
+        {
+            int bin = index[i];
+            column_index[bin][bin_counter[bin]] = i;
+            if( (bin_counter[bin]+ bin_element_offsets[bin])> N)
+                printf("index %u \n", bin_counter[bin]+ bin_element_offsets[bin]);
+
+            bin_counter[bin]++;
+        }
+        fwrite(query_index, sizeof(uint32_t), N , fp_query_index );
+    }
+    free(index);
+    free(query_index);
+    free(column_index);
+    fclose(fp_query_index);
+    fclose(fp_index);
+}
+
+uint64_t Query_Engine :: answer_query(double start_value, double end_value, int region_query)
+{
+    io_time = 0;
+    bin_determination_time = 0;
+    decompress_time = 0;
+
+    double start = clock();
+    fseek(fp_metadata, partition_metadata_size, SEEK_SET);
+    // open Compressed data file
+    fp_compressed_data = fopen(compressed_data_filename.c_str(), "rb") ;
+    if(fp_compressed_data == NULL)
+    {
+        printf("Unable to open file %s\n", compressed_data_filename.c_str());
+        printf("At line %d in function %s in file %s", __LINE__, __FUNCTION__, __FILE__);
+        exit(1);
+    }
+
+    // Get the file length
+    struct stat st;
+    fstat(fileno(fp_compressed_data), &st);
+    compressed_data_length = st.st_size;
+
+    //Open Query index file
+    fp_query_index =  fopen(query_idx_filename.c_str(),  "rb");
+    if(fp_query_index == NULL)
+    {
+        printf("index file open failed....at %d in %s in %s", __LINE__, __FUNCTION__, __FILE__)    ;
+    }
+
+    double end = clock();
+
+    io_time += end - start;
+
+    uint64_t cnt = 0 ;
+    for(uint64_t i = 0 ; i < n_parts ; i++)
+    {
+        start = clock();
+        read_metadata(i);
+        end = clock();
+        io_time += end - start;
+
+        nbins = nbins_per_part[i];
+
+//        start = dclock2();
+#ifdef FULLY_SORTED_BINS
+        select_bins_assume_fully_sorted(start_value, end_value);
+#else
+        select_bins(start_value, end_value);
+#endif
+//        end = dclock2();
+//        bin_determination_time += end - start;
+
+#ifdef debug
+        printf("calling for partition %d\n", i);
+#endif
+
+#ifdef SCAN_BINS_PLL
+        cnt += scan_bins_within_range_pll(start_value, end_value, i, region_query);
+#else
+        cnt += scan_bins_within_range(start_value, end_value, i, region_query);
+#endif
+
+    }
+
+#ifdef debug
+    printf("Number of hits  = %u", cnt);
+#endif
+    fclose(fp_compressed_data);
+    fclose(fp_query_index);
+    return cnt;
+}
+
+void Query_Engine :: select_bins_assume_fully_sorted(double start, double end) {
+    int start_bin, end_bin;
+
+    // Determine the start bin of the query
+    if (start <= bin_values[0]) {
+        start_bin = 0;
+    } else if (start >= bin_values[nbins - 1]) {
+        start_bin = nbins - 1;
+    } else {
+        // Now bin[0] < start < bin[nbins-1]
+        for (int i = 1; i < nbins; i++) {
+            // If the interval starts before this bin, start the query in the previous bin
+            // Else if the interval starts exactly on this bin, use it as the start bin
+            if (start < bin_values[i]) {
+                //printf("Found start bin %d because the interval start %f is < bin value %f\n", i, start, bin_values[i]);
+                start_bin = i - 1;
+                break;
+            } else if (start == bin_values[i]) {
+                //printf("Found start bin %d because the interval start %f is == bin value %f\n", i, start, bin_values[i]);
+                start_bin = i;
+                break;
+            }
+        }
+    }
+
+    if (end < bin_values[0]) {
+        // Query is outside the range of all data, return 0 bins immediately
+        nbins_touched = 0;
+        return;
+    } else if (end >= bin_values[nbins - 1]) {
+        // Query includes at least some of the last bin, so set the query end bin to that bin
+        end_bin = nbins - 1;
+    } else {
+        // Now bin[0] <= end < bin[nbins-1]
+        for (int i = 1; i < nbins; i++) {
+            // If the interval ends before this bin, end the query in the previous bin
+            // Else if the interval start ends exactly on this bin, use it as the end bin
+            if (end < bin_values[i]) {
+                end_bin = i - 1;
+                break;
+            } else if (end == bin_values[i]) {
+                end_bin = i;
+                break;
+            }
+        }
+    }
+
+    if (start_bin > end_bin) {
+        nbins_touched = 0;
+    } else {
+        for (int i = 0, bin = start_bin; bin <= end_bin; i++, bin++)
+            query_bins[i] = bin;
+
+        nbins_touched = end_bin - start_bin + 1;
+    }
+
+    / *
+    printf("Selected %d bins, in range [%d, %d], based on query interval [%f, %f]\n", nbins_touched, start_bin, end_bin, start, end);
+    printf("Bins values included in range:\n");
+    for (int i = 0; i < nbins_touched; i++)
+        printf("%d: %f\n", query_bins[i], bin_values[query_bins[i]]);
+
+    if (start_bin > 0) printf("Last bin before range: %d: %f\n", start_bin - 1, bin_values[start_bin - 1]);
+    if (end_bin < nbins - 1) printf("First bin after range: %d: %f\n", end_bin + 1, bin_values[end_bin + 1]);
+    * /
+}
+
+void Query_Engine :: select_bins(double start, double end)
+{
+
+#ifdef debug
+    printf("In Select_bins\n");
+#endif
+    int cnt = 0 ;
+    if(start < 0)
+    {
+        if(end < 0)
+        {
+            bool flag = false;
+
+            for(int i = 0 ;  i < nbins ; i++ )
+            {
+                if((end > bin_values[i]) && !flag)
+                {
+                    query_bins[cnt++]= i -1;
+                    flag = true;
+
+                }
+
+                if(start > bin_values[i])
+                {
+                    break;
+                }
+                if(flag)
+                {
+                    query_bins[cnt++] = i;
+                }
+            }
+        }
+        else
+        {
+            bool flag = true;
+            for(int i = 0 ;  i < nbins ; i++ )
+            {
+                if(end < bin_values[i])
+                {
+                    flag = false;
+                }
+                if(bin_values[i] < 0)
+                {
+                    flag = true;
+                }
+                if(flag)
+                {
+                     query_bins[cnt++] = i;
+                }
+                if(start > bin_values[i])
+                {
+                    break;
+                }
+            }
+        }
+    }
+    else
+    {
+        bool flag = false;
+        for(int i = 0 ; i < nbins ; i++)
+        {
+            if((start < bin_values[i])&& !flag )
+            {
+                query_bins[cnt++]= i -1;
+                flag = true;
+            }
+
+            if(end < bin_values[i])
+            {
+//                query_bins[cnt++]= i;
+
+                break;
+            }
+            if(flag == true)
+            {
+                 query_bins[cnt++]= i;
+            }
+        }
+    }
+
+    nbins_touched = cnt;
+
+#ifdef debug
+    printf(" Bins = %e , %e \n", bin_values[query_bins[0]], bin_values[query_bins[nbins_touched-1]]);
+#endif
+/ *
+    printf("Start = %e, end = %e\n", start, end );
+
+    for(int i = 0 ; i < nbins_touched ; i++)
+    {
+        printf("%d : %e\n", query_bins[i], bin_values[query_bins[i]]);
+    }
+  * /
+}
+
+int  Query_Engine :: scan_bins_within_range(double start , double end, uint64_t partition_num , int region_query)
+{
+    double start_t , end_t;
+    unsigned char *vertical = (unsigned char *) malloc (2 * N * COLUMNS);
+    if (!vertical)
+    {
+        fprintf (stderr, "[%s: %d] Unable to allocate memory\n", __FUNCTION__, __LINE__);
+    }
+     unsigned char * compressed_input = vertical + N * COLUMNS;
+
+    uint64_t ptr = 0;
+    double *output = (double *) malloc (N * sizeof(double));
+
+    if (!output) {
+        fprintf (stderr, "[%s: %d] Unable to allocate memory\n", __FUNCTION__, __LINE__);
+     }
+
+
+    uint64_t elements_per_bin[nbins_touched];
+    uint64_t total_query_elements = 0;
+    unsigned short int start_bin = query_bins[0];
+#ifdef debug
+    printf("%u %u %u \n",data_offset_per_part[partition_num] , bin_offsets[start_bin] , data_offset_per_part[partition_num] + bin_offsets[start_bin]);
+#endif
+    start_t = clock();
+
+    fseek(fp_compressed_data, data_offset_per_part[partition_num] + bin_offsets[start_bin], SEEK_SET) ;
+    end_t = clock();
+    io_time += end_t - start_t;
+    bool flag = false;
+
+    for(int i = 0 ; i < nbins_touched; i++)
+    {
+        unsigned short int bin = query_bins[i];
+        uint64_t decompressed_size = N * sizeof(double);
+        uint64_t compressed_size = N * sizeof(double);
+
+        if(bin < nbins -1)
+            compressed_size =  bin_offsets[bin+1] - bin_offsets[bin] ;
+        else
+        {
+            if(partition_num < n_parts-1)
+            {
+                compressed_size = data_offset_per_part[partition_num + 1] - ( bin_offsets[bin]+ data_offset_per_part[partition_num]);
+            }
+        }
+
+        start_t = clock();
+
+        compressed_size =  fread(compressed_input, 1, compressed_size, fp_compressed_data);
+        end_t = clock();
+        io_time += end_t - start_t;
+
+        //printf("About to decompress. Working on bin %hu of %hu, length = %llu\n", bin, nbins, compressed_size);
+
+#ifdef debug
+        printf("bin = %d %u \n", bin, compressed_size);
+#endif
+        if(bin_compressed[bin] == 1)
+        {
+//            start_t = dclock2();
+            uLongf dc_size = decompressed_size;
+
+            int bzerr = uncompress ((Bytef *) vertical, &dc_size, (Bytef *) compressed_input , compressed_size);
+            if (bzerr != Z_OK)
+            {
+                free (vertical);
+                free (output);
+                fprintf (stderr, "[%s: %d] Decompression failed. Error code : %d \n", __FUNCTION__, __LINE__ , bzerr );
+                return -1;
+            }
+            else
+            {
+                decompressed_size = dc_size;
+            }
+//            end_t = dclock2();
+//            decompress_time += end_t - start_t;
+        }
+        else
+        {
+            memcpy( vertical, (unsigned char *)compressed_input, compressed_size);
+            decompressed_size = compressed_size;
+        }
+
+        unsigned long int nelements = decompressed_size/COLUMNS;
+#ifdef debug
+        printf(" elements in bin = %u\n", nelements);
+#endif
+//        memset(output, 0, nelements * sizeof(double));
+
+        elements_per_bin[i] = nelements;
+        total_query_elements += nelements;
+        for(int j = 0; j < nelements; j ++)
+        {
+             unsigned char *data = (unsigned char *) &output [ptr];
+             memcpy(data,vertical + j*COLUMNS , COLUMNS );
+
+             unsigned char *bin_val = (unsigned char *) &bin_values [bin];
+             memcpy(data + 6, bin_val + 6, 2);
+//             printf("%d: %e: %e \n", bin,bin_values[bin], output [ptr]);
+             ptr++;
+        }
+
+//        printf("Elements = %u \n ", elements_per_bin[i]);
+        if(region_query && !flag)
+        {
+            flag = true;
+        //    i = query_bins[nbins_touched -1];
+            i = nbins_touched -2;
+            start_t = clock();
+            uint64_t last_bin =  query_bins[nbins_touched -1];
+            fseek(fp_compressed_data, data_offset_per_part[partition_num] + bin_offsets[last_bin], SEEK_SET) ;
+            end_t = clock();
+            io_time += end_t - start_t;
+        }
+
+    }
+
+    // Index
+#ifdef QUERY_INDEX_NOT_BUILT
+    uint64_t **column_index = (uint64_t **)malloc( nbins * sizeof(uint64_t* ));
+    for(int i = 0 ; i < nbins ; i++)
+    {
+        column_index[i] = (uint64_t *)malloc(N * sizeof(uint64_t));
+    }
+
+    uint64_t bin_counter[nbins];
+
+    memset(bin_counter, 0, nbins * sizeof(uint64_t));
+
+    for(int i = 0 ; i < N ; i++)
+    {
+        int bin = index[i];
+        column_index[bin][bin_counter[bin]] = i;
+        bin_counter[bin]++;
+    }
+
+#endif
+
+    uint64_t total;
+    uint64_t elements_in_middle_bins = bin_element_offsets[query_bins[nbins_touched -1]] - bin_element_offsets[query_bins[0]+ 1];
+    if(query_bins[nbins_touched -1] < nbins -1)
+    {
+       total  = bin_element_offsets[query_bins[nbins_touched -1]+ 1] - bin_element_offsets[query_bins[0]];
+    }
+    else
+    {
+
+            total =  elements_per_bin[nbins_touched -1] + elements_in_middle_bins + elements_per_bin[0];
+
+
+    }
+
+    total_query_elements = total;
+#ifdef debug
+    printf("Total query elements =  %u, %u\n", total_query_elements, total);
+//    if(region_query)
+        printf("%u , %u , %u , %u\n",  elements_per_bin[0] + elements_in_middle_bins, elements_in_middle_bins, total_query_elements, elements_in_middle_bins +  elements_per_bin[0]+  elements_per_bin[nbins_touched -1]);
+#endif
+    uint64_t count = 0;
+    ptr = 0;
+    uint32_t * query_index = (uint32_t *)malloc(total_query_elements * sizeof(uint32_t));
+    uint32_t * output_index = (uint32_t *)malloc(total_query_elements * sizeof(uint32_t));
+    double * output_value = (double *)malloc(total_query_elements * sizeof(double));
+    uint64_t   offset = bin_element_offsets[query_bins[0]] *  sizeof(uint32_t) + partition_num * N * sizeof(uint32_t);
+
+    start_t = clock();
+    fseek(fp_compressed_data, offset, SEEK_SET) ;
+
+    if(query_index == NULL )
+    {
+        printf("Query id null...");
+        return -1 ;
+    }
+    total_query_elements = fread(query_index, sizeof(uint32_t), total_query_elements , fp_query_index);
+    end_t = clock();
+
+    io_time += end_t - start_t;
+
+    uint64_t  out_ptr = 0;
+//    if(region_query)
+
+//        for(int i = 0 ; i < nbins_touched; )
+        int i = 0 ;
+        for(int j = 0 ; j < elements_per_bin[i]; j++)
+        {
+            if((start < output[ptr]) && (end > output[ptr]))
+            {
+                count++;
+                output_index[out_ptr] = query_index[ptr]    ;
+                if(!region_query)
+                    output_value[out_ptr] = output[ptr] ;
+                    // Print value
+                out_ptr++;
+            }
+            ptr++;
+        }
+
+//        printf("outPtr = %u , ptr = %u \n", out_ptr, ptr);
+        memcpy(output_index + out_ptr , &query_index[ptr] , elements_in_middle_bins * sizeof(uint32_t));
+        uint64_t ptr_offset = elements_per_bin[i];
+        if(!region_query)
+        {
+            memcpy(output_value + out_ptr , &output[ptr] , elements_in_middle_bins * sizeof(double));
+            ptr_offset = ptr + elements_in_middle_bins;
+        }
+
+        count += elements_in_middle_bins;
+        i = nbins_touched -1;
+        out_ptr += elements_in_middle_bins;
+        ptr += elements_in_middle_bins;
+
+//        printf("Elements in last bin = %u \n", elements_per_bin[i]);
+        for(int j = 0 ; j < elements_per_bin[i]; j++)
+        {
+
+            if((end > output[ptr_offset])&&( start <  output[ptr_offset]))
+            {
+
+                count++;
+                output_index[out_ptr] = query_index[ptr]    ;
+                if(!region_query)
+                    output_value[out_ptr] = output[ptr_offset] ;
+                    // Print value
+                out_ptr++;
+            }
+            ptr_offset++;
+            ptr++;
+        }
+
+    / *
+
+    for(int i = 0 ; i < nbins_touched; i++)
+    {
+        for(int j = 0 ; j < elements_per_bin[i]; j++)
+        {
+            if((start < output[ptr])&& (end > output[ptr]))
+            {
+//                printf("%e\n", output[ptr]);
+                count  ++;
+//                 column_index[query_bins[i]][j];
+            }
+            ptr++;
+
+        }
+    }
+    * /
+#ifdef debug
+    printf("Count for Partition  %u = %u\n",partition_num , count);
+#endif
+
+    free(query_index);
+    free(output_index);
+    free(output);
+    free(output_value);
+    free(vertical);
+    return count;
+}
+*/
+
+//typedef struct {} ALPartitionStore;
+void perform_range_query(ALPartitionStore *pstore, double start, double end, _Bool return_values, _Bool return_rids) {
+    ALMetadata meta;
+
+    ALPartitionStoreLoadMetadata(pstore, &meta);
+
+    // Find which bins are hit
+    // .... -> low_bin (incl), high_bin (excl)
+
+    // Allocate buffers for data/index, depending on retrieval modes -> buffers
+    // Read in the data and index for the bins, depending on retrieval modes -> buffers full
+    // Filter -> buffers filtered
+}
+
+
+
+
+
+
+
+
+
+
+    double start_t , end_t;
+    unsigned char *vertical = (unsigned char *) malloc (2 * N * COLUMNS);
+    if (!vertical)
+    {
+        fprintf (stderr, "[%s: %d] Unable to allocate memory\n", __FUNCTION__, __LINE__);
+    }
+     unsigned char * compressed_input = vertical + N * COLUMNS;
+
+    uint64_t ptr = 0;
+    double *output = (double *) malloc (N * sizeof(double));
+
+    if (!output) {
+        fprintf (stderr, "[%s: %d] Unable to allocate memory\n", __FUNCTION__, __LINE__);
+     }
+
+
+    uint64_t elements_per_bin[nbins_touched];
+    uint64_t total_query_elements = 0;
+    unsigned short int start_bin = query_bins[0];
+#ifdef debug
+    printf("%u %u %u \n",data_offset_per_part[partition_num] , bin_offsets[start_bin] , data_offset_per_part[partition_num] + bin_offsets[start_bin]);
+#endif
+    start_t = clock();
+
+    fseek(fp_compressed_data, data_offset_per_part[partition_num] + bin_offsets[start_bin], SEEK_SET) ;
+    end_t = clock();
+    io_time += end_t - start_t;
+    bool flag = false;
+
+    for(int i = 0 ; i < nbins_touched; i++)
+    {
+        unsigned short int bin = query_bins[i];
+        uint64_t decompressed_size = N * sizeof(double);
+        uint64_t compressed_size = N * sizeof(double);
+
+        if(bin < nbins -1)
+            compressed_size =  bin_offsets[bin+1] - bin_offsets[bin] ;
+        else
+        {
+            if(partition_num < n_parts-1)
+            {
+                compressed_size = data_offset_per_part[partition_num + 1] - ( bin_offsets[bin]+ data_offset_per_part[partition_num]);
+            }
+        }
+
+        start_t = clock();
+
+        compressed_size =  fread(compressed_input, 1, compressed_size, fp_compressed_data);
+        end_t = clock();
+        io_time += end_t - start_t;
+
+        //printf("About to decompress. Working on bin %hu of %hu, length = %llu\n", bin, nbins, compressed_size);
+
+#ifdef debug
+        printf("bin = %d %u \n", bin, compressed_size);
+#endif
+        if(bin_compressed[bin] == 1)
+        {
+//            start_t = dclock2();
+            uLongf dc_size = decompressed_size;
+
+            int bzerr = uncompress ((Bytef *) vertical, &dc_size, (Bytef *) compressed_input , compressed_size);
+            if (bzerr != Z_OK)
+            {
+                free (vertical);
+                free (output);
+                fprintf (stderr, "[%s: %d] Decompression failed. Error code : %d \n", __FUNCTION__, __LINE__ , bzerr );
+                return -1;
+            }
+            else
+            {
+                decompressed_size = dc_size;
+            }
+//            end_t = dclock2();
+//            decompress_time += end_t - start_t;
+        }
+        else
+        {
+            memcpy( vertical, (unsigned char *)compressed_input, compressed_size);
+            decompressed_size = compressed_size;
+        }
+
+        unsigned long int nelements = decompressed_size/COLUMNS;
+#ifdef debug
+        printf(" elements in bin = %u\n", nelements);
+#endif
+//        memset(output, 0, nelements * sizeof(double));
+
+        elements_per_bin[i] = nelements;
+        total_query_elements += nelements;
+        for(int j = 0; j < nelements; j ++)
+        {
+             unsigned char *data = (unsigned char *) &output [ptr];
+             memcpy(data,vertical + j*COLUMNS , COLUMNS );
+
+             unsigned char *bin_val = (unsigned char *) &bin_values [bin];
+             memcpy(data + 6, bin_val + 6, 2);
+//             printf("%d: %e: %e \n", bin,bin_values[bin], output [ptr]);
+             ptr++;
+        }
+
+//        printf("Elements = %u \n ", elements_per_bin[i]);
+        if(region_query && !flag)
+        {
+            flag = true;
+        //    i = query_bins[nbins_touched -1];
+            i = nbins_touched -2;
+            start_t = clock();
+            uint64_t last_bin =  query_bins[nbins_touched -1];
+            fseek(fp_compressed_data, data_offset_per_part[partition_num] + bin_offsets[last_bin], SEEK_SET) ;
+            end_t = clock();
+            io_time += end_t - start_t;
+        }
+
+    }
+
+    // Index
+#ifdef QUERY_INDEX_NOT_BUILT
+    uint64_t **column_index = (uint64_t **)malloc( nbins * sizeof(uint64_t* ));
+    for(int i = 0 ; i < nbins ; i++)
+    {
+        column_index[i] = (uint64_t *)malloc(N * sizeof(uint64_t));
+    }
+
+    uint64_t bin_counter[nbins];
+
+    memset(bin_counter, 0, nbins * sizeof(uint64_t));
+
+    for(int i = 0 ; i < N ; i++)
+    {
+        int bin = index[i];
+        column_index[bin][bin_counter[bin]] = i;
+        bin_counter[bin]++;
+    }
+
+#endif
+
+    uint64_t total;
+    uint64_t elements_in_middle_bins = bin_element_offsets[query_bins[nbins_touched -1]] - bin_element_offsets[query_bins[0]+ 1];
+    if(query_bins[nbins_touched -1] < nbins -1)
+    {
+       total  = bin_element_offsets[query_bins[nbins_touched -1]+ 1] - bin_element_offsets[query_bins[0]];
+    }
+    else
+    {
+
+            total =  elements_per_bin[nbins_touched -1] + elements_in_middle_bins + elements_per_bin[0];
+
+
+    }
+
+    total_query_elements = total;
+#ifdef debug
+    printf("Total query elements =  %u, %u\n", total_query_elements, total);
+//    if(region_query)
+        printf("%u , %u , %u , %u\n",  elements_per_bin[0] + elements_in_middle_bins, elements_in_middle_bins, total_query_elements, elements_in_middle_bins +  elements_per_bin[0]+  elements_per_bin[nbins_touched -1]);
+#endif
+    uint64_t count = 0;
+    ptr = 0;
+    uint32_t * query_index = (uint32_t *)malloc(total_query_elements * sizeof(uint32_t));
+    uint32_t * output_index = (uint32_t *)malloc(total_query_elements * sizeof(uint32_t));
+    double * output_value = (double *)malloc(total_query_elements * sizeof(double));
+    uint64_t   offset = bin_element_offsets[query_bins[0]] *  sizeof(uint32_t) + partition_num * N * sizeof(uint32_t);
+
+    start_t = clock();
+    fseek(fp_compressed_data, offset, SEEK_SET) ;
+
+    if(query_index == NULL )
+    {
+        printf("Query id null...");
+        return -1 ;
+    }
+    total_query_elements = fread(query_index, sizeof(uint32_t), total_query_elements , fp_query_index);
+    end_t = clock();
+
+    io_time += end_t - start_t;
+
+    uint64_t  out_ptr = 0;
+//    if(region_query)
+
+//        for(int i = 0 ; i < nbins_touched; )
+        int i = 0 ;
+        for(int j = 0 ; j < elements_per_bin[i]; j++)
+        {
+            if((start < output[ptr]) && (end > output[ptr]))
+            {
+                count++;
+                output_index[out_ptr] = query_index[ptr]    ;
+                if(!region_query)
+                    output_value[out_ptr] = output[ptr] ;
+                    // Print value
+                out_ptr++;
+            }
+            ptr++;
+        }
+
+//        printf("outPtr = %u , ptr = %u \n", out_ptr, ptr);
+        memcpy(output_index + out_ptr , &query_index[ptr] , elements_in_middle_bins * sizeof(uint32_t));
+        uint64_t ptr_offset = elements_per_bin[i];
+        if(!region_query)
+        {
+            memcpy(output_value + out_ptr , &output[ptr] , elements_in_middle_bins * sizeof(double));
+            ptr_offset = ptr + elements_in_middle_bins;
+        }
+
+        count += elements_in_middle_bins;
+        i = nbins_touched -1;
+        out_ptr += elements_in_middle_bins;
+        ptr += elements_in_middle_bins;
+
+//        printf("Elements in last bin = %u \n", elements_per_bin[i]);
+        for(int j = 0 ; j < elements_per_bin[i]; j++)
+        {
+
+            if((end > output[ptr_offset])&&( start <  output[ptr_offset]))
+            {
+
+                count++;
+                output_index[out_ptr] = query_index[ptr]    ;
+                if(!region_query)
+                    output_value[out_ptr] = output[ptr_offset] ;
+                    // Print value
+                out_ptr++;
+            }
+            ptr_offset++;
+            ptr++;
+        }
+
+    / *
+
+    for(int i = 0 ; i < nbins_touched; i++)
+    {
+        for(int j = 0 ; j < elements_per_bin[i]; j++)
+        {
+            if((start < output[ptr])&& (end > output[ptr]))
+            {
+//                printf("%e\n", output[ptr]);
+                count  ++;
+//                 column_index[query_bins[i]][j];
+            }
+            ptr++;
+
+        }
+    }
+    * /
+#ifdef debug
+    printf("Count for Partition  %u = %u\n",partition_num , count);
+#endif
+
+    free(query_index);
+    free(output_index);
+    free(output);
+    free(output_value);
+    free(vertical);
+    return count;
+}

@@ -1,0 +1,55 @@
+bit construction:     1.122, bit intersection:     0.053, bit recover:     0.000, io:     0.287, decode:     2.790, total:     4.361 
+bit construction:     1.111, bit intersection:     0.051, bit recover:     0.000, io:     0.341, decode:     2.776, total:     4.439 
+bit construction:     1.120, bit intersection:     0.053, bit recover:     0.000, io:     0.453, decode:     2.810, total:     4.601 
+bit construction:     1.113, bit intersection:     0.051, bit recover:     0.000, io:     0.538, decode:     2.809, total:     4.623 
+bit construction:     1.112, bit intersection:     0.051, bit recover:     0.000, io:     0.358, decode:     2.774, total:     4.417 
+bit construction:     1.123, bit intersection:     0.052, bit recover:     0.000, io:     0.819, decode:     2.771, total:     4.855 
+bit construction:     1.120, bit intersection:     0.053, bit recover:     0.000, io:     0.234, decode:     2.741, total:     4.321 
+bit construction:     1.120, bit intersection:     0.053, bit recover:     0.000, io:     0.445, decode:     2.810, total:     4.543 
+bit construction:     1.120, bit intersection:     0.052, bit recover:     0.000, io:     0.571, decode:     2.780, total:     4.610 
+bit construction:     1.104, bit intersection:     0.048, bit recover:     0.000, io:     0.316, decode:     2.732, total:     4.292 
+
+bit construction:     2.452, bit intersection:     0.037, bit recover:     0.000, io:     0.455, decode:     4.790, total:     7.816 
+bit construction:     2.472, bit intersection:     0.039, bit recover:     0.000, io:     0.618, decode:     4.754, total:     7.983 
+bit construction:     2.477, bit intersection:     0.039, bit recover:     0.000, io:     0.684, decode:     4.782, total:     8.295 
+bit construction:     2.443, bit intersection:     0.037, bit recover:     0.000, io:     0.686, decode:     4.786, total:     8.048 
+bit construction:     2.464, bit intersection:     0.039, bit recover:     0.000, io:     0.472, decode:     4.653, total:     7.706 
+bit construction:     2.423, bit intersection:     0.036, bit recover:     0.000, io:     1.086, decode:     4.691, total:     8.321 
+bit construction:     2.456, bit intersection:     0.038, bit recover:     0.000, io:     0.324, decode:     4.590, total:     7.575 
+bit construction:     2.415, bit intersection:     0.036, bit recover:     0.000, io:     0.665, decode:     4.780, total:     7.991 
+bit construction:     2.464, bit intersection:     0.039, bit recover:     0.000, io:     0.955, decode:     4.758, total:     8.307 
+bit construction:     2.423, bit intersection:     0.039, bit recover:     0.000, io:     0.417, decode:     4.604, total:     9.881 
+
+bit construction:     1.610, bit intersection:     0.053, bit recover:     0.000, io:     0.365, decode:     3.958, total:     6.093 
+bit construction:     1.608, bit intersection:     0.053, bit recover:     0.000, io:     0.349, decode:     3.940, total:     6.114 
+bit construction:     1.596, bit intersection:     0.050, bit recover:     0.000, io:     0.510, decode:     3.987, total:     6.264 
+bit construction:     1.570, bit intersection:     0.047, bit recover:     0.000, io:     0.567, decode:     3.980, total:     6.262 
+bit construction:     1.614, bit intersection:     0.052, bit recover:     0.000, io:     0.366, decode:     3.966, total:     6.089 
+bit construction:     1.609, bit intersection:     0.053, bit recover:     0.000, io:     0.656, decode:     3.951, total:     6.415 
+bit construction:     1.609, bit intersection:     0.053, bit recover:     0.000, io:     0.252, decode:     3.916, total:     6.370 
+bit construction:     1.573, bit intersection:     0.047, bit recover:     0.000, io:     0.950, decode:     3.984, total:     6.667 
+bit construction:     1.604, bit intersection:     0.053, bit recover:     0.000, io:     1.008, decode:     3.979, total:     6.720 
+bit construction:     1.608, bit intersection:     0.053, bit recover:     0.000, io:     0.385, decode:     3.955, total:     6.095 
+
+bit construction:     3.315, bit intersection:     0.051, bit recover:     0.000, io:     0.758, decode:     6.882, total:    11.089 
+bit construction:     3.337, bit intersection:     0.053, bit recover:     0.000, io:     0.971, decode:     6.970, total:    11.471 
+bit construction:     3.332, bit intersection:     0.052, bit recover:     0.000, io:     1.175, decode:     7.056, total:    11.761 
+bit construction:     3.343, bit intersection:     0.053, bit recover:     0.000, io:     1.099, decode:     7.058, total:    11.670 
+bit construction:     3.343, bit intersection:     0.053, bit recover:     0.000, io:     0.769, decode:     6.904, total:    11.145 
+bit construction:     3.328, bit intersection:     0.052, bit recover:     0.000, io:     1.828, decode:     6.944, total:    12.244 
+bit construction:     3.320, bit intersection:     0.050, bit recover:     0.000, io:     0.494, decode:     6.882, total:    10.909 
+bit construction:     3.342, bit intersection:     0.053, bit recover:     0.000, io:     1.131, decode:     7.051, total:    11.687 
+bit construction:     3.338, bit intersection:     0.053, bit recover:     0.000, io:     1.376, decode:     7.018, total:    11.872 
+bit construction:     3.333, bit intersection:     0.053, bit recover:     0.000, io:     0.969, decode:     6.893, total:    11.341 
+
+bit construction:     2.379, bit intersection:     0.052, bit recover:     0.000, io:     0.480, decode:     4.423, total:     7.447 
+bit construction:     2.342, bit intersection:     0.053, bit recover:     0.000, io:     0.627, decode:     4.528, total:     7.733 
+bit construction:     2.354, bit intersection:     0.050, bit recover:     0.000, io:     0.942, decode:     4.551, total:     8.065 
+bit construction:     2.370, bit intersection:     0.053, bit recover:     0.000, io:     0.723, decode:     4.572, total:     7.837 
+bit construction:     2.366, bit intersection:     0.052, bit recover:     0.000, io:     0.502, decode:     4.445, total:     7.457 
+bit construction:     2.343, bit intersection:     0.049, bit recover:     0.000, io:     0.880, decode:     4.448, total:     7.807 
+bit construction:     2.368, bit intersection:     0.052, bit recover:     0.000, io:     0.362, decode:     4.406, total:     8.317 
+bit construction:     2.327, bit intersection:     0.052, bit recover:     0.000, io:     0.860, decode:     4.539, total:     7.882 
+bit construction:     2.350, bit intersection:     0.048, bit recover:     0.000, io:     1.456, decode:     4.540, total:     8.477 
+bit construction:     2.339, bit intersection:     0.051, bit recover:     0.000, io:     0.494, decode:     4.399, total:     7.358 
+

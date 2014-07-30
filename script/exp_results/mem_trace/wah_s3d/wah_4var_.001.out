@@ -1,0 +1,545 @@
+desc: --massif-out-file=/home/xzou2/alac_fastbit_comp/alac_multi_engine/script/exp_results/mem_trace/wah_s3d/wah_4var_.001.out
+cmd: /home/xzou2/wah_integration/icde/benchmark/intersection/query wah 4 uvel 665 674 vvel 826 840 temp 11 14 wvel 871 878
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=254983592
+mem_heap_B=101537894
+mem_heap_extra_B=18810
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=489162983
+mem_heap_B=185264339
+mem_heap_extra_B=46501
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=667476713
+mem_heap_B=252186093
+mem_heap_extra_B=59987
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=844184975
+mem_heap_B=252186088
+mem_heap_extra_B=59992
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=1014093258
+mem_heap_B=291431829
+mem_heap_extra_B=66219
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=1174195642
+mem_heap_B=284091752
+mem_heap_extra_B=62168
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=1424774727
+mem_heap_B=301373293
+mem_heap_extra_B=69907
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=1651744236
+mem_heap_B=334403437
+mem_heap_extra_B=73939
+mem_stacks_B=0
+heap_tree=peak
+n2: 334403437 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 334273088 0x5E0BF71: ibis::fileManager::storage::storage(unsigned long) (fileManager.cpp:1749)
+  n1: 234830304 0x57E39F9: ibis::array_t<unsigned int>::array_t(unsigned long) (array_t.cpp:60)
+   n1: 234830304 0x57E44DE: ibis::array_t<unsigned int>::deepCopy(ibis::array_t<unsigned int> const&) (array_t.cpp:386)
+    n1: 234830304 0x404C73: bitmap_index<wah_bitmap>::read_index_for_id(unsigned long) (bitvector.h:647)
+     n1: 234830304 0x408604: void query_index<wah_bitmap>(int, char**) (query.cpp:84)
+      n0: 234830304 0x4039D8: main (query.cpp:130)
+  n1: 99442784 0x5794081: ibis::array_t<unsigned int>::reserve(unsigned long) (array_t.cpp:1519)
+   n4: 99442784 0x4E0D045: ibis::array_t<unsigned int>::push_back(unsigned int const&) (array_t.h:218)
+    n3: 55402592 0x4E0D176: ibis::bitvector::append_active() (bitvector.h:702)
+     n1: 29360128 0x5C51412: ibis::bitvector::or_c2(ibis::bitvector const&, ibis::bitvector&) const (bitvector.cpp:2763)
+      n2: 29360128 0x5C57320: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1304)
+       n1: 29360128 0x5C56F49: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1266)
+        n1: 29360128 0x40821A: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:97)
+         n0: 29360128 0x4039D8: main (query.cpp:130)
+       n0: 0 in 1 place, below massif's threshold (01.00%)
+     n2: 26042464 0x5C56146: ibis::bitvector::adjustSize(unsigned int, unsigned int) (bitvector.h:758)
+      n1: 26042464 0x5C56F3E: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1265)
+       n1: 26042464 0x40821A: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:97)
+        n0: 26042464 0x4039D8: main (query.cpp:130)
+      n0: 0 in 1 place, below massif's threshold (01.00%)
+     n0: 0 in 1 place, below massif's threshold (01.00%)
+    n1: 29360128 0x5C5113D: ibis::bitvector::or_c2(ibis::bitvector const&, ibis::bitvector&) const (bitvector.h:804)
+     n2: 29360128 0x5C57320: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1304)
+      n1: 29360128 0x40821A: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:97)
+       n0: 29360128 0x4039D8: main (query.cpp:130)
+      n0: 0 in 1 place, below massif's threshold (01.00%)
+    n1: 14680064 0x5C594FC: ibis::bitvector::append_counter(int, unsigned int) (bitvector.h:731)
+     n1: 14680064 0x5C50FE1: ibis::bitvector::or_c2(ibis::bitvector const&, ibis::bitvector&) const (bitvector.h:788)
+      n2: 14680064 0x5C57320: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1304)
+       n1: 14680064 0x5C56F49: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1266)
+        n1: 14680064 0x40821A: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:97)
+         n0: 14680064 0x4039D8: main (query.cpp:130)
+       n0: 0 in 1 place, below massif's threshold (01.00%)
+    n0: 0 in 2 places, all below massif's threshold (01.00%)
+  n0: 0 in 2 places, all below massif's threshold (01.00%)
+ n0: 130349 in 21 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=9
+#-----------
+time=1745089377
+mem_heap_B=319723333
+mem_heap_extra_B=69883
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=1946000447
+mem_heap_B=307420709
+mem_heap_extra_B=72219
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=2168525072
+mem_heap_B=314760701
+mem_heap_extra_B=68163
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=2355738963
+mem_heap_B=305032245
+mem_heap_extra_B=72715
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=2567275600
+mem_heap_B=312372237
+mem_heap_extra_B=68659
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=2744187234
+mem_heap_B=303075949
+mem_heap_extra_B=71123
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=2945169517
+mem_heap_B=310415941
+mem_heap_extra_B=67067
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=3112078225
+mem_heap_B=301096453
+mem_heap_extra_B=72251
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=3300196728
+mem_heap_B=308436445
+mem_heap_extra_B=68195
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=3469136371
+mem_heap_B=301199037
+mem_heap_extra_B=72067
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=3652687592
+mem_heap_B=308539029
+mem_heap_extra_B=68011
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=3806612828
+mem_heap_B=298472445
+mem_heap_extra_B=70723
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=4002029962
+mem_heap_B=274527872
+mem_heap_extra_B=62984
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=4219946447
+mem_heap_B=289186432
+mem_heap_extra_B=67008
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=4359467001
+mem_heap_B=265309093
+mem_heap_extra_B=64795
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=4573298929
+mem_heap_B=273823849
+mem_heap_extra_B=65567
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=4717804260
+mem_heap_B=280819772
+mem_heap_extra_B=69580
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=4945899773
+mem_heap_B=286770448
+mem_heap_extra_B=70392
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=5179056081
+mem_heap_B=280586184
+mem_heap_extra_B=69696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=5414978699
+mem_heap_B=280452936
+mem_heap_extra_B=67776
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=5681222806
+mem_heap_B=282452556
+mem_heap_extra_B=67004
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=5832060228
+mem_heap_B=283180560
+mem_heap_extra_B=64056
+mem_stacks_B=0
+heap_tree=detailed
+n2: 283180560 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 283050256 0x5E0BF71: ibis::fileManager::storage::storage(unsigned long) (fileManager.cpp:1749)
+  n1: 252475080 0x57E39F9: ibis::array_t<unsigned int>::array_t(unsigned long) (array_t.cpp:60)
+   n2: 252475080 0x57E44DE: ibis::array_t<unsigned int>::deepCopy(ibis::array_t<unsigned int> const&) (array_t.cpp:386)
+    n1: 234830304 0x404C73: bitmap_index<wah_bitmap>::read_index_for_id(unsigned long) (bitvector.h:647)
+     n1: 234830304 0x408604: void query_index<wah_bitmap>(int, char**) (query.cpp:84)
+      n0: 234830304 0x4039D8: main (query.cpp:130)
+    n1: 17644776 0x40826A: void query_index<wah_bitmap>(int, char**) (bitvector.h:647)
+     n0: 17644776 0x4039D8: main (query.cpp:130)
+  n1: 30575176 0x5794081: ibis::array_t<unsigned int>::reserve(unsigned long) (array_t.cpp:1519)
+   n2: 30575176 0x4E0D045: ibis::array_t<unsigned int>::push_back(unsigned int const&) (array_t.h:218)
+    n3: 29657672 0x4E0D176: ibis::bitvector::append_active() (bitvector.h:702)
+     n2: 14977608 0x5C56146: ibis::bitvector::adjustSize(unsigned int, unsigned int) (bitvector.h:758)
+      n2: 14977608 0x5C56F3E: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1265)
+       n1: 14977608 0x408775: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:97)
+        n0: 14977608 0x4039D8: main (query.cpp:130)
+       n0: 0 in 1 place, below massif's threshold (01.00%)
+      n0: 0 in 1 place, below massif's threshold (01.00%)
+     n1: 14680064 0x5C51412: ibis::bitvector::or_c2(ibis::bitvector const&, ibis::bitvector&) const (bitvector.cpp:2763)
+      n2: 14680064 0x5C57320: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1304)
+       n2: 14680064 0x5C56F49: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1266)
+        n1: 14680064 0x408775: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:97)
+         n0: 14680064 0x4039D8: main (query.cpp:130)
+        n0: 0 in 1 place, below massif's threshold (01.00%)
+       n0: 0 in 1 place, below massif's threshold (01.00%)
+     n0: 0 in 2 places, all below massif's threshold (01.00%)
+    n0: 917504 in 5 places, all below massif's threshold (01.00%)
+  n0: 0 in 2 places, all below massif's threshold (01.00%)
+ n0: 130304 in 21 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=31
+#-----------
+time=5960144900
+mem_heap_B=289603088
+mem_heap_extra_B=68088
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=6127219238
+mem_heap_B=276275476
+mem_heap_extra_B=63284
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=6233766565
+mem_heap_B=281780500
+mem_heap_extra_B=67316
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=6401309156
+mem_heap_B=282735336
+mem_heap_extra_B=62816
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=6505004561
+mem_heap_B=288240360
+mem_heap_extra_B=66848
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=6768884559
+mem_heap_B=281073892
+mem_heap_extra_B=69412
+mem_stacks_B=0
+heap_tree=detailed
+n3: 281073892 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 274495176 0x5E0BF71: ibis::fileManager::storage::storage(unsigned long) (fileManager.cpp:1749)
+  n1: 252475080 0x57E39F9: ibis::array_t<unsigned int>::array_t(unsigned long) (array_t.cpp:60)
+   n2: 252475080 0x57E44DE: ibis::array_t<unsigned int>::deepCopy(ibis::array_t<unsigned int> const&) (array_t.cpp:386)
+    n1: 234830304 0x404C73: bitmap_index<wah_bitmap>::read_index_for_id(unsigned long) (bitvector.h:647)
+     n1: 234830304 0x408604: void query_index<wah_bitmap>(int, char**) (query.cpp:84)
+      n0: 234830304 0x4039D8: main (query.cpp:130)
+    n1: 17644776 0x40826A: void query_index<wah_bitmap>(int, char**) (bitvector.h:647)
+     n0: 17644776 0x4039D8: main (query.cpp:130)
+  n1: 22020096 0x5794081: ibis::array_t<unsigned int>::reserve(unsigned long) (array_t.cpp:1519)
+   n3: 22020096 0x4E0D045: ibis::array_t<unsigned int>::push_back(unsigned int const&) (array_t.h:218)
+    n1: 14680064 0x5C51025: ibis::bitvector::or_c2(ibis::bitvector const&, ibis::bitvector&) const (bitvector.h:804)
+     n2: 14680064 0x5C57320: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1304)
+      n2: 14680064 0x5C56F49: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1266)
+       n1: 14680064 0x408775: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:97)
+        n0: 14680064 0x4039D8: main (query.cpp:130)
+       n0: 0 in 1 place, below massif's threshold (01.00%)
+      n0: 0 in 1 place, below massif's threshold (01.00%)
+    n1: 7340032 0x5C5113D: ibis::bitvector::or_c2(ibis::bitvector const&, ibis::bitvector&) const (bitvector.h:804)
+     n2: 7340032 0x5C57320: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1304)
+      n2: 7340032 0x5C56F49: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1266)
+       n1: 7340032 0x408775: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:97)
+        n0: 7340032 0x4039D8: main (query.cpp:130)
+       n0: 0 in 1 place, below massif's threshold (01.00%)
+      n0: 0 in 1 place, below massif's threshold (01.00%)
+    n0: 0 in 4 places, all below massif's threshold (01.00%)
+  n0: 0 in 2 places, all below massif's threshold (01.00%)
+ n1: 6448412 0x5E0D357: ibis::fileManager::storage::storage(char const*, char const*) (fileManager.cpp:1867)
+  n2: 6448412 0x57926EB: ibis::array_t<unsigned int>::nosharing() (array_t.cpp:423)
+   n1: 6448412 0x5C55EF0: ibis::bitvector::adjustSize(unsigned int, unsigned int) (bitvector.cpp:3926)
+    n2: 6448412 0x5C56F3E: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1265)
+     n1: 6448412 0x408775: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:97)
+      n0: 6448412 0x4039D8: main (query.cpp:130)
+     n0: 0 in 1 place, below massif's threshold (01.00%)
+   n0: 0 in 1 place, below massif's threshold (01.00%)
+ n0: 130304 in 20 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=37
+#-----------
+time=7026669630
+mem_heap_B=280710236
+mem_heap_extra_B=68524
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=7278204617
+mem_heap_B=280355548
+mem_heap_extra_B=66860
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=7523147781
+mem_heap_B=279990172
+mem_heap_extra_B=67692
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=7701324688
+mem_heap_B=275968488
+mem_heap_extra_B=63072
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=7849195170
+mem_heap_B=286978541
+mem_heap_extra_B=67099
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=8004420548
+mem_heap_B=288600200
+mem_heap_extra_B=63424
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=8208131314
+mem_heap_B=248403780
+mem_heap_extra_B=65732
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=8364502498
+mem_heap_B=261847072
+mem_heap_extra_B=69608
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=8479082335
+mem_heap_B=256980624
+mem_heap_extra_B=65912
+mem_stacks_B=0
+heap_tree=detailed
+n2: 256980624 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 256850400 0x5E0BF71: ibis::fileManager::storage::storage(unsigned long) (fileManager.cpp:1749)
+  n1: 234830304 0x57E39F9: ibis::array_t<unsigned int>::array_t(unsigned long) (array_t.cpp:60)
+   n2: 234830304 0x57E44DE: ibis::array_t<unsigned int>::deepCopy(ibis::array_t<unsigned int> const&) (array_t.cpp:386)
+    n1: 234830304 0x404C73: bitmap_index<wah_bitmap>::read_index_for_id(unsigned long) (bitvector.h:647)
+     n1: 234830304 0x408604: void query_index<wah_bitmap>(int, char**) (query.cpp:84)
+      n0: 234830304 0x4039D8: main (query.cpp:130)
+    n0: 0 in 1 place, below massif's threshold (01.00%)
+  n1: 22020096 0x5794081: ibis::array_t<unsigned int>::reserve(unsigned long) (array_t.cpp:1519)
+   n3: 22020096 0x4E0D045: ibis::array_t<unsigned int>::push_back(unsigned int const&) (array_t.h:218)
+    n1: 14680064 0x5C511ED: ibis::bitvector::or_c2(ibis::bitvector const&, ibis::bitvector&) const (bitvector.h:804)
+     n2: 14680064 0x5C57320: ibis::bitvector::operator|=(ibis::bitvector const&) (bitvector.cpp:1304)
+      n1: 14680064 0x408775: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:97)
+       n0: 14680064 0x4039D8: main (query.cpp:130)
+      n0: 0 in 2 places, all below massif's threshold (01.00%)
+    n2: 7340032 0x4E0D176: ibis::bitvector::append_active() (bitvector.h:702)
+     n1: 7340032 0x5C51FD5: ibis::bitvector::and_c2(ibis::bitvector const&, ibis::bitvector&) const (bitvector.cpp:2345)
+      n1: 7340032 0x5C57C61: ibis::bitvector::operator&=(ibis::bitvector const&) (bitvector.cpp:1105)
+       n1: 7340032 0x4087BA: void query_index<wah_bitmap>(int, char**) (bitmap-interface.h:102)
+        n0: 7340032 0x4039D8: main (query.cpp:130)
+     n0: 0 in 5 places, all below massif's threshold (01.00%)
+    n0: 0 in 7 places, all below massif's threshold (01.00%)
+  n0: 0 in 2 places, all below massif's threshold (01.00%)
+ n0: 130224 in 21 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=46
+#-----------
+time=8651983274
+mem_heap_B=293399136
+mem_heap_extra_B=73128
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=8784536957
+mem_heap_B=300739173
+mem_heap_extra_B=73123
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=8956126419
+mem_heap_B=264320696
+mem_heap_extra_B=69968
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=9134561020
+mem_heap_B=284015200
+mem_heap_extra_B=69096
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=9244574745
+mem_heap_B=286767717
+mem_heap_extra_B=69091
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=9344730559
+mem_heap_B=242040208
+mem_heap_extra_B=57896
+mem_stacks_B=0
+heap_tree=empty

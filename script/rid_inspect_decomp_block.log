@@ -1,0 +1,78 @@
+2 var
+var 0 , smallest size 2112178 
+begin cal
+variable [vvel]: total blocks = 20213, none hit block = 10391 , percentage is = 0.514075
+
+var 1 , smallest size 1850986 
+begin cal
+variable [uvel]: total blocks = 382753, none hit block = 104107 , percentage is = 0.271995
+
+var 1 , smallest size 3739098 
+begin cal
+variable [uvel]: total blocks = 592569, none hit block = 30898 , percentage is = 0.052142
+
+var 1 , smallest size 17192637 
+begin cal
+variable [uvel]: total blocks = 891057, none hit block = 153782 , percentage is = 0.172584
+
+var 1 , smallest size 60457617 
+begin cal
+variable [uvel]: total blocks = 962162, none hit block = 1403 , percentage is = 0.001458
+
+3 var
+var 1 , smallest size 12227677 
+begin cal
+variable [uvel]: total blocks = 226001, none hit block = 8390 , percentage is = 0.037124
+variable [temp]: total blocks = 1423780, none hit block = 482496 , percentage is = 0.338884
+
+var 0 , smallest size 28928006 
+begin cal
+variable [vvel]: total blocks = 521028, none hit block = 26855 , percentage is = 0.051542
+variable [temp]: total blocks = 1423780, none hit block = 572015 , percentage is = 0.401758
+
+var 1 , smallest size 103353527 
+begin cal
+variable [uvel]: total blocks = 1091434, none hit block = 2885 , percentage is = 0.002643
+variable [temp]: total blocks = 1423780, none hit block = 67588 , percentage is = 0.047471
+
+var 0 , smallest size 48992295 
+begin cal
+variable [vvel]: total blocks = 578294, none hit block = 649 , percentage is = 0.001122
+variable [temp]: total blocks = 1344194, none hit block = 261106 , percentage is = 0.194247
+
+var 0 , smallest size 96236912 
+begin cal
+variable [vvel]: total blocks = 1013997, none hit block = 1822 , percentage is = 0.001797
+variable [temp]: total blocks = 1344194, none hit block = 217318 , percentage is = 0.161672
+
+4 var
+var 3 , smallest size 593247 
+begin cal
+variable [uvel]: total blocks = 925579, none hit block = 836397 , percentage is = 0.903647
+variable [vvel]: total blocks = 196449, none hit block = 74149 , percentage is = 0.377447
+variable [temp]: total blocks = 1460640, none hit block = 1295702 , percentage is = 0.887078
+
+var 3 , smallest size 12554121 
+begin cal
+variable [uvel]: total blocks = 689379, none hit block = 274994 , percentage is = 0.398901
+variable [vvel]: total blocks = 221338, none hit block = 59530 , percentage is = 0.268955
+variable [temp]: total blocks = 1460640, none hit block = 672676 , percentage is = 0.460535
+
+var 3 , smallest size 17536838 
+begin cal
+variable [uvel]: total blocks = 1604861, none hit block = 351209 , percentage is = 0.218841
+variable [vvel]: total blocks = 197333, none hit block = 35101 , percentage is = 0.177877
+variable [temp]: total blocks = 1539547, none hit block = 644279 , percentage is = 0.418486
+
+var 3 , smallest size 19386982 
+begin cal
+variable [uvel]: total blocks = 770124, none hit block = 100745 , percentage is = 0.130817
+variable [vvel]: total blocks = 1030910, none hit block = 36145 , percentage is = 0.035061
+variable [temp]: total blocks = 1864728, none hit block = 402600 , percentage is = 0.215903
+
+var 3 , smallest size 82852362 
+begin cal
+variable [uvel]: total blocks = 890379, none hit block = 4193 , percentage is = 0.004709
+variable [vvel]: total blocks = 1410795, none hit block = 103 , percentage is = 0.000073
+variable [temp]: total blocks = 1460640, none hit block = 208842 , percentage is = 0.142980
+

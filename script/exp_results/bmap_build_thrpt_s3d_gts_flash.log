@@ -1,0 +1,906 @@
+S3D
+uvel
+SIMPLE BMAP
+qsub: waiting for job 18590.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18590.sith-mgmt2.ccs.ornl.gov ready
+
+    3.018
+
+qsub: job 18590.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18592.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18592.sith-mgmt2.ccs.ornl.gov ready
+
+    3.024
+
+qsub: job 18592.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18594.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18594.sith-mgmt2.ccs.ornl.gov ready
+
+    3.025
+
+qsub: job 18594.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18596.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18596.sith-mgmt2.ccs.ornl.gov ready
+
+    3.027
+
+qsub: job 18596.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18598.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18598.sith-mgmt2.ccs.ornl.gov ready
+
+    3.026
+
+qsub: job 18598.sith-mgmt2.ccs.ornl.gov completed
+
+MERGED BMAP
+qsub: waiting for job 18599.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18599.sith-mgmt2.ccs.ornl.gov ready
+
+    2.228
+
+qsub: job 18599.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18601.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18601.sith-mgmt2.ccs.ornl.gov ready
+
+    2.222
+
+qsub: job 18601.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18603.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18603.sith-mgmt2.ccs.ornl.gov ready
+
+    2.231
+
+qsub: job 18603.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18605.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18605.sith-mgmt2.ccs.ornl.gov ready
+
+    2.485
+
+qsub: job 18605.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18606.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18606.sith-mgmt2.ccs.ornl.gov ready
+
+    2.325
+
+qsub: job 18606.sith-mgmt2.ccs.ornl.gov completed
+
+EXPANSION BMAP
+qsub: waiting for job 18608.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18608.sith-mgmt2.ccs.ornl.gov ready
+
+    1.737
+
+qsub: job 18608.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18610.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18610.sith-mgmt2.ccs.ornl.gov ready
+
+    2.004
+
+qsub: job 18610.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18612.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18612.sith-mgmt2.ccs.ornl.gov ready
+
+    1.924
+
+qsub: job 18612.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18613.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18613.sith-mgmt2.ccs.ornl.gov ready
+
+    1.726
+
+qsub: job 18613.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18615.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18615.sith-mgmt2.ccs.ornl.gov ready
+
+    2.072
+
+qsub: job 18615.sith-mgmt2.ccs.ornl.gov completed
+
+RLE BMAP
+qsub: waiting for job 18617.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18617.sith-mgmt2.ccs.ornl.gov ready
+
+    0.967
+
+qsub: job 18617.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18618.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18618.sith-mgmt2.ccs.ornl.gov ready
+
+    0.965
+
+qsub: job 18618.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18620.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18620.sith-mgmt2.ccs.ornl.gov ready
+
+    0.967
+
+qsub: job 18620.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18622.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18622.sith-mgmt2.ccs.ornl.gov ready
+
+    0.965
+
+qsub: job 18622.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18624.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18624.sith-mgmt2.ccs.ornl.gov ready
+
+    0.952
+
+qsub: job 18624.sith-mgmt2.ccs.ornl.gov completed
+
+vvel
+SIMPLE BMAP
+qsub: waiting for job 18626.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18626.sith-mgmt2.ccs.ornl.gov ready
+
+    3.634
+
+qsub: job 18626.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18627.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18627.sith-mgmt2.ccs.ornl.gov ready
+
+    3.871
+
+qsub: job 18627.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18629.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18629.sith-mgmt2.ccs.ornl.gov ready
+
+    3.829
+
+qsub: job 18629.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18631.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18631.sith-mgmt2.ccs.ornl.gov ready
+
+    3.858
+
+qsub: job 18631.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18633.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18633.sith-mgmt2.ccs.ornl.gov ready
+
+    3.808
+
+qsub: job 18633.sith-mgmt2.ccs.ornl.gov completed
+
+MERGED BMAP
+qsub: waiting for job 18634.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18634.sith-mgmt2.ccs.ornl.gov ready
+
+    3.995
+
+qsub: job 18634.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18636.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18636.sith-mgmt2.ccs.ornl.gov ready
+
+    2.897
+
+qsub: job 18636.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18638.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18638.sith-mgmt2.ccs.ornl.gov ready
+
+    2.991
+
+qsub: job 18638.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18640.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18640.sith-mgmt2.ccs.ornl.gov ready
+
+    2.982
+
+qsub: job 18640.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18642.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18642.sith-mgmt2.ccs.ornl.gov ready
+
+    2.998
+
+qsub: job 18642.sith-mgmt2.ccs.ornl.gov completed
+
+EXPANSION BMAP
+qsub: waiting for job 18644.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18644.sith-mgmt2.ccs.ornl.gov ready
+
+    2.273
+
+qsub: job 18644.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18645.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18645.sith-mgmt2.ccs.ornl.gov ready
+
+    2.470
+
+qsub: job 18645.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18647.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18647.sith-mgmt2.ccs.ornl.gov ready
+
+    2.896
+
+qsub: job 18647.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18649.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18649.sith-mgmt2.ccs.ornl.gov ready
+
+    2.334
+
+qsub: job 18649.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18650.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18650.sith-mgmt2.ccs.ornl.gov ready
+
+    2.686
+
+qsub: job 18650.sith-mgmt2.ccs.ornl.gov completed
+
+RLE BMAP
+qsub: waiting for job 18652.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18652.sith-mgmt2.ccs.ornl.gov ready
+
+    3.805
+
+qsub: job 18652.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18654.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18654.sith-mgmt2.ccs.ornl.gov ready
+
+    2.585
+
+qsub: job 18654.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18656.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18656.sith-mgmt2.ccs.ornl.gov ready
+
+    2.655
+
+qsub: job 18656.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18658.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18658.sith-mgmt2.ccs.ornl.gov ready
+
+    2.578
+
+qsub: job 18658.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18659.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18659.sith-mgmt2.ccs.ornl.gov ready
+
+    2.661
+
+qsub: job 18659.sith-mgmt2.ccs.ornl.gov completed
+
+temp
+SIMPLE BMAP
+qsub: waiting for job 18661.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18661.sith-mgmt2.ccs.ornl.gov ready
+
+    2.620
+
+qsub: job 18661.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18663.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18663.sith-mgmt2.ccs.ornl.gov ready
+
+    2.566
+
+qsub: job 18663.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18665.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18665.sith-mgmt2.ccs.ornl.gov ready
+
+    2.437
+
+qsub: job 18665.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18667.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18667.sith-mgmt2.ccs.ornl.gov ready
+
+    2.514
+
+qsub: job 18667.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18668.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18668.sith-mgmt2.ccs.ornl.gov ready
+
+    2.561
+
+qsub: job 18668.sith-mgmt2.ccs.ornl.gov completed
+
+MERGED BMAP
+qsub: waiting for job 18670.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18670.sith-mgmt2.ccs.ornl.gov ready
+
+    1.797
+
+qsub: job 18670.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18672.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18672.sith-mgmt2.ccs.ornl.gov ready
+
+    1.914
+
+qsub: job 18672.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18674.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18674.sith-mgmt2.ccs.ornl.gov ready
+
+    1.939
+
+qsub: job 18674.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18675.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18675.sith-mgmt2.ccs.ornl.gov ready
+
+    1.931
+
+qsub: job 18675.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18677.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18677.sith-mgmt2.ccs.ornl.gov ready
+
+    1.816
+
+qsub: job 18677.sith-mgmt2.ccs.ornl.gov completed
+
+EXPANSION BMAP
+qsub: waiting for job 18679.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18679.sith-mgmt2.ccs.ornl.gov ready
+
+    1.478
+
+qsub: job 18679.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18680.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18680.sith-mgmt2.ccs.ornl.gov ready
+
+    1.621
+
+qsub: job 18680.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18682.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18682.sith-mgmt2.ccs.ornl.gov ready
+
+    1.538
+
+qsub: job 18682.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18684.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18684.sith-mgmt2.ccs.ornl.gov ready
+
+    1.493
+
+qsub: job 18684.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18686.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18686.sith-mgmt2.ccs.ornl.gov ready
+
+    1.665
+
+qsub: job 18686.sith-mgmt2.ccs.ornl.gov completed
+
+RLE BMAP
+qsub: waiting for job 18687.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18687.sith-mgmt2.ccs.ornl.gov ready
+
+    0.728
+
+qsub: job 18687.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18689.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18689.sith-mgmt2.ccs.ornl.gov ready
+
+    0.718
+
+qsub: job 18689.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18691.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18691.sith-mgmt2.ccs.ornl.gov ready
+
+    0.703
+
+qsub: job 18691.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18693.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18693.sith-mgmt2.ccs.ornl.gov ready
+
+    0.729
+
+qsub: job 18693.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18694.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18694.sith-mgmt2.ccs.ornl.gov ready
+
+    0.734
+
+qsub: job 18694.sith-mgmt2.ccs.ornl.gov completed
+
+wvel
+SIMPLE BMAP
+qsub: waiting for job 18696.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18696.sith-mgmt2.ccs.ornl.gov ready
+
+    3.824
+
+qsub: job 18696.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18698.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18698.sith-mgmt2.ccs.ornl.gov ready
+
+    3.705
+
+qsub: job 18698.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18700.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18700.sith-mgmt2.ccs.ornl.gov ready
+
+    3.817
+
+qsub: job 18700.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18701.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18701.sith-mgmt2.ccs.ornl.gov ready
+
+    3.847
+
+qsub: job 18701.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18703.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18703.sith-mgmt2.ccs.ornl.gov ready
+
+    3.825
+
+qsub: job 18703.sith-mgmt2.ccs.ornl.gov completed
+
+MERGED BMAP
+qsub: waiting for job 18705.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18705.sith-mgmt2.ccs.ornl.gov ready
+
+    2.996
+
+qsub: job 18705.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18707.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18707.sith-mgmt2.ccs.ornl.gov ready
+
+    2.992
+
+qsub: job 18707.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18709.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18709.sith-mgmt2.ccs.ornl.gov ready
+
+    2.983
+
+qsub: job 18709.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18711.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18711.sith-mgmt2.ccs.ornl.gov ready
+
+    2.995
+
+qsub: job 18711.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18712.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18712.sith-mgmt2.ccs.ornl.gov ready
+
+    4.016
+
+qsub: job 18712.sith-mgmt2.ccs.ornl.gov completed
+
+EXPANSION BMAP
+qsub: waiting for job 18714.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18714.sith-mgmt2.ccs.ornl.gov ready
+
+    2.238
+
+qsub: job 18714.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18716.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18716.sith-mgmt2.ccs.ornl.gov ready
+
+    2.534
+
+qsub: job 18716.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18717.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18717.sith-mgmt2.ccs.ornl.gov ready
+
+    2.410
+
+qsub: job 18717.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18719.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18719.sith-mgmt2.ccs.ornl.gov ready
+
+    3.334
+
+qsub: job 18719.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18721.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18721.sith-mgmt2.ccs.ornl.gov ready
+
+    2.626
+
+qsub: job 18721.sith-mgmt2.ccs.ornl.gov completed
+
+RLE BMAP
+qsub: waiting for job 18723.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18723.sith-mgmt2.ccs.ornl.gov ready
+
+    2.640
+
+qsub: job 18723.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18724.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18724.sith-mgmt2.ccs.ornl.gov ready
+
+    2.591
+
+qsub: job 18724.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18726.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18726.sith-mgmt2.ccs.ornl.gov ready
+
+    2.658
+
+qsub: job 18726.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18728.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18728.sith-mgmt2.ccs.ornl.gov ready
+
+    2.633
+
+qsub: job 18728.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18730.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18730.sith-mgmt2.ccs.ornl.gov ready
+
+    3.643
+
+qsub: job 18730.sith-mgmt2.ccs.ornl.gov completed
+
+FLASH
+gamc
+SIMPLE BMAP
+qsub: waiting for job 18731.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18731.sith-mgmt2.ccs.ornl.gov ready
+
+    2.199
+
+qsub: job 18731.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18733.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18733.sith-mgmt2.ccs.ornl.gov ready
+
+    2.081
+
+qsub: job 18733.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18734.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18734.sith-mgmt2.ccs.ornl.gov ready
+
+    2.204
+
+qsub: job 18734.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18735.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18735.sith-mgmt2.ccs.ornl.gov ready
+
+    2.204
+
+qsub: job 18735.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18737.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18737.sith-mgmt2.ccs.ornl.gov ready
+
+    2.201
+
+qsub: job 18737.sith-mgmt2.ccs.ornl.gov completed
+
+MERGED BMAP
+qsub: waiting for job 18738.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18738.sith-mgmt2.ccs.ornl.gov ready
+
+    1.369
+
+qsub: job 18738.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18740.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18740.sith-mgmt2.ccs.ornl.gov ready
+
+    1.366
+
+qsub: job 18740.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18741.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18741.sith-mgmt2.ccs.ornl.gov ready
+
+    1.368
+
+qsub: job 18741.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18742.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18742.sith-mgmt2.ccs.ornl.gov ready
+
+    1.366
+
+qsub: job 18742.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18744.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18744.sith-mgmt2.ccs.ornl.gov ready
+
+    1.364
+
+qsub: job 18744.sith-mgmt2.ccs.ornl.gov completed
+
+EXPANSION BMAP
+qsub: waiting for job 18745.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18745.sith-mgmt2.ccs.ornl.gov ready
+
+    1.277
+
+qsub: job 18745.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18747.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18747.sith-mgmt2.ccs.ornl.gov ready
+
+    1.277
+
+qsub: job 18747.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18748.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18748.sith-mgmt2.ccs.ornl.gov ready
+
+    1.278
+
+qsub: job 18748.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18749.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18749.sith-mgmt2.ccs.ornl.gov ready
+
+    1.282
+
+qsub: job 18749.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18751.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18751.sith-mgmt2.ccs.ornl.gov ready
+
+    1.277
+
+qsub: job 18751.sith-mgmt2.ccs.ornl.gov completed
+
+RLE BMAP
+qsub: waiting for job 18752.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18752.sith-mgmt2.ccs.ornl.gov ready
+
+    0.328
+
+qsub: job 18752.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18754.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18754.sith-mgmt2.ccs.ornl.gov ready
+
+    0.323
+
+qsub: job 18754.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18755.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18755.sith-mgmt2.ccs.ornl.gov ready
+
+    0.325
+
+qsub: job 18755.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18756.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18756.sith-mgmt2.ccs.ornl.gov ready
+
+    0.327
+
+qsub: job 18756.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18758.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18758.sith-mgmt2.ccs.ornl.gov ready
+
+    0.322
+
+qsub: job 18758.sith-mgmt2.ccs.ornl.gov completed
+
+vely
+SIMPLE BMAP
+qsub: waiting for job 18759.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18759.sith-mgmt2.ccs.ornl.gov ready
+
+    2.787
+
+qsub: job 18759.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18761.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18761.sith-mgmt2.ccs.ornl.gov ready
+
+    2.619
+
+qsub: job 18761.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18762.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18762.sith-mgmt2.ccs.ornl.gov ready
+
+    2.786
+
+qsub: job 18762.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18763.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18763.sith-mgmt2.ccs.ornl.gov ready
+
+    2.779
+
+qsub: job 18763.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18765.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18765.sith-mgmt2.ccs.ornl.gov ready
+
+    2.660
+
+qsub: job 18765.sith-mgmt2.ccs.ornl.gov completed
+
+MERGED BMAP
+qsub: waiting for job 18766.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18766.sith-mgmt2.ccs.ornl.gov ready
+
+    1.986
+
+qsub: job 18766.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18768.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18768.sith-mgmt2.ccs.ornl.gov ready
+
+    1.989
+
+qsub: job 18768.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18769.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18769.sith-mgmt2.ccs.ornl.gov ready
+
+    1.992
+
+qsub: job 18769.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18770.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18770.sith-mgmt2.ccs.ornl.gov ready
+
+    1.980
+
+qsub: job 18770.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18772.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18772.sith-mgmt2.ccs.ornl.gov ready
+
+    1.980
+
+qsub: job 18772.sith-mgmt2.ccs.ornl.gov completed
+
+EXPANSION BMAP
+qsub: waiting for job 18773.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18773.sith-mgmt2.ccs.ornl.gov ready
+
+    1.879
+
+qsub: job 18773.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18775.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18775.sith-mgmt2.ccs.ornl.gov ready
+
+    1.878
+
+qsub: job 18775.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18776.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18776.sith-mgmt2.ccs.ornl.gov ready
+
+    1.870
+
+qsub: job 18776.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18778.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18778.sith-mgmt2.ccs.ornl.gov ready
+
+    1.878
+
+qsub: job 18778.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18779.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18779.sith-mgmt2.ccs.ornl.gov ready
+
+    1.885
+
+qsub: job 18779.sith-mgmt2.ccs.ornl.gov completed
+
+RLE BMAP
+qsub: waiting for job 18781.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18781.sith-mgmt2.ccs.ornl.gov ready
+
+    0.618
+
+qsub: job 18781.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18782.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18782.sith-mgmt2.ccs.ornl.gov ready
+
+    0.629
+
+qsub: job 18782.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18783.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18783.sith-mgmt2.ccs.ornl.gov ready
+
+    0.616
+
+qsub: job 18783.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18785.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18785.sith-mgmt2.ccs.ornl.gov ready
+
+    0.617
+
+qsub: job 18785.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18786.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18786.sith-mgmt2.ccs.ornl.gov ready
+
+    0.618
+
+qsub: job 18786.sith-mgmt2.ccs.ornl.gov completed
+
+GTS
+potential
+SIMPLE BMAP
+qsub: waiting for job 18788.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18788.sith-mgmt2.ccs.ornl.gov ready
+
+   11.815
+
+qsub: job 18788.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18790.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18790.sith-mgmt2.ccs.ornl.gov ready
+
+   12.624
+
+qsub: job 18790.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18792.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18792.sith-mgmt2.ccs.ornl.gov ready
+
+   12.799
+
+qsub: job 18792.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18794.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18794.sith-mgmt2.ccs.ornl.gov ready
+
+   12.493
+
+qsub: job 18794.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18795.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18795.sith-mgmt2.ccs.ornl.gov ready
+
+   12.378
+
+qsub: job 18795.sith-mgmt2.ccs.ornl.gov completed
+
+MERGED BMAP
+qsub: waiting for job 18797.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18797.sith-mgmt2.ccs.ornl.gov ready
+
+    9.493
+
+qsub: job 18797.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18799.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18799.sith-mgmt2.ccs.ornl.gov ready
+
+    9.486
+
+qsub: job 18799.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18801.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18801.sith-mgmt2.ccs.ornl.gov ready
+
+    9.586
+
+qsub: job 18801.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18803.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18803.sith-mgmt2.ccs.ornl.gov ready
+
+    9.503
+
+qsub: job 18803.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18804.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18804.sith-mgmt2.ccs.ornl.gov ready
+
+    9.407
+
+qsub: job 18804.sith-mgmt2.ccs.ornl.gov completed
+
+EXPANSION BMAP
+qsub: waiting for job 18805.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18805.sith-mgmt2.ccs.ornl.gov ready
+
+    8.943
+
+qsub: job 18805.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18806.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18806.sith-mgmt2.ccs.ornl.gov ready
+
+    7.839
+
+qsub: job 18806.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18807.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18807.sith-mgmt2.ccs.ornl.gov ready
+
+    9.924
+
+qsub: job 18807.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18808.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18808.sith-mgmt2.ccs.ornl.gov ready
+
+    7.924
+
+qsub: job 18808.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18809.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18809.sith-mgmt2.ccs.ornl.gov ready
+
+   10.127
+
+qsub: job 18809.sith-mgmt2.ccs.ornl.gov completed
+
+RLE BMAP
+qsub: waiting for job 18810.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18810.sith-mgmt2.ccs.ornl.gov ready
+
+   12.002
+
+qsub: job 18810.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18811.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18811.sith-mgmt2.ccs.ornl.gov ready
+
+    9.912
+
+qsub: job 18811.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18812.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18812.sith-mgmt2.ccs.ornl.gov ready
+
+   11.106
+
+qsub: job 18812.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18813.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18813.sith-mgmt2.ccs.ornl.gov ready
+
+    9.856
+
+qsub: job 18813.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 18814.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 18814.sith-mgmt2.ccs.ornl.gov ready
+
+    9.902
+
+qsub: job 18814.sith-mgmt2.ccs.ornl.gov completed
+

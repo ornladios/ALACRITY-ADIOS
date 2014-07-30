@@ -1,0 +1,989 @@
+desc: --massif-out-file=/home/xzou2/alac_fastbit_comp/alac_multi_engine/script/exp_results/mem_trace/wah_s3d/epd_4var_.01.out
+cmd: /home/xzou2/wah_integration/icde/benchmark/intersection/query ewah 4 uvel 665 669 vvel 68 82 temp 11 14 wvel 76 81
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=4911298
+mem_heap_B=33850752
+mem_heap_extra_B=19944
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=21816889
+mem_heap_B=33850752
+mem_heap_extra_B=19944
+mem_stacks_B=0
+heap_tree=detailed
+n3: 33850752 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 16905441 0x40A1C8: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:392)
+  n0: 16905441 0x4039A0: main (query.cpp:132)
+ n1: 16905432 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 16905432 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 16905432 0x4039A0: main (query.cpp:132)
+ n0: 39879 in 15 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=3
+#-----------
+time=26849900
+mem_heap_B=48441224
+mem_heap_extra_B=19344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=42598011
+mem_heap_B=48441224
+mem_heap_extra_B=19344
+mem_stacks_B=0
+heap_tree=detailed
+n3: 48441224 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 32653384 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 32653384 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 32653384 0x4039A0: main (query.cpp:132)
+ n1: 15747961 0x40A1C8: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:392)
+  n0: 15747961 0x4039A0: main (query.cpp:132)
+ n0: 39879 in 15 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=5
+#-----------
+time=60079795
+mem_heap_B=58283604
+mem_heap_extra_B=19572
+mem_stacks_B=0
+heap_tree=detailed
+n3: 58283604 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 45448548 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 45448548 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 45448548 0x4039A0: main (query.cpp:132)
+ n1: 12795173 0x40A1C8: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:392)
+  n0: 12795173 0x4039A0: main (query.cpp:132)
+ n0: 39883 in 15 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=6
+#-----------
+time=74272903
+mem_heap_B=66255444
+mem_heap_extra_B=26660
+mem_stacks_B=0
+heap_tree=detailed
+n3: 66255444 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 55832052 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 55832052 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 55832052 0x4039A0: main (query.cpp:132)
+ n1: 10383513 0x40A1C8: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:392)
+  n0: 10383513 0x4039A0: main (query.cpp:132)
+ n0: 39879 in 15 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=7
+#-----------
+time=86576856
+mem_heap_B=74292512
+mem_heap_extra_B=25880
+mem_stacks_B=0
+heap_tree=detailed
+n3: 74292512 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 65042332 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 65042332 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 65042332 0x4039A0: main (query.cpp:132)
+ n1: 9210289 0x40A1C8: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:392)
+  n0: 9210289 0x4039A0: main (query.cpp:132)
+ n0: 39891 in 15 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=8
+#-----------
+time=97672962
+mem_heap_B=84968363
+mem_heap_extra_B=48853
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=106440338
+mem_heap_B=89255683
+mem_heap_extra_B=49965
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=120996412
+mem_heap_B=101131787
+mem_heap_extra_B=56229
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=136399413
+mem_heap_B=113588859
+mem_heap_extra_B=63125
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=152578219
+mem_heap_B=126667255
+mem_heap_extra_B=63113
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=169587470
+mem_heap_B=140501855
+mem_heap_extra_B=64641
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=187563662
+mem_heap_B=155051699
+mem_heap_extra_B=67725
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=206408434
+mem_heap_B=170133875
+mem_heap_extra_B=75053
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=223966393
+mem_heap_B=186143990
+mem_heap_extra_B=79746
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=235283252
+mem_heap_B=204578702
+mem_heap_extra_B=81050
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=248859623
+mem_heap_B=204578702
+mem_heap_extra_B=81050
+mem_stacks_B=0
+heap_tree=detailed
+n3: 204578702 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 190912216 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 190912216 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 190912216 0x4039A0: main (query.cpp:132)
+ n1: 13576221 0x40A1C8: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:392)
+  n0: 13576221 0x4039A0: main (query.cpp:132)
+ n0: 90265 in 15 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=19
+#-----------
+time=261726832
+mem_heap_B=197827273
+mem_heap_extra_B=84447
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=271148676
+mem_heap_B=205009336
+mem_heap_extra_B=101640
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=280676767
+mem_heap_B=212347400
+mem_heap_extra_B=103528
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=290390191
+mem_heap_B=219828404
+mem_heap_extra_B=105836
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=308045415
+mem_heap_B=242970221
+mem_heap_extra_B=110355
+mem_stacks_B=0
+heap_tree=detailed
+n3: 242970221 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 235070792 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 235070792 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 235070792 0x4039A0: main (query.cpp:132)
+ n1: 7761145 0x40A1C8: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:392)
+  n0: 7761145 0x4039A0: main (query.cpp:132)
+ n0: 138284 in 15 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=24
+#-----------
+time=323411873
+mem_heap_B=290546292
+mem_heap_extra_B=117692
+mem_stacks_B=0
+heap_tree=detailed
+n4: 290546292 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 240848900 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 240848900 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 240848900 0x4039A0: main (query.cpp:132)
+ n1: 32653384 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n1: 32653384 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 32653384 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 32653384 0x4039A0: main (query.cpp:132)
+ n1: 16905432 0x409D5B: void query_index<ewah_bitmap>(int, char**) (new_allocator.h:89)
+  n0: 16905432 0x4039A0: main (query.cpp:132)
+ n0: 138576 in 17 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=25
+#-----------
+time=1220358428
+mem_heap_B=273640856
+mem_heap_extra_B=114872
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=1224557511
+mem_heap_B=317704584
+mem_heap_extra_B=115880
+mem_stacks_B=0
+heap_tree=detailed
+n4: 317704584 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 228053736 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 228053736 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 228053736 0x4039A0: main (query.cpp:132)
+ n1: 63921944 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n1: 63921944 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 63921944 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 63921944 0x4039A0: main (query.cpp:132)
+ n2: 25590472 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 25590328 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 25590328 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n1: 25590328 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 25590328 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 25590328 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n0: 138432 in 17 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=27
+#-----------
+time=2109154554
+mem_heap_B=285051196
+mem_heap_extra_B=111892
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=2112562288
+mem_heap_B=324155824
+mem_heap_extra_B=115840
+mem_stacks_B=0
+heap_tree=detailed
+n4: 324155824 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 217670232 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 217670232 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 217670232 0x4039A0: main (query.cpp:132)
+ n1: 59989680 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n1: 59989680 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 59989680 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 59989680 0x4039A0: main (query.cpp:132)
+ n2: 46357480 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 46357336 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 46357336 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n1: 46357336 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 46357336 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 46357336 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n0: 138432 in 17 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=29
+#-----------
+time=2954766369
+mem_heap_B=292887260
+mem_heap_extra_B=115572
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=2957789137
+mem_heap_B=329676448
+mem_heap_extra_B=120720
+mem_stacks_B=0
+heap_tree=detailed
+n4: 329676448 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 208459952 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 208459952 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 208459952 0x4039A0: main (query.cpp:132)
+ n2: 64778040 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 64777896 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 64777896 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n1: 64777896 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 56300024 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n1: 56300024 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 56300024 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 56300024 0x4039A0: main (query.cpp:132)
+ n0: 138432 in 17 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=31
+#-----------
+time=3781418886
+mem_heap_B=300955324
+mem_heap_extra_B=116628
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=3791758091
+mem_heap_B=304883844
+mem_heap_extra_B=116116
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=4170989731
+mem_heap_B=311635304
+mem_heap_extra_B=118936
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=4172801191
+mem_heap_B=317154696
+mem_heap_extra_B=120976
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=4573111141
+mem_heap_B=317570716
+mem_heap_extra_B=118628
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=4574977966
+mem_heap_B=337532732
+mem_heap_extra_B=124580
+mem_stacks_B=0
+heap_tree=detailed
+n5: 337532732 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 190501772 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 190501772 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 190501772 0x4039A0: main (query.cpp:132)
+ n2: 100694400 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 100694256 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 100694256 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 100694256 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+     n1: 35916360 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 35916360 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 27777784 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n2: 27777784 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 27777784 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 27777784 0x4039A0: main (query.cpp:132)
+   n0: 0 in 1 place, below massif's threshold (01.00%)
+ n1: 18420348 0x4056AF: std::vector<unsigned int, std::allocator<unsigned int> >::operator=(std::vector<unsigned int, std::allocator<unsigned int> > const&) (new_allocator.h:89)
+  n1: 18420348 0x409F37: void query_index<ewah_bitmap>(int, char**) (ewah.h:344)
+   n0: 18420348 0x4039A0: main (query.cpp:132)
+ n0: 138428 in 19 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=37
+#-----------
+time=4995920090
+mem_heap_B=324029624
+mem_heap_extra_B=123208
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=5435662032
+mem_heap_B=324735248
+mem_heap_extra_B=122096
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=5437633286
+mem_heap_B=346367748
+mem_heap_extra_B=124636
+mem_stacks_B=0
+heap_tree=detailed
+n5: 346367748 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 184496184 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 184496184 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 184496184 0x4039A0: main (query.cpp:132)
+ n2: 112705576 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 112705432 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 112705432 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 112705432 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+     n1: 47927536 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 47927536 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 30607212 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n2: 30607212 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 30607212 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 30607212 0x4039A0: main (query.cpp:132)
+   n0: 0 in 1 place, below massif's threshold (01.00%)
+ n1: 18420348 0x4056AF: std::vector<unsigned int, std::allocator<unsigned int> >::operator=(std::vector<unsigned int, std::allocator<unsigned int> > const&) (new_allocator.h:89)
+  n1: 18420348 0x409F37: void query_index<ewah_bitmap>(int, char**) (ewah.h:344)
+   n0: 18420348 0x4039A0: main (query.cpp:132)
+ n0: 138428 in 19 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=40
+#-----------
+time=5894860911
+mem_heap_B=331387440
+mem_heap_extra_B=121808
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=5896880440
+mem_heap_B=353777044
+mem_heap_extra_B=125004
+mem_stacks_B=0
+heap_tree=detailed
+n5: 353777044 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 178343400 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 178343400 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 178343400 0x4039A0: main (query.cpp:132)
+ n2: 125011144 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 125011000 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 125011000 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 125011000 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+     n1: 60233104 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 60233104 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 31863724 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n2: 31863724 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 31863724 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 31863724 0x4039A0: main (query.cpp:132)
+   n0: 0 in 1 place, below massif's threshold (01.00%)
+ n1: 18420348 0x4056AF: std::vector<unsigned int, std::allocator<unsigned int> >::operator=(std::vector<unsigned int, std::allocator<unsigned int> > const&) (new_allocator.h:89)
+  n1: 18420348 0x409F37: void query_index<ewah_bitmap>(int, char**) (ewah.h:344)
+   n0: 18420348 0x4039A0: main (query.cpp:132)
+ n0: 138428 in 19 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=42
+#-----------
+time=6370947097
+mem_heap_B=338150132
+mem_heap_extra_B=121612
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=6373016696
+mem_heap_B=361285728
+mem_heap_extra_B=120192
+mem_stacks_B=0
+heap_tree=detailed
+n5: 361285728 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 172038092 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 172038092 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 172038092 0x4039A0: main (query.cpp:132)
+ n2: 137621760 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 137621616 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 137621616 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 137621616 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 72843720 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 72843720 0x4039A0: main (query.cpp:132)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 33067100 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n2: 33067100 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 33067100 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 33067100 0x4039A0: main (query.cpp:132)
+   n0: 0 in 1 place, below massif's threshold (01.00%)
+ n1: 18420348 0x4056AF: std::vector<unsigned int, std::allocator<unsigned int> >::operator=(std::vector<unsigned int, std::allocator<unsigned int> > const&) (new_allocator.h:89)
+  n1: 18420348 0x409F37: void query_index<ewah_bitmap>(int, char**) (ewah.h:344)
+   n0: 18420348 0x4039A0: main (query.cpp:132)
+ n0: 138428 in 19 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=44
+#-----------
+time=6864306469
+mem_heap_B=345048908
+mem_heap_extra_B=116404
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=6866427783
+mem_heap_B=368933880
+mem_heap_extra_B=119272
+mem_stacks_B=0
+heap_tree=detailed
+n5: 368933880 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 165575168 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 165575168 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 165575168 0x4039A0: main (query.cpp:132)
+ n2: 150547608 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 150547464 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 150547464 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 150547464 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 85769568 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 85769568 0x4039A0: main (query.cpp:132)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 34252328 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n2: 34252328 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 34252328 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 34252328 0x4039A0: main (query.cpp:132)
+   n0: 0 in 1 place, below massif's threshold (01.00%)
+ n1: 18420348 0x4056AF: std::vector<unsigned int, std::allocator<unsigned int> >::operator=(std::vector<unsigned int, std::allocator<unsigned int> > const&) (new_allocator.h:89)
+  n1: 18420348 0x409F37: void query_index<ewah_bitmap>(int, char**) (ewah.h:344)
+   n0: 18420348 0x4039A0: main (query.cpp:132)
+ n0: 138428 in 19 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=46
+#-----------
+time=7374882571
+mem_heap_B=352103592
+mem_heap_extra_B=119128
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=7377060425
+mem_heap_B=376764908
+mem_heap_extra_B=119796
+mem_stacks_B=0
+heap_tree=detailed
+n5: 376764908 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 163818064 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 163817920 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 163817920 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 163817920 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 99040024 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 99040024 0x4039A0: main (query.cpp:132)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 158939940 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 158939940 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 158939940 0x4039A0: main (query.cpp:132)
+ n1: 35448128 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n2: 35448128 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 35448128 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 35448128 0x4039A0: main (query.cpp:132)
+   n0: 0 in 1 place, below massif's threshold (01.00%)
+ n1: 18420348 0x4056AF: std::vector<unsigned int, std::allocator<unsigned int> >::operator=(std::vector<unsigned int, std::allocator<unsigned int> > const&) (new_allocator.h:89)
+  n1: 18420348 0x409F37: void query_index<ewah_bitmap>(int, char**) (ewah.h:344)
+   n0: 18420348 0x4039A0: main (query.cpp:132)
+ n0: 138428 in 19 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=48
+#-----------
+time=7903437437
+mem_heap_B=359342860
+mem_heap_extra_B=117492
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=8448409992
+mem_heap_B=359979912
+mem_heap_extra_B=119416
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=9011306097
+mem_heap_B=360614284
+mem_heap_extra_B=119924
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=9591071825
+mem_heap_B=361220888
+mem_heap_extra_B=119528
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=9591072126
+mem_heap_B=381689572
+mem_heap_extra_B=122620
+mem_stacks_B=0
+heap_tree=detailed
+n5: 381689572 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 163818064 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 163817920 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 163817920 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 163817920 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 99040024 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 99040024 0x4039A0: main (query.cpp:132)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 158939940 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 158939940 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 158939940 0x4039A0: main (query.cpp:132)
+ n1: 40372792 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n2: 40372792 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 40372792 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 40372792 0x4039A0: main (query.cpp:132)
+   n0: 0 in 1 place, below massif's threshold (01.00%)
+ n1: 18420348 0x4056AF: std::vector<unsigned int, std::allocator<unsigned int> >::operator=(std::vector<unsigned int, std::allocator<unsigned int> > const&) (new_allocator.h:89)
+  n1: 18420348 0x409F37: void query_index<ewah_bitmap>(int, char**) (ewah.h:344)
+   n0: 18420348 0x4039A0: main (query.cpp:132)
+ n0: 138428 in 19 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=53
+#-----------
+time=10186897654
+mem_heap_B=361785456
+mem_heap_extra_B=120208
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=10189348579
+mem_heap_B=369253672
+mem_heap_extra_B=119024
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=10189348829
+mem_heap_B=390259204
+mem_heap_extra_B=121820
+mem_stacks_B=0
+heap_tree=detailed
+n5: 390259204 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 178754488 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 178754344 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n1: 178754344 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 178754344 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 113976448 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 113976448 0x4039A0: main (query.cpp:132)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 151471728 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 151471728 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 151471728 0x4039A0: main (query.cpp:132)
+ n1: 41474212 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n2: 41474212 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 41474212 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 41474212 0x4039A0: main (query.cpp:132)
+   n0: 0 in 1 place, below massif's threshold (01.00%)
+ n1: 18420348 0x4056AF: std::vector<unsigned int, std::allocator<unsigned int> >::operator=(std::vector<unsigned int, std::allocator<unsigned int> > const&) (new_allocator.h:89)
+  n1: 18420348 0x409F37: void query_index<ewah_bitmap>(int, char**) (ewah.h:344)
+   n0: 18420348 0x4039A0: main (query.cpp:132)
+ n0: 138428 in 19 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=56
+#-----------
+time=10800329198
+mem_heap_B=369790520
+mem_heap_extra_B=118728
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=10806373785
+mem_heap_B=406631220
+mem_heap_extra_B=121516
+mem_stacks_B=0
+heap_tree=peak
+n5: 406631220 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 215595184 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 215595040 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n2: 215595040 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 178754344 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 113976448 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 113976448 0x4039A0: main (query.cpp:132)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+    n1: 36840696 0x409284: EWAHBoolArray<unsigned int>::logicaland(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:65)
+     n1: 36840696 0x40A6F5: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:178)
+      n0: 36840696 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 151471728 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 151471728 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 151471728 0x4039A0: main (query.cpp:132)
+ n1: 21005532 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n2: 21005532 0x406EAB: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1344)
+   n1: 21005532 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+    n0: 21005532 0x4039A0: main (query.cpp:132)
+   n0: 0 in 1 place, below massif's threshold (01.00%)
+ n1: 18420348 0x4056AF: std::vector<unsigned int, std::allocator<unsigned int> >::operator=(std::vector<unsigned int, std::allocator<unsigned int> > const&) (new_allocator.h:89)
+  n1: 18420348 0x409F37: void query_index<ewah_bitmap>(int, char**) (ewah.h:344)
+   n0: 18420348 0x4039A0: main (query.cpp:132)
+ n0: 138428 in 20 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=58
+#-----------
+time=11526687843
+mem_heap_B=369790524
+mem_heap_extra_B=118724
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=11528670018
+mem_heap_B=354825120
+mem_heap_extra_B=117368
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=11530652310
+mem_heap_B=360865244
+mem_heap_extra_B=118844
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=11907831954
+mem_heap_B=363542836
+mem_heap_extra_B=120012
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=11912287075
+mem_heap_B=377119052
+mem_heap_extra_B=122060
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=12515316477
+mem_heap_B=384994940
+mem_heap_extra_B=118660
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=13075179419
+mem_heap_B=381370252
+mem_heap_extra_B=118388
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=13583574328
+mem_heap_B=375105348
+mem_heap_extra_B=116412
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=13585929981
+mem_heap_B=363274720
+mem_heap_extra_B=117816
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=13588338138
+mem_heap_B=370612784
+mem_heap_extra_B=119784
+mem_stacks_B=0
+heap_tree=detailed
+n5: 370612784 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 220583040 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 220582896 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n2: 220582896 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 220582896 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 155805000 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 155805000 0x4039A0: main (query.cpp:132)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+    n0: 0 in 2 places, all below massif's threshold (01.00%)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 130557452 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 130557452 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 130557452 0x4039A0: main (query.cpp:132)
+ n2: 12155448 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n1: 12155448 0x408E11: EWAHBoolArray<unsigned int>::logicaland(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1445)
+   n1: 12155448 0x40A6F5: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:178)
+    n0: 12155448 0x4039A0: main (query.cpp:132)
+  n0: 0 in 1 place, below massif's threshold (01.00%)
+ n1: 7178416 0x40A398: void query_index<ewah_bitmap>(int, char**) (new_allocator.h:89)
+  n0: 7178416 0x4039A0: main (query.cpp:132)
+ n0: 138428 in 20 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=68
+#-----------
+time=14025299926
+mem_heap_B=377950848
+mem_heap_extra_B=121728
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=14504112012
+mem_heap_B=380106588
+mem_heap_extra_B=120484
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=15008400470
+mem_heap_B=381384448
+mem_heap_extra_B=120576
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=15010947478
+mem_heap_B=389145588
+mem_heap_extra_B=121380
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=15535126754
+mem_heap_B=390089840
+mem_heap_extra_B=119184
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=16045827050
+mem_heap_B=388758216
+mem_heap_extra_B=119608
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=16391003725
+mem_heap_B=388679392
+mem_heap_extra_B=120608
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=16397304500
+mem_heap_B=373267124
+mem_heap_extra_B=119748
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=16403718862
+mem_heap_B=375417572
+mem_heap_extra_B=119748
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=16417913927
+mem_heap_B=379718468
+mem_heap_extra_B=123652
+mem_stacks_B=0
+heap_tree=detailed
+n4: 379718468 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n3: 244707104 0x404DF1: std::vector<unsigned int, std::allocator<unsigned int> >::_M_insert_aux(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned int const&) (vector.tcc:322)
+  n1: 236105168 0x4058CD: EWAHBoolArray<unsigned int>::addStreamOfEmptyWords(bool, unsigned long) (ewah.h:1169)
+   n2: 236105168 0x405A02: EWAHBoolArray<unsigned int>::padWithZeroes(unsigned long) (ewah.h:938)
+    n2: 236105168 0x40760C: EWAHBoolArray<unsigned int>::logicalor(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:63)
+     n1: 171327272 0x40A49F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 171327272 0x4039A0: main (query.cpp:132)
+     n1: 64777896 0x409E6F: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:171)
+      n0: 64777896 0x4039A0: main (query.cpp:132)
+    n0: 0 in 2 places, all below massif's threshold (01.00%)
+  n1: 8601792 0x40530E: void EWAHBoolArray<unsigned int>::appendRowIDs<std::vector<unsigned int, std::allocator<unsigned int> > >(std::vector<unsigned int, std::allocator<unsigned int> >&, unsigned long) const (stl_vector.h:741)
+   n1: 8601792 0x409FAF: void query_index<ewah_bitmap>(int, char**) (ewah.h:302)
+    n0: 8601792 0x4039A0: main (query.cpp:132)
+  n0: 144 in 1 place, below massif's threshold (01.00%)
+ n1: 122796316 0x406B2B: std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned int*, std::vector<unsigned int, std::allocator<unsigned int> > >, unsigned long, unsigned int const&) (new_allocator.h:89)
+  n1: 122796316 0x40A24B: void query_index<ewah_bitmap>(int, char**) (stl_vector.h:851)
+   n0: 122796316 0x4039A0: main (query.cpp:132)
+ n2: 12076624 0x4050E7: std::vector<unsigned int, std::allocator<unsigned int> >::reserve(unsigned long) (new_allocator.h:89)
+  n1: 12076624 0x408E11: EWAHBoolArray<unsigned int>::logicaland(EWAHBoolArray<unsigned int>&, EWAHBoolArray<unsigned int>&) (ewah.h:1445)
+   n1: 12076624 0x40A6F5: void query_index<ewah_bitmap>(int, char**) (bitmap-interface.h:178)
+    n0: 12076624 0x4039A0: main (query.cpp:132)
+  n0: 0 in 2 places, all below massif's threshold (01.00%)
+ n0: 138424 in 21 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=78
+#-----------
+time=16451174857
+mem_heap_B=376850908
+mem_heap_extra_B=123628
+mem_stacks_B=0
+heap_tree=empty

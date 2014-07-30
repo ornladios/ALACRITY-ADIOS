@@ -1,0 +1,85 @@
+4 variables selectivity
+
+csc$ ./selectivity 4 ~/sigmod_2012_2GB/ uvel 50 69 vvel 13 23 temp 6.8E2 7.4E2 wvel 45 56
+uvel[50,69]:42.927% | vvel[13,23]:8.78599% | temp[680,740]:5.97333% | wvel[45,56]:0.175525% | 
+final selectivity : 0.00117943%
+
+csc$ ./selectivity 4 ~/sigmod_2012_2GB/ uvel 50 57 vvel -8.9 -5 temp 6.9E2 7.4E2 wvel -10 -8
+uvel[50,57]:31.2132% | vvel[-8.9,-5]:10.3603% | temp[690,740]:5.48001% | wvel[-10,-8]:3.73638% | 
+final selectivity : 0.0113331%
+
+uvel[42,80]: 75.6164%|vvel[3,5]: 8.66508%|temp[750,1400]: 43.7581%|wvel[10,14]: 6.06821%|
+final selectivity : 0.104359%
+
+uvel[53,93]: 30.6427%|vvel[-5.7,4.2]: 48.7732%|temp[680,1900]: 88.0799%|wvel[3.7,5.7]: 6.79919%|
+final selectivity : 1.03153%
+
+csc$ ./selectivity 4 ~/sigmod_2012_2GB/ uvel 50 66 vvel -8.8 8 temp 6.9E2 7.6E2 wvel -10 -1
+uvel[50,66]:41.3597% | vvel[-8.8,8]:66.0577% | temp[690,760]:68.3957% | wvel[-10,-1]:29.9245% | 
+final selectivity : 9.62669%
+
+
+3 variable selectivity
+csc$ ./selectivity 3 ~/sigmod_2012_2GB/ uvel 42 44 vvel -4.9 -3.8 temp 7.3E2 7.4E2 
+uvel[42,44]:4.75694% | vvel[-4.9,-3.8]:4.01655% | temp[730,740]:1.67356% | 
+final selectivity : 0.00108555%
+
+csc$ ./selectivity 3 ~/sigmod_2012_2GB/ uvel 42 45 vvel -4.9 0.4 temp 7.3E2 7.4E2
+uvel[42,45]:7.52096% | vvel[-4.9,0.4]:24.4385% | temp[730,740]:1.67356% | 
+final selectivity : 0.0111315%
+
+csc$ ./selectivity 3 ~/sigmod_2012_2GB/ uvel 42 52 vvel -4.9 2.6 temp 7.3E2 7.4E2
+uvel[42,52]:41.3863% | vvel[-4.9,2.6]:38.01% | temp[730,740]:1.67356% | 
+final selectivity : 0.101707%
+
+csc$ ./selectivity 3 ~/sigmod_2012_2GB/ uvel 47 48 vvel -2.8 2 temp 7.5E2 7.6E2
+uvel[47,48]:4.58859% | vvel[-2.8,2]:26.4918% | temp[750,760]:34.1402% | 
+final selectivity : 1.07641%
+
+csc$ ./selectivity 3 ~/sigmod_2012_2GB/ uvel 38 49 vvel -8.6 2.4 temp 7.5E2 7.6E2
+uvel[38,49]:30.9496% | vvel[-8.6,2.4]:46.9465% | temp[750,760]:34.1402% | 
+final selectivity : 10.3496%
+
+
+2 varables selectivity
+csc$ ./selectivity 2 ~/sigmod_2012_2GB/ uvel 25 26 vvel 4.3 4.4 
+uvel[25,26]:0.372992% | vvel[4.3,4.4]:0.38945% | 
+final selectivity : 0.00109375%
+
+csc$ ./selectivity 2 ~/sigmod_2012_2GB/ uvel 47 48 vvel 5.3 5.4 
+uvel[47,48]:4.58859% | vvel[5.3,5.4]:0.277602% | 
+final selectivity : 0.0112578%
+
+csc$ ./selectivity 2 ~/sigmod_2012_2GB/ uvel 37 46 vvel 2.8 2.9
+uvel[37,46]:18.6763% | vvel[2.8,2.9]:0.558138% | 
+final selectivity : 0.108272%
+
+csc$ ./selectivity 2 ~/sigmod_2012_2GB/ uvel 29 48 vvel -18 -10
+uvel[29,48]:32.8703% | vvel[-18,-10]:6.16479% | 
+final selectivity : 1.05562%
+
+csc$ ./selectivity 2 ~/sigmod_2012_2GB/ uvel 19 49 vvel -2.8 1.3
+uvel[19,49]:40.9774% | vvel[-2.8,1.3]:22.1403% | 
+final selectivity : 10.1776%
+
+1variable
+csc$ ./selectivity 1 ~/sigmod_2012_2GB/ vvel -17 -16.9965
+vvel[-17,-16.9965]:0.001188% | 
+final selectivity : 0.001188%
+
+csc$ ./selectivity 1 ~/sigmod_2012_2GB/ vvel -19 -18.95
+vvel[-19,-18.95]:0.0108086% | 
+final selectivity : 0.0108086%
+
+csc$ ./selectivity 1 ~/sigmod_2012_2GB/ vvel -19 -18.5
+vvel[-19,-18.5]:0.113633% | 
+final selectivity : 0.113633%
+
+csc$ ./selectivity 1 ~/sigmod_2012_2GB/ vvel -19 -15.8
+vvel[-19,-15.8]:1.01698% | 
+final selectivity : 1.01698%
+
+csc$ ./selectivity 1 ~/sigmod_2012_2GB/ vvel -19 -8
+vvel[-19,-8]:10.2078% | 
+final selectivity : 10.2078%
+

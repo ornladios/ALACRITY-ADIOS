@@ -1,0 +1,104 @@
+AM_CFLAGS = -g
+#AM_CPPFLAGS = -I$(top_srcdir)/src/include
+
+bin_PROGRAMS = alac uniquery multiquery multiquery_inspect_encoded multiquery_decode_bmap multiquery_index_size multiquery_inspect_decode multiquery_bins_overlap multiquery_block_overlap multiquery_inspect_binary multiquery_hybrid_decode multiquery_all_bins_hybrid_decode multiquery_rid_decomp_block multiquery_skip multiquery_skip_cache bit_build_thrpt
+
+alac_SOURCES = alacrity.c
+alac_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+alac_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+alac_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+uniquery_SOURCES = uniquery.c
+uniquery_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+uniquery_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+uniquery_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+multiquery_SOURCES = multiquery.c
+multiquery_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) -lssl 
+multiquery_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+#multiquery_nopt_SOURCES = multiquery_nopt.c
+#multiquery_nopt_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+#multiquery_nopt_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+#multiquery_nopt_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+multiquery_inspect_decode_SOURCES = multiquery_inspect_decode.c
+multiquery_inspect_decode_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_inspect_decode_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+multiquery_inspect_decode_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+multiquery_inspect_encoded_SOURCES = multiquery_inspect_encoded.c
+multiquery_inspect_encoded_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_inspect_encoded_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+multiquery_inspect_encoded_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+multiquery_decode_bmap_SOURCES = multiquery_decode_bmap.c
+multiquery_decode_bmap_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_decode_bmap_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) -lssl 
+multiquery_decode_bmap_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+
+
+multiquery_block_overlap_SOURCES = multiquery_block_overlap.c
+multiquery_block_overlap_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_block_overlap_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+multiquery_block_overlap_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+
+
+multiquery_bins_overlap_SOURCES = multiquery_bins_overlap.c
+multiquery_bins_overlap_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_bins_overlap_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+multiquery_bins_overlap_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+#multiquery_precal_SOURCES = multiquery_precal.c
+#multiquery_precal_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+#multiquery_precal_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+#multiquery_precal_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+
+multiquery_index_size_SOURCES = multiquery_index_size.c
+multiquery_index_size_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_index_size_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+multiquery_index_size_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+multiquery_inspect_binary_SOURCES = multiquery_inspect_binary.c
+multiquery_inspect_binary_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_inspect_binary_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+multiquery_inspect_binary_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+multiquery_hybrid_decode_SOURCES = multiquery_hybrid_decode.c
+multiquery_hybrid_decode_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_hybrid_decode_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+multiquery_hybrid_decode_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+
+
+multiquery_all_bins_hybrid_decode_SOURCES = multiquery_all_bins_hybrid_decode.c
+multiquery_all_bins_hybrid_decode_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_all_bins_hybrid_decode_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+multiquery_all_bins_hybrid_decode_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+
+multiquery_rid_decomp_block_SOURCES = multiquery_rid_decomp_block.c
+multiquery_rid_decomp_block_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_rid_decomp_block_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
+multiquery_rid_decomp_block_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+
+multiquery_skip_SOURCES = multiquery_skip.c
+multiquery_skip_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_skip_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) -lssl 
+multiquery_skip_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+
+multiquery_skip_cache_SOURCES = multiquery_skip_caching.c
+multiquery_skip_cache_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_skip_cache_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) -lssl 
+multiquery_skip_cache_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+bit_build_thrpt_SOURCES = bit_build_thrpt.c
+bit_build_thrpt_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+bit_build_thrpt_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) -lssl 
+bit_build_thrpt_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)

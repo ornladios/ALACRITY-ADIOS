@@ -1,0 +1,468 @@
+4 var
+qsub: waiting for job 17713.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17713.sith-mgmt2.ccs.ornl.gov ready
+
+    1.098	    0.000	    4.732	    0.099	    0.042	    6.262
+
+qsub: job 17713.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17714.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17714.sith-mgmt2.ccs.ornl.gov ready
+
+    1.083	    0.000	    4.523	    0.070	    0.041	    6.026
+
+qsub: job 17714.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17715.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17715.sith-mgmt2.ccs.ornl.gov ready
+
+    1.121	    0.000	    3.691	    0.086	    0.041	    5.277
+
+qsub: job 17715.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17716.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17716.sith-mgmt2.ccs.ornl.gov ready
+
+    1.077	    0.000	    3.708	    0.087	    0.041	    5.236
+
+qsub: job 17716.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17717.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17717.sith-mgmt2.ccs.ornl.gov ready
+
+    1.136	    0.000	    3.231	    0.118	    0.041	    4.833
+
+qsub: job 17717.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17718.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17718.sith-mgmt2.ccs.ornl.gov ready
+
+    1.105	    0.000	    3.774	    0.118	    0.046	    5.396
+
+qsub: job 17718.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17719.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17719.sith-mgmt2.ccs.ornl.gov ready
+
+    1.195	    0.000	    3.395	    0.152	    0.047	    5.186
+
+qsub: job 17719.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17720.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17720.sith-mgmt2.ccs.ornl.gov ready
+
+    0.991	    0.000	    3.290	    0.050	    0.045	    4.666
+
+qsub: job 17720.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17721.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17721.sith-mgmt2.ccs.ornl.gov ready
+
+    1.027	    0.000	    5.006	    0.051	    0.045	    6.419
+
+qsub: job 17721.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17722.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17722.sith-mgmt2.ccs.ornl.gov ready
+
+    1.028	    0.000	    4.299	    0.052	    0.044	    5.733
+
+qsub: job 17722.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17723.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17723.sith-mgmt2.ccs.ornl.gov ready
+
+    1.583	    0.000	    6.044	    0.055	    0.045	    8.071
+
+qsub: job 17723.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17724.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17724.sith-mgmt2.ccs.ornl.gov ready
+
+    1.730	    0.000	    4.662	    0.117	    0.046	    6.881
+
+qsub: job 17724.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17725.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17725.sith-mgmt2.ccs.ornl.gov ready
+
+    1.699	    0.000	    4.273	    0.116	    0.046	    6.448
+
+qsub: job 17725.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17726.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17726.sith-mgmt2.ccs.ornl.gov ready
+
+    1.570	    0.000	    4.489	    0.070	    0.046	    6.461
+
+qsub: job 17726.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17727.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17727.sith-mgmt2.ccs.ornl.gov ready
+
+    1.877	    0.000	    6.247	    0.134	    0.048	    8.799
+
+qsub: job 17727.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17728.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17728.sith-mgmt2.ccs.ornl.gov ready
+
+    2.482	    0.000	    8.115	    0.087	    0.066	   11.920
+
+qsub: job 17728.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17729.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17729.sith-mgmt2.ccs.ornl.gov ready
+
+    2.262	    0.000	    6.415	    0.055	    0.064	    9.151
+
+qsub: job 17729.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17730.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17730.sith-mgmt2.ccs.ornl.gov ready
+
+    2.391	    0.000	    6.659	    0.078	    0.068	    9.841
+
+qsub: job 17730.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17731.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17731.sith-mgmt2.ccs.ornl.gov ready
+
+    4.265	    0.000	    3.902	    0.150	    0.067	    8.823
+
+qsub: job 17731.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17732.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17732.sith-mgmt2.ccs.ornl.gov ready
+
+    2.263	    0.000	    4.317	    0.054	    0.065	    7.049
+
+qsub: job 17732.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17733.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17733.sith-mgmt2.ccs.ornl.gov ready
+
+    5.301	    0.000	    4.833	    0.150	    0.165	   10.839
+
+qsub: job 17733.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17734.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17734.sith-mgmt2.ccs.ornl.gov ready
+
+    4.116	    0.000	    5.868	    0.106	    0.164	   10.559
+
+qsub: job 17734.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17735.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17735.sith-mgmt2.ccs.ornl.gov ready
+
+    3.036	    0.000	    6.721	    0.088	    0.164	   10.354
+
+qsub: job 17735.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17736.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17736.sith-mgmt2.ccs.ornl.gov ready
+
+    3.368	    0.000	    6.697	    0.102	    0.164	   10.694
+
+qsub: job 17736.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17737.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17737.sith-mgmt2.ccs.ornl.gov ready
+
+    3.925	    0.000	    5.948	    0.103	    0.163	   10.496
+
+qsub: job 17737.sith-mgmt2.ccs.ornl.gov completed
+
+3 var
+qsub: waiting for job 17738.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17738.sith-mgmt2.ccs.ornl.gov ready
+
+    0.687	    0.000	    3.389	    0.040	    0.050	    4.565
+
+qsub: job 17738.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17739.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17739.sith-mgmt2.ccs.ornl.gov ready
+
+    0.703	    0.000	    2.712	    0.065	    0.051	    3.775
+
+qsub: job 17739.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17740.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17740.sith-mgmt2.ccs.ornl.gov ready
+
+    0.715	    0.000	    3.093	    0.089	    0.052	    4.187
+
+qsub: job 17740.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17741.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17741.sith-mgmt2.ccs.ornl.gov ready
+
+    0.710	    0.000	    2.894	    0.042	    0.050	    3.966
+
+qsub: job 17741.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17742.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17742.sith-mgmt2.ccs.ornl.gov ready
+
+    0.712	    0.000	    2.648	    0.043	    0.051	    3.670
+
+qsub: job 17742.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17743.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17743.sith-mgmt2.ccs.ornl.gov ready
+
+    1.249	    0.000	    3.273	    0.043	    0.088	    5.175
+
+qsub: job 17743.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17744.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17744.sith-mgmt2.ccs.ornl.gov ready
+
+    1.248	    0.000	    3.128	    0.042	    0.088	    4.786
+
+qsub: job 17744.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17745.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17745.sith-mgmt2.ccs.ornl.gov ready
+
+    1.253	    0.000	    3.066	    0.041	    0.088	    4.651
+
+qsub: job 17745.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17746.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17746.sith-mgmt2.ccs.ornl.gov ready
+
+    1.655	    0.000	    2.736	    0.096	    0.088	    4.887
+
+qsub: job 17746.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17747.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17747.sith-mgmt2.ccs.ornl.gov ready
+
+    1.288	    0.000	    4.505	    0.066	    0.090	    6.510
+
+qsub: job 17747.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17748.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17748.sith-mgmt2.ccs.ornl.gov ready
+
+    2.537	    0.000	    4.385	    0.090	    0.313	    7.558
+
+qsub: job 17748.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17749.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17749.sith-mgmt2.ccs.ornl.gov ready
+
+    1.890	    0.000	    4.896	    0.042	    0.341	    7.448
+
+qsub: job 17749.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17750.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17750.sith-mgmt2.ccs.ornl.gov ready
+
+    2.505	    0.000	    3.883	    0.089	    0.319	    7.085
+
+qsub: job 17750.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17751.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17751.sith-mgmt2.ccs.ornl.gov ready
+
+    1.865	    0.000	    3.479	    0.040	    0.313	    5.955
+
+qsub: job 17751.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17752.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17752.sith-mgmt2.ccs.ornl.gov ready
+
+    3.258	    0.000	    4.090	    0.086	    0.324	    8.053
+
+qsub: job 17752.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17753.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17753.sith-mgmt2.ccs.ornl.gov ready
+
+    2.000	    0.000	    2.938	    0.089	    0.118	    5.378
+
+qsub: job 17753.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17754.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17754.sith-mgmt2.ccs.ornl.gov ready
+
+    1.411	    0.000	    3.483	    0.042	    0.116	    5.341
+
+qsub: job 17754.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17755.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17755.sith-mgmt2.ccs.ornl.gov ready
+
+    2.598	    0.000	    2.779	    0.103	    0.120	    5.891
+
+qsub: job 17755.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17756.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17756.sith-mgmt2.ccs.ornl.gov ready
+
+    1.390	    0.000	    3.865	    0.041	    0.118	    5.630
+
+qsub: job 17756.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17757.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17757.sith-mgmt2.ccs.ornl.gov ready
+
+    1.365	    0.000	    3.965	    0.041	    0.118	    5.740
+
+qsub: job 17757.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17758.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17758.sith-mgmt2.ccs.ornl.gov ready
+
+    1.838	    0.000	    4.224	    0.044	    0.280	    6.643
+
+qsub: job 17758.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17759.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17759.sith-mgmt2.ccs.ornl.gov ready
+
+    3.293	    0.000	    6.270	    0.087	    0.276	   10.217
+
+qsub: job 17759.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17760.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17760.sith-mgmt2.ccs.ornl.gov ready
+
+    2.549	    0.000	    3.578	    0.090	    0.273	    6.785
+
+qsub: job 17760.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17761.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17761.sith-mgmt2.ccs.ornl.gov ready
+
+    1.826	    0.000	    5.875	    0.041	    0.270	    8.296
+
+qsub: job 17761.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17762.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17762.sith-mgmt2.ccs.ornl.gov ready
+
+    2.575	    0.000	    3.312	    0.092	    0.276	    6.531
+
+qsub: job 17762.sith-mgmt2.ccs.ornl.gov completed
+
+2 var
+qsub: waiting for job 17763.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17763.sith-mgmt2.ccs.ornl.gov ready
+
+    0.024	    0.000	    0.552	    0.029	    0.040	    0.830
+
+qsub: job 17763.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17764.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17764.sith-mgmt2.ccs.ornl.gov ready
+
+    0.023	    0.000	    0.515	    0.025	    0.040	    0.789
+
+qsub: job 17764.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17765.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17765.sith-mgmt2.ccs.ornl.gov ready
+
+    0.024	    0.000	    0.533	    0.029	    0.040	    0.800
+
+qsub: job 17765.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17766.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17766.sith-mgmt2.ccs.ornl.gov ready
+
+    0.024	    0.000	    1.047	    0.029	    0.040	    1.322
+
+qsub: job 17766.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17767.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17767.sith-mgmt2.ccs.ornl.gov ready
+
+    0.023	    0.000	    0.589	    0.029	    0.040	    0.864
+
+qsub: job 17767.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17768.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17768.sith-mgmt2.ccs.ornl.gov ready
+
+    0.157	    0.000	    0.914	    0.025	    0.044	    3.692
+
+qsub: job 17768.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17769.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17769.sith-mgmt2.ccs.ornl.gov ready
+
+    0.157	    0.000	    0.880	    0.025	    0.044	    1.298
+
+qsub: job 17769.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17770.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17770.sith-mgmt2.ccs.ornl.gov ready
+
+    0.166	    0.000	    0.889	    0.059	    0.046	    1.373
+
+qsub: job 17770.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17771.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17771.sith-mgmt2.ccs.ornl.gov ready
+
+    0.158	    0.000	    0.939	    0.029	    0.045	    1.393
+
+qsub: job 17771.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17772.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17772.sith-mgmt2.ccs.ornl.gov ready
+
+    0.160	    0.000	    0.870	    0.029	    0.044	    1.308
+
+qsub: job 17772.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17773.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17773.sith-mgmt2.ccs.ornl.gov ready
+
+    0.264	    0.000	    1.241	    0.029	    0.053	    1.785
+
+qsub: job 17773.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17774.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17774.sith-mgmt2.ccs.ornl.gov ready
+
+    0.305	    0.000	    1.358	    0.060	    0.054	    1.983
+
+qsub: job 17774.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17775.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17775.sith-mgmt2.ccs.ornl.gov ready
+
+    0.264	    0.000	    1.182	    0.028	    0.054	    1.723
+
+qsub: job 17775.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17776.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17776.sith-mgmt2.ccs.ornl.gov ready
+
+    0.278	    0.000	    1.123	    0.059	    0.054	    1.723
+
+qsub: job 17776.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17777.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17777.sith-mgmt2.ccs.ornl.gov ready
+
+    0.264	    0.000	    1.184	    0.027	    0.053	    1.719
+
+qsub: job 17777.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17778.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17778.sith-mgmt2.ccs.ornl.gov ready
+
+    0.466	    0.000	    2.146	    0.029	    0.068	    2.929
+
+qsub: job 17778.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17779.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17779.sith-mgmt2.ccs.ornl.gov ready
+
+    0.450	    0.000	    1.784	    0.025	    0.068	    2.535
+
+qsub: job 17779.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17780.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17780.sith-mgmt2.ccs.ornl.gov ready
+
+    0.448	    0.000	    1.599	    0.024	    0.068	    2.323
+
+qsub: job 17780.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17781.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17781.sith-mgmt2.ccs.ornl.gov ready
+
+    0.459	    0.000	    1.928	    0.027	    0.067	    2.665
+
+qsub: job 17781.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17782.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17782.sith-mgmt2.ccs.ornl.gov ready
+
+    0.464	    0.000	    1.573	    0.027	    0.067	    2.345
+
+qsub: job 17782.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 17783.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17783.sith-mgmt2.ccs.ornl.gov ready
+
+    1.084	    0.000	    1.995	    0.029	    0.209	    3.514
+
+qsub: job 17783.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17784.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17784.sith-mgmt2.ccs.ornl.gov ready
+
+    1.629	    0.000	    1.895	    0.062	    0.206	    3.997
+
+qsub: job 17784.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17785.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17785.sith-mgmt2.ccs.ornl.gov ready
+
+    1.014	    0.000	    2.576	    0.026	    0.208	    4.021
+
+qsub: job 17785.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17786.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17786.sith-mgmt2.ccs.ornl.gov ready
+
+    1.329	    0.000	    1.968	    0.041	    0.207	    3.741
+
+qsub: job 17786.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 17787.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 17787.sith-mgmt2.ccs.ornl.gov ready
+
+    1.565	    0.000	    3.107	    0.043	    0.207	    5.214
+
+qsub: job 17787.sith-mgmt2.ccs.ornl.gov completed
+

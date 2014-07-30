@@ -1,0 +1,24 @@
+==23607== Cachegrind, a cache and branch-prediction profiler
+==23607== Copyright (C) 2002-2012, and GNU GPL'd, by Nicholas Nethercote et al.
+==23607== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==23607== Command: /home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/multiquery_merge 4 /home/xzou2/data/ii_index/s3d/1part_2G/pfd/ uvel 42 80 vvel 3 5 temp 7.5E2 14E2 wvel 10 14
+==23607== Parent PID: 21599
+==23607== 
+--23607-- warning: L3 cache found, using its data for the LL simulation.
+--23607-- warning: pretending that LL cache has associativity 24 instead of actual 16
+==23607== 
+==23607== I   refs:      24,750,795,157
+==23607== I1  misses:         1,269,141
+==23607== LLi misses:            13,880
+==23607== I1  miss rate:           0.00%
+==23607== LLi miss rate:           0.00%
+==23607== 
+==23607== D   refs:      13,879,893,316  (11,904,938,818 rd   + 1,974,954,498 wr)
+==23607== D1  misses:        31,956,651  (    29,278,640 rd   +     2,678,011 wr)
+==23607== LLd misses:        31,855,402  (    29,178,139 rd   +     2,677,263 wr)
+==23607== D1  miss rate:            0.2% (           0.2%     +           0.1%  )
+==23607== LLd miss rate:            0.2% (           0.2%     +           0.1%  )
+==23607== 
+==23607== LL refs:           33,225,792  (    30,547,781 rd   +     2,678,011 wr)
+==23607== LL misses:         31,869,282  (    29,192,019 rd   +     2,677,263 wr)
+==23607== LL miss rate:             0.0% (           0.0%     +           0.1%  )

@@ -1,0 +1,254 @@
+/*
+ * multiquery.c
+ *
+ *  Created on: Jan 19, 2013
+ *      Author: xczou
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
+#include <getopt.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+
+#include <alacrity.h>
+#include <uniquery.h>
+#include <ALUtil.h>
+
+// Internal includes under tools/
+#include <trycatch.h>
+
+double dclock(void) {
+	struct timeval tv;
+	gettimeofday(&tv, 0);
+
+	return (double) tv.tv_sec + (double) tv.tv_usec * 1e-6;
+}
+
+typedef enum {
+	VAL_R, REGION_R, VAL_REGION_R
+} retrieval_type;
+
+typedef struct {
+	ALIndex index;
+	rid_t * rid_list;
+	uint64_t num_rids; // # of rid elements
+	bin_id_t num_touched_bins; // # of bins
+	int64_t *bin_lbs; // bin lower bound
+	int64_t *bin_hbs; // bin high bound
+} rid_intersect_t;
+
+//micro_idx structure to record the position of a RID and its value
+typedef struct {
+	int64_t pos;
+	rid_t rid;
+} micro_idx_t;
+
+/*
+ * value/region retrieval
+ * value constraint with AND operator
+ */
+_Bool doMultiQueryValueConstraint(const int varnums, char filebases[][1024],
+		const double *lbs, const double *hbs, char varnames[][1024]) {
+
+	if (varnums <= 0)
+		return false;
+
+	ALStore *stores = (ALStore *) malloc(varnums * sizeof(ALStore));
+
+	ALQueryEngine *engines = (ALQueryEngine *) malloc(
+			varnums * sizeof(ALQueryEngine));
+
+	ALUnivariateQuery *queries = (ALUnivariateQuery *) malloc(
+			varnums * sizeof(ALUnivariateQuery));
+
+	ALUnivariateQueryResult *results = (ALUnivariateQueryResult *) malloc(
+			varnums * sizeof(ALUnivariateQueryResult));
+	/*
+	 * Query initialization
+	 */
+	int x = 0;
+	for (; x < varnums; x++) {
+
+		TRY(tc1)
+		{
+			ALError err =
+					ALStoreOpenPOSIX(&stores[x], filebases[x], "r", false);
+			if (err != ALErrorNone)
+				THROW(tc1, 1,
+						"Could not open ALACRITY store %s for reading", filebases[x]);
+
+			ALQueryEngineInit(&engines[x], &stores[x], true);
+			ALQueryEngineStartUnivariateDoubleQuery(&engines[x], lbs[x],
+					hbs[x], VALUE_RETRIEVAL_QUERY_TYPE, &queries[x]);
+
+			/*load partition meta info */
+			ensureMetadataReady(&engines[x]);
+
+		}
+		CATCH(tc1){
+		IF_EL(1):
+		eprintf(EMSG);
+		eprintf("\n");
+	}ENDTRYCATCH
+
+}
+
+/*
+ * do query for partitions
+ */
+ALQueryEngine *alqe = queries[0].qe;
+
+bin_id_t *start_bins = (bin_id_t *) malloc(sizeof(bin_id_t) * varnums);
+bin_id_t *end_bins = (bin_id_t *) malloc(sizeof(bin_id_t) * varnums);
+
+ALPartitionStore *partitions = (ALPartitionStore *) malloc(
+		sizeof(ALPartitionStore) * varnums);
+
+uint64_t psize = alqe->gmeta->partition_size;
+
+//iterate every partitions
+while (!ALStoreEOF(alqe->store)) {
+	/*
+	 * region retrieval
+	 */
+	memset(start_bins, 0, sizeof(bin_id_t) * varnums);
+	memset(end_bins, 0, sizeof(bin_id_t) * varnums);
+	memset(partitions, 0, sizeof(ALPartitionStore) * varnums);
+
+	int j = 0;
+	for (; j < varnums; j++) {
+		/* Open partition & load meta */
+		ALStoreOpenPartition(&stores[j], &partitions[j], true);
+		getPartitionMetadata(&engines[j], &partitions[j]);
+	}
+
+	_Bool empty_index = false;
+	int i = 0; // reading index
+	uint64_t binCompressedLen;
+	for (; i < varnums; i++) {
+
+		const ALMetadata * const meta =
+		engines[i].metadatas[partitions[i].partition_num];
+		const ALBinLayout * const bl = &meta->binLayout;
+
+		binCompressedLen = 0;
+		// First, find which bins are touched by the query (all elements in the query range will
+		// fall into these bins, however not all elements in these bins fall into the query range).
+		// the start and end bin is left-inclusive, and right-exclusive.
+		// so, end_bin actually is not in range
+		_Bool are_bins_touched = findBinRange1C(meta, &queries[i],
+				&start_bins[i], &end_bins[i]);
+
+		if (are_bins_touched) {
+
+			if (meta->indexMeta.indexForm == ALCompressedInvertedIndex) {
+				const uint64_t *compBinStartOffs =
+				meta->indexMeta.u.ciim.indexBinStartOffsets;
+
+				for (bin_id_t bin = start_bins[i]; bin < end_bins[i]; bin++) {
+					binCompressedLen = binCompressedLen + (compBinStartOffs[bin
+							+ 1] - compBinStartOffs[bin]);
+				}
+			}
+
+		}
+
+		printf("var[%s]: %d touched bins , total size: %llu in bytes, %lf MB\n ",
+				varnames[i], end_bins - start_bins, binCompressedLen, binCompressedLen*100.0 / (1LL*100*8*1024*1024 ));
+
+	}
+
+	int k = 0;
+	for (; k < varnums; k++) {
+		ALPartitionStoreClose(&partitions[k]);
+	}
+
+}
+
+free(partitions);
+free(stores);
+free(engines);
+free(queries);
+free(results);
+free(start_bins);
+free(end_bins);
+return true;
+}
+
+void process_query(char * argv[]) {
+	int varnums;
+
+	int arg_cnt = 1;
+
+	sscanf(argv[arg_cnt++], "%d", &varnums);
+
+	char path[varnums][1024];
+
+	char varnames[varnums][1024];
+
+	char input_folder_path[1024];
+	// NEED '/' at end
+	strcpy(input_folder_path, argv[arg_cnt++]);
+
+	double lb[varnums], hb[varnums];
+
+	double start_value, end_value;
+	int i = 0;
+	for (; i < varnums; i++) {
+		strcpy(path[i], input_folder_path);
+		strcat(path[i], argv[arg_cnt++]);
+		sscanf(argv[arg_cnt++], "%lf", &lb[i]);
+		sscanf(argv[arg_cnt++], "%lf", &hb[i]);
+	}
+
+	doMultiQueryValueConstraint(varnums, path, lb, hb, varnames);
+
+}
+
+/*ONLY region retrieval available now */
+
+int main(int argc, char **argv) {
+
+	if (argc < 6) {
+		printf("<Number of variables>\n");
+		printf("<Input folder path>\n");
+		printf(
+				"For number of variables in query : <name of variables> <Start range> <End range>\n");
+		printf("<name of variables> (As they appear in compressed files..)\n");
+		printf("<Start range> : start value for range query \n");
+		printf("<End range> : start value for range query \n");
+		printf(
+				"Sample usage : ./build/bin/multiquery 2 /home/xzou2/alacrity/indexing/ temp 350 450 vv 250 350");
+		return 1;
+	}
+
+	//	char rfile[1024] = "alac_results.csv";
+
+	process_query(argv);
+
+	//	FILE * f = fopen(rfile, "a");
+	//	if (!f) {
+	//		printf("can not open file %s \n", rfile);
+	//	}
+	//
+	//	fprintf(f, "%9.3lf\n", e_time - s_time);
+
+	//	fclose(f);
+
+	/*
+
+
+	 printf("multi-query \n");
+
+	 const int varnums = 2;
+	 char path[2][1024];
+	 strcpy(path[0], "/home/xzou2/alacrity/indexing/temp");
+	 strcpy(path[1], "/home/xzou2/alacrity/indexing/vv");
+	 const double lb[2] = { 350, 250 };
+	 const double hb[2] = { 450, 350 };
+	 doMultiQueryValueConstraint(varnums, path, lb, hb, VAL_REGION_R);*/
+}

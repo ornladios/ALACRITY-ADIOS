@@ -1,0 +1,67 @@
+#!/bin/bash
+#add column name at top of final csv file
+
+
+COL1=("rle_4var_.001" "rle_4var_.01" "rle_4var_.1" "rle_4var_1" "rle_4var_10" )
+
+
+COL2=("rle_3var_.001" "rle_3var_.01" "rle_3var_.1" "rle_3var_1" "rle_3var_10" )
+
+
+
+COL3=("rle_2var_.001" "rle_2var_.01" "rle_2var_.1" "rle_2var_1" "rle_2var_10" )
+############    EPD_PFD  ##############################################
+
+COL4=("epd_4var_.001" "epd_4var_.01" "epd_4var_.1" "epd_4var_1" "epd_4var_10" )
+
+COL5=("epd_3var_.001" "epd_3var_.01" "epd_3var_.1" "epd_3var_1" "epd_3var_10" )
+
+COL6=("epd_2var_.001" "epd_2var_.01" "epd_2var_.1" "epd_2var_1" "epd_2var_10" )
+
+
+############    MERGE_PFD  ##############################################
+
+
+COL7=("merge_4var_.001" "merge_4var_.01" "merge_4var_.1" "merge_4var_1" "merge_4var_10" )
+
+COL8=("merge_3var_.001" "merge_3var_.01" "merge_3var_.1" "merge_3var_1" "merge_3var_10" )
+
+COL9=("merge_2var_.001" "merge_2var_.01" "merge_2var_.1" "merge_2var_1" "merge_2var_10" )
+
+
+############    SEP_PFD  ##############################################
+
+
+COL10=("sep_4var_.001" "sep_4var_.01" "sep_4var_.1" "sep_4var_1" "sep_4var_10" )
+
+COL11=("sep_3var_.001" "sep_3var_.01" "sep_3var_.1" "sep_3var_1" "sep_3var_10" )
+
+COL12=("sep_2var_.001" "sep_2var_.01" "sep_2var_.1" "sep_2var_1" "sep_2var_10" )
+
+
+################## WAH ##################################
+
+WAH1=("wah_4var_.001" "wah_4var_.01" "wah_4var_.1" "wah_4var_1" "wah_4var_10"  )
+
+
+WAH2=("wah_3var_.001" "wah_3var_.01" "wah_3var_.1" "wah_3var_1" "wah_3var_10" )
+
+
+
+WAH3=("wah_2var_.001" "wah_2var_.01" "wah_2var_.1" "wah_2var_1" "wah_2var_10" )
+############    EWAH  ##############################################
+
+#ALL THESE  files should begin with ewah, but its a mistake it is ewah now 
+EWAH4=("ewah_4var_.001" "ewah_4var_.01" "ewah_4var_.1" "ewah_4var_1" "ewah_4var_10" )
+
+EWAH5=("ewah_3var_.001" "ewah_3var_.01" "ewah_3var_.1" "ewah_3var_1" "ewah_3var_10" )
+
+EWAH6=("ewah_2var_.001" "ewah_2var_.01" "ewah_2var_.1" "ewah_2var_1" "ewah_2var_10" )
+
+FILES="${COL1[*]} ${COL2[*]} ${COL3[*]} ${COL4[*]} ${COL5[*]} ${COL6[*]} ${COL7[*]} ${COL8[*]} ${COL9[*]} ${COL10[*]} ${COL11[*]} ${COL12[*]} ${WAH1[*]} ${WAH2[*]} ${WAH3[*]} ${EWAH4[*]} ${EWAH5[*]} ${EWAH6[*]} "
+ 
+echo $FILES | sed 's/ /,/g' 
+
+#'1s/^/col1,col2,col3,col4\n/' test.csv
+
+sed -i '1s/^/rle_4var_.001,rle_4var_.01,rle_4var_.1,rle_4var_1,rle_4var_10,rle_3var_.001,rle_3var_.01,rle_3var_.1,rle_3var_1,rle_3var_10,rle_2var_.001,rle_2var_.01,rle_2var_.1,rle_2var_1,rle_2var_10,epd_4var_.001,epd_4var_.01,epd_4var_.1,epd_4var_1,epd_4var_10,epd_3var_.001,epd_3var_.01,epd_3var_.1,epd_3var_1,epd_3var_10,epd_2var_.001,epd_2var_.01,epd_2var_.1,epd_2var_1,epd_2var_10,merge_4var_.001,merge_4var_.01,merge_4var_.1,merge_4var_1,merge_4var_10,merge_3var_.001,merge_3var_.01,merge_3var_.1,merge_3var_1,merge_3var_10,merge_2var_.001,merge_2var_.01,merge_2var_.1,merge_2var_1,merge_2var_10,sep_4var_.001,sep_4var_.01,sep_4var_.1,sep_4var_1,sep_4var_10,sep_3var_.001,sep_3var_.01,sep_3var_.1,sep_3var_1,sep_3var_10,sep_2var_.001,sep_2var_.01,sep_2var_.1,sep_2var_1,sep_2var_10,wah_4var_.001,wah_4var_.01,wah_4var_.1,wah_4var_1,wah_4var_10,wah_3var_.001,wah_3var_.01,wah_3var_.1,wah_3var_1,wah_3var_10,wah_2var_.001,wah_2var_.01,wah_2var_.1,wah_2var_1,wah_2var_10,ewah_4var_.001,ewah_4var_.01,ewah_4var_.1,ewah_4var_1,ewah_4var_10,ewah_3var_.001,ewah_3var_.01,ewah_3var_.1,ewah_3var_1,ewah_3var_10,ewah_2var_.001,ewah_2var_.01,ewah_2var_.1,ewah_2var_1,ewah_2var_10 \n/' final.csv 

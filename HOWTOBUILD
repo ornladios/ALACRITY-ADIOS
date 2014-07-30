@@ -1,0 +1,35 @@
+Dependencies:
+* Build <SVN>/systems/software/timer somewhere
+* Build <SVN>/systems/branches/saurabh/indexcompression somewhere
+
+When you first check out ALACRITY:
+1. Copy ./runconf to ./myrunconf
+2. Edit ./myrunconf, setting the paths for timer and indexcompression, and your output build path
+3. Run ./myrunconf
+
+After that, to rebuild any time:
+1. Run make; make install
+2. (optional) Run make check to build the test programs
+
+If you change configure.ac or any Makefile.am:
+1. Make sure you're on a system with modern autotools
+2. Build as usual (make; make install)
+3. Be sure to commit configure and all Makefile.in's, as well as the modified configure.ac and/or Makefile.am's
+
+If the build scripts get messed up somehow:
+1. Make sure you're on a system with modern autotools
+2. Run autoreconf -i --force
+3. Do the steps under "When you first check out ALACRITY:"
+4. Do the steps under "If you change configure.ac or any Makefile.am:"
+
+---- OLD ----
+Manual guide (old, don't use this):
+Step 1: Run "autoreconf -i"
+Step 2: Check out and build <SVN>/systems/software/timer and <SVN>/systems/branches/saurabh/indexcompression somewhere
+Step 3: Run "./configure" with the following flags:
+* --with-timer=<absolute path to timer build dir (the directory containing lib/ and include/>
+* --with-ridcompress=<absolute path Saurabh's compression lib (this is the source directory currently)>
+* --prefix=<absolute path to where to install ALACRITY>
+Step 4: Run "make; make install"
+Step 5 (optional): Run "make check" to build tests
+Note: You should only have to do Steps 1-3 once; Step 4 *should* rerun ./configure etc. as needed automatically

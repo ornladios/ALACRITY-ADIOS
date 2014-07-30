@@ -1,0 +1,33 @@
+#!/bin/bash
+source /ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/script/env_setting_sith.sh
+
+#encode S3D datasets
+DATA_DIR_BASE="/tmp/proj/csc025/xzou2/"
+
+DATASRC=${DATA_DIR_BASE}"/data/s3d"
+
+
+DATASETS=("temp" "wvel" "vvel" "uvel")
+
+IIDATAOUT=${DATA_DIR_BASE}"/alac/ii/1part-2GB1/"
+CIIDATAOUT=${DATA_DIR_BASE}"/alac/pfd/1part-2GB1/"
+EXPDATAOUT=${DATA_DIR_BASE}"/alac/epfd/1part-2GB1/"
+RLEDATAOUT=${DATA_DIR_BASE}"/alac/rpfd/1part-2GB1/"
+SKIPDATAOUT=${DATA_DIR_BASE}"/alac/skip/1part-2GB1/"
+#encode 2GB partition, with raw inverted index
+for var in ${DATASETS[*]} ; do 
+    #raw inverted index
+   ${ENCODE} encode -p268435456E -i -edouble -s16  ${DATASRC}/${var}.bin ${IIDATAOUT}/${var} 
+
+    #pfordelta compressed inverted index
+   ${ENCODE} encode -p268435456E -x -edouble -s16  ${DATASRC}/${var}.bin ${CIIDATAOUT}/${var} 
+
+   #expansion pfordelta compressed inverted index
+   ${ENCODE} encode -p268435456E -r -edouble -s16  ${DATASRC}/${var}.bin ${EXPDATAOUT}/${var} 
+
+   #run-length pfordelta compressed inverted index
+   ${ENCODE} encode -p268435456E -h -edouble -s16  ${DATASRC}/${var}.bin ${RLEDATAOUT}/${var} 
+
+   #skipping pfordelta compressed inverted index
+   ${ENCODE} encode -p268435456E -k -edouble -s16  ${DATASRC}/${var}.bin ${SKIPDATAOUT}/${var} 
+done

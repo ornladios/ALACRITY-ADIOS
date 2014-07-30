@@ -1,0 +1,1310 @@
+4 var
+qsub: waiting for job 4500.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4500.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.917861, IO:2.641091, Total:3.558952
+
+qsub: job 4500.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4502.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4502.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.wvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+under estimated cost threshold 
+CPU:0.360945, IO:0.584304, Total:0.945249
+
+qsub: job 4502.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4504.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4504.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.950855, IO:2.748635, Total:3.699490
+
+qsub: job 4504.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4507.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4507.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.948856, IO:2.658646, Total:3.607502
+
+qsub: job 4507.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4509.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4509.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.953856, IO:2.472788, Total:3.426644
+
+qsub: job 4509.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4512.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4512.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.905863, IO:3.887961, Total:4.793824
+
+qsub: job 4512.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4514.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4514.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.895864, IO:2.935223, Total:3.831087
+
+qsub: job 4514.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4517.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4517.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.941857, IO:2.465659, Total:3.407516
+
+qsub: job 4517.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4520.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4520.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.913861, IO:2.843684, Total:3.757545
+
+qsub: job 4520.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4522.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4522.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.949856, IO:2.613451, Total:3.563307
+
+qsub: job 4522.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4525.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4525.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.758885, IO:2.312777, Total:3.071662
+
+qsub: job 4525.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4526.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4526.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.wvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+under estimated cost threshold 
+CPU:0.334950, IO:0.745617, Total:1.080567
+
+qsub: job 4526.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4529.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4529.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.748887, IO:2.214881, Total:2.963768
+
+qsub: job 4529.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4531.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4531.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.741888, IO:16.282696, Total:17.024584
+
+qsub: job 4531.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4532.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4532.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.747887, IO:2.549215, Total:3.297102
+
+qsub: job 4532.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4533.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4533.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.782881, IO:2.282084, Total:3.064965
+
+qsub: job 4533.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4534.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4534.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.774883, IO:2.290125, Total:3.065008
+
+qsub: job 4534.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4535.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4535.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.772883, IO:2.620791, Total:3.393674
+
+qsub: job 4535.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4536.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4536.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.775882, IO:2.551610, Total:3.327492
+
+qsub: job 4536.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4537.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4537.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.772883, IO:3.395758, Total:4.168641
+
+qsub: job 4537.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4538.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4538.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.005846, IO:3.174677, Total:4.180523
+
+qsub: job 4538.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4539.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4539.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.wvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+cost is too high, will not use index 
+CPU:0.006999, IO:0.276577, Total:0.283576
+
+qsub: job 4539.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4540.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4540.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.006848, IO:3.446423, Total:4.453271
+
+qsub: job 4540.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4541.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4541.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.002847, IO:3.215257, Total:4.218104
+
+qsub: job 4541.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4542.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4542.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.996849, IO:3.352797, Total:4.349646
+
+qsub: job 4542.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4543.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4543.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.998849, IO:2.803788, Total:3.802637
+
+qsub: job 4543.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4544.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4544.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.996849, IO:2.898913, Total:3.895762
+
+qsub: job 4544.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4545.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4545.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.978851, IO:2.805458, Total:3.784309
+
+qsub: job 4545.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4546.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4546.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.971853, IO:3.672200, Total:4.644053
+
+qsub: job 4546.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4547.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4547.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.999848, IO:3.076718, Total:4.076566
+
+qsub: job 4547.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4548.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4548.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.077837, IO:3.325671, Total:4.403508
+
+qsub: job 4548.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4549.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4549.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.wvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+under estimated cost threshold 
+CPU:0.460930, IO:1.827812, Total:2.288742
+
+qsub: job 4549.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4550.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4550.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.079837, IO:4.242182, Total:5.322019
+
+qsub: job 4550.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4551.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4551.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.077836, IO:3.275301, Total:4.353137
+
+qsub: job 4551.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4552.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4552.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.075837, IO:3.358898, Total:4.434735
+
+qsub: job 4552.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4553.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4553.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.044842, IO:3.290982, Total:4.335824
+
+qsub: job 4553.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4554.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4554.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.037843, IO:2.915070, Total:3.952913
+
+qsub: job 4554.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4555.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4555.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.072837, IO:3.344444, Total:4.417281
+
+qsub: job 4555.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4556.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4556.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.078836, IO:3.551048, Total:4.629884
+
+qsub: job 4556.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4557.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4557.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:1.077836, IO:3.266211, Total:4.344047
+
+qsub: job 4557.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4558.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4558.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.505924, IO:1.795811, Total:2.301735
+
+qsub: job 4558.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4559.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4559.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.wvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+under estimated cost threshold 
+CPU:0.499923, IO:1.252506, Total:1.752429
+
+qsub: job 4559.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4560.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4560.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.504923, IO:1.555340, Total:2.060263
+
+qsub: job 4560.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4561.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4561.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.529920, IO:1.703680, Total:2.233600
+
+qsub: job 4561.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4562.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4562.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.510923, IO:1.741304, Total:2.252227
+
+qsub: job 4562.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4563.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4563.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.539919, IO:1.700345, Total:2.240264
+
+qsub: job 4563.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4564.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4564.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.524921, IO:1.665142, Total:2.190063
+
+qsub: job 4564.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4565.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4565.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.512922, IO:1.553431, Total:2.066353
+
+qsub: job 4565.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4566.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4566.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.510923, IO:2.015251, Total:2.526174
+
+qsub: job 4566.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4567.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4567.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.511923, IO:1.636050, Total:2.147973
+
+qsub: job 4567.sith-mgmt2.ccs.ornl.gov completed
+
+3 var
+qsub: waiting for job 4568.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4568.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.673898, IO:1.693629, Total:2.367527
+
+qsub: job 4568.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4569.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4569.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+under estimated cost threshold 
+CPU:0.102984, IO:0.308253, Total:0.411237
+
+qsub: job 4569.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4570.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4570.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.671898, IO:1.802703, Total:2.474601
+
+qsub: job 4570.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4571.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4571.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.677898, IO:1.537017, Total:2.214915
+
+qsub: job 4571.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4572.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4572.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.674898, IO:1.360252, Total:2.035150
+
+qsub: job 4572.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4573.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4573.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.675898, IO:1.452612, Total:2.128510
+
+qsub: job 4573.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4574.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4574.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.672897, IO:1.351629, Total:2.024526
+
+qsub: job 4574.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4575.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4575.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.674898, IO:3.585231, Total:4.260129
+
+qsub: job 4575.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4576.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4576.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.665899, IO:1.544138, Total:2.210037
+
+qsub: job 4576.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4577.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4577.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.658901, IO:1.430242, Total:2.089143
+
+qsub: job 4577.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4578.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4578.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.404939, IO:1.133474, Total:1.538413
+
+qsub: job 4578.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4579.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4579.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+under estimated cost threshold 
+CPU:0.102985, IO:0.233695, Total:0.336680
+
+qsub: job 4579.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4580.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4580.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.403939, IO:1.045749, Total:1.449688
+
+qsub: job 4580.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4581.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4581.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.402939, IO:2.585602, Total:2.988541
+
+qsub: job 4581.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4582.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4582.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.405937, IO:1.012542, Total:1.418479
+
+qsub: job 4582.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4583.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4583.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.404939, IO:0.931100, Total:1.336039
+
+qsub: job 4583.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4584.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4584.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.404939, IO:1.138806, Total:1.543745
+
+qsub: job 4584.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4585.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4585.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.403939, IO:1.178584, Total:1.582523
+
+qsub: job 4585.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4586.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4586.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.404938, IO:1.305834, Total:1.710772
+
+qsub: job 4586.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4587.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4587.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.404939, IO:6.712658, Total:7.117597
+
+qsub: job 4587.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4588.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4588.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.105985, IO:0.917910, Total:1.023895
+
+qsub: job 4588.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4589.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4589.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+under estimated cost threshold 
+CPU:0.103985, IO:0.359177, Total:0.463162
+
+qsub: job 4589.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4590.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4590.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.104984, IO:0.727316, Total:0.832300
+
+qsub: job 4590.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4591.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4591.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.106984, IO:0.781159, Total:0.888143
+
+qsub: job 4591.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4592.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4592.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.106984, IO:0.746695, Total:0.853679
+
+qsub: job 4592.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4593.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4593.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.106983, IO:0.709521, Total:0.816504
+
+qsub: job 4593.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4594.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4594.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.102984, IO:0.627155, Total:0.730139
+
+qsub: job 4594.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4595.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4595.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.105984, IO:0.790576, Total:0.896560
+
+qsub: job 4595.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4596.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4596.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.108984, IO:0.811357, Total:0.920341
+
+qsub: job 4596.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4597.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4597.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.106984, IO:0.605994, Total:0.712978
+
+qsub: job 4597.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4598.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4598.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.388942, IO:0.977257, Total:1.366199
+
+qsub: job 4598.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4599.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4599.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+under estimated cost threshold 
+CPU:0.185972, IO:0.320939, Total:0.506911
+
+qsub: job 4599.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4600.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4600.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.387941, IO:1.022982, Total:1.410923
+
+qsub: job 4600.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4601.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4601.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.388941, IO:0.969103, Total:1.358044
+
+qsub: job 4601.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4602.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4602.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.385942, IO:0.908677, Total:1.294619
+
+qsub: job 4602.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4603.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4603.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.388941, IO:0.984820, Total:1.373761
+
+qsub: job 4603.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4604.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4604.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.384941, IO:0.972847, Total:1.357788
+
+qsub: job 4604.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4605.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4605.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.383942, IO:0.997848, Total:1.381790
+
+qsub: job 4605.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4606.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4606.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.388942, IO:0.869222, Total:1.258164
+
+qsub: job 4606.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4607.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4607.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.391941, IO:1.020988, Total:1.412929
+
+qsub: job 4607.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4608.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4608.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.183973, IO:0.798647, Total:0.982620
+
+qsub: job 4608.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4609.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4609.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+under estimated cost threshold 
+CPU:0.182972, IO:0.311057, Total:0.494029
+
+qsub: job 4609.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4610.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4610.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.187971, IO:0.887694, Total:1.075665
+
+qsub: job 4610.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4611.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4611.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.187971, IO:0.736173, Total:0.924144
+
+qsub: job 4611.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4612.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4612.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.185972, IO:0.684233, Total:0.870205
+
+qsub: job 4612.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4613.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4613.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.187972, IO:1.037016, Total:1.224988
+
+qsub: job 4613.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4614.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4614.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.184972, IO:0.946116, Total:1.131088
+
+qsub: job 4614.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4615.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4615.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.184973, IO:0.830636, Total:1.015609
+
+qsub: job 4615.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4616.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4616.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.185971, IO:0.831403, Total:1.017374
+
+qsub: job 4616.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4617.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4617.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.186972, IO:0.765380, Total:0.952352
+
+qsub: job 4617.sith-mgmt2.ccs.ornl.gov completed
+
+2 var
+qsub: waiting for job 4618.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4618.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.101985, IO:0.685541, Total:0.787526
+
+qsub: job 4618.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4619.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4619.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+
+qsub: job 4619.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4620.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4620.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.103984, IO:0.718273, Total:0.822257
+
+qsub: job 4620.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4621.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4621.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.104984, IO:0.783062, Total:0.888046
+
+qsub: job 4621.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4622.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4622.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.104985, IO:0.599810, Total:0.704795
+
+qsub: job 4622.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4623.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4623.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.103984, IO:0.651134, Total:0.755118
+
+qsub: job 4623.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4624.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4624.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.103985, IO:0.742209, Total:0.846194
+
+qsub: job 4624.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4625.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4625.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.104984, IO:0.693340, Total:0.798324
+
+qsub: job 4625.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4626.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4626.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.104983, IO:0.695877, Total:0.800860
+
+qsub: job 4626.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4627.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4627.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.104985, IO:0.631052, Total:0.736037
+
+qsub: job 4627.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4628.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4628.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.207968, IO:0.662490, Total:0.870458
+
+qsub: job 4628.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4629.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4629.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+CPU:0.004000, IO:0.061755, Total:0.065755
+
+qsub: job 4629.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4630.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4630.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.211967, IO:0.713030, Total:0.924997
+
+qsub: job 4630.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4631.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4631.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.210968, IO:0.807411, Total:1.018379
+
+qsub: job 4631.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4632.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4632.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.211968, IO:1.327543, Total:1.539511
+
+qsub: job 4632.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4633.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4633.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.209968, IO:0.715892, Total:0.925860
+
+qsub: job 4633.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4634.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4634.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.210969, IO:0.712478, Total:0.923447
+
+qsub: job 4634.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4635.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4635.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.215967, IO:0.686181, Total:0.902148
+
+qsub: job 4635.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4636.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4636.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.212968, IO:0.793505, Total:1.006473
+
+qsub: job 4636.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4637.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4637.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.209968, IO:0.914504, Total:1.124472
+
+qsub: job 4637.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4638.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4638.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.597908, IO:1.641832, Total:2.239740
+
+qsub: job 4638.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4639.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4639.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+CPU:0.004999, IO:0.052418, Total:0.057417
+
+qsub: job 4639.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4640.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4640.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.599909, IO:1.791207, Total:2.391116
+
+qsub: job 4640.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4641.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4641.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.595910, IO:2.187635, Total:2.783545
+
+qsub: job 4641.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4642.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4642.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.596910, IO:2.440477, Total:3.037387
+
+qsub: job 4642.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4643.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4643.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.595910, IO:1.812708, Total:2.408618
+
+qsub: job 4643.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4644.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4644.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.594910, IO:1.507534, Total:2.102444
+
+qsub: job 4644.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4645.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4645.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.598909, IO:2.622210, Total:3.221119
+
+qsub: job 4645.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4646.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4646.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.594909, IO:1.503323, Total:2.098232
+
+qsub: job 4646.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4647.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4647.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+under estimated cost threshold 
+CPU:0.593910, IO:1.912675, Total:2.506585
+
+qsub: job 4647.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4648.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4648.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.332949, IO:0.859528, Total:1.192477
+
+qsub: job 4648.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4649.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4649.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+CPU:0.003999, IO:0.127799, Total:0.131798
+
+qsub: job 4649.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4650.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4650.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.332949, IO:0.878458, Total:1.211407
+
+qsub: job 4650.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4651.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4651.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.332949, IO:0.925337, Total:1.258286
+
+qsub: job 4651.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4652.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4652.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.332948, IO:0.980532, Total:1.313480
+
+qsub: job 4652.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4653.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4653.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.335949, IO:0.904839, Total:1.240788
+
+qsub: job 4653.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4654.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4654.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.335949, IO:0.933163, Total:1.269112
+
+qsub: job 4654.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4655.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4655.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.336949, IO:0.783982, Total:1.120931
+
+qsub: job 4655.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4656.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4656.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.338949, IO:0.856512, Total:1.195461
+
+qsub: job 4656.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4657.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4657.sith-mgmt2.ccs.ornl.gov ready
+
+under estimated cost threshold 
+cost is too high, will not use index 
+CPU:0.336949, IO:0.876600, Total:1.213549
+
+qsub: job 4657.sith-mgmt2.ccs.ornl.gov completed
+
+qsub: waiting for job 4658.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4658.sith-mgmt2.ccs.ornl.gov ready
+
+cost is too high, will not use index 
+CPU:0.006999, IO:0.518068, Total:0.525067
+
+qsub: job 4658.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4659.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4659.sith-mgmt2.ccs.ornl.gov ready
+
+
+Warning -- index[uvel-table$.vvel]::create failed to create an index of type <binning precision=2/>
+Warning -- index[uvel-table$.uvel]::create failed to create an index of type <binning precision=2/>
+CPU:0.005000, IO:0.060357, Total:0.065357
+
+qsub: job 4659.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4660.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4660.sith-mgmt2.ccs.ornl.gov ready
+
+cost is too high, will not use index 
+CPU:0.005999, IO:0.472963, Total:0.478962
+
+qsub: job 4660.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4661.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4661.sith-mgmt2.ccs.ornl.gov ready
+
+cost is too high, will not use index 
+CPU:0.005999, IO:0.360630, Total:0.366629
+
+qsub: job 4661.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4662.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4662.sith-mgmt2.ccs.ornl.gov ready
+
+cost is too high, will not use index 
+CPU:0.006999, IO:0.524607, Total:0.531606
+
+qsub: job 4662.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4663.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4663.sith-mgmt2.ccs.ornl.gov ready
+
+cost is too high, will not use index 
+CPU:0.005999, IO:0.461679, Total:0.467678
+
+qsub: job 4663.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4664.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4664.sith-mgmt2.ccs.ornl.gov ready
+
+cost is too high, will not use index 
+CPU:0.006999, IO:0.476940, Total:0.483939
+
+qsub: job 4664.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4665.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4665.sith-mgmt2.ccs.ornl.gov ready
+
+cost is too high, will not use index 
+CPU:0.007000, IO:0.505622, Total:0.512622
+
+qsub: job 4665.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4666.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4666.sith-mgmt2.ccs.ornl.gov ready
+
+cost is too high, will not use index 
+CPU:0.005999, IO:0.485346, Total:0.491345
+
+qsub: job 4666.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 4667.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 4667.sith-mgmt2.ccs.ornl.gov ready
+
+cost is too high, will not use index 
+CPU:0.007000, IO:0.488107, Total:0.495107
+
+qsub: job 4667.sith-mgmt2.ccs.ornl.gov completed
+

@@ -1,0 +1,742 @@
+/*
+ * multiquery.c
+ *
+ *  Created on: Jan 19, 2013
+ *      Author: xczou
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
+#include <getopt.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+
+#include <alacrity.h>
+#include <uniquery.h>
+#include <ALUtil.h>
+
+// Internal includes under tools/
+#include <trycatch.h>
+
+double dclock(void) {
+	struct timeval tv;
+	gettimeofday(&tv, 0);
+
+	return (double) tv.tv_sec + (double) tv.tv_usec * 1e-6;
+}
+
+#if 1
+#define log
+#endif
+
+typedef enum {
+	VAL_R, REGION_R, VAL_REGION_R
+} retrieval_type;
+
+typedef struct {
+	ALIndex index;
+	rid_t * rid_list;
+	uint64_t num_rids; // # of rid elements
+	bin_id_t num_touched_bins; // # of bins
+	int64_t *bin_lbs; // bin lower bound
+	int64_t *bin_hbs; // bin high bound
+} rid_intersect_t;
+
+//micro_idx structure to record the position of a RID and its value
+typedef struct {
+	int64_t pos;
+	rid_t rid;
+} micro_idx_t;
+
+int64_t partition(rid_t **s, int64_t lb, int64_t hb) {
+	rid_t * set = *s;
+	rid_t x = set[hb];
+	int64_t i = lb - 1, t;
+	int64_t j = lb;
+	for (; j < hb; j++) {
+		if (set[j] <= x) {
+			i = i + 1;
+			t = set[i];
+			set[i] = set[j];
+			set[j] = t;
+		}
+	}
+
+	t = set[i + 1];
+	set[i + 1] = set[hb];
+	set[hb] = t;
+	return i + 1;
+}
+
+void quick_sort(rid_t **s, int64_t lb, int64_t hb) {
+	int64_t i;
+	if (hb > lb) {
+		i = partition(s, lb, hb);
+		quick_sort(s, lb, i - 1);
+		quick_sort(s, i + 1, hb);
+	}
+}
+
+/*
+ * false : not find
+ * true: found_pos is the key's position
+ */
+_Bool binary_search(const rid_t *set, int64_t low, int64_t high, rid_t key,
+		int64_t *key_pos) {
+	if (low > high)
+		return false;
+
+	int64_t middle = (low + high) / 2;
+	if (set[middle] == key) {
+		*key_pos = middle;
+		return true;
+	}
+	if (key < set[middle]) {
+		return binary_search(set, low, middle - 1, key, key_pos);
+	} else {
+		return binary_search(set, middle + 1, high, key, key_pos);
+	}
+}
+
+/*
+ * after exchange, the size of set1 is smaller than size of set2
+ */
+void BY_exchange_as_needed(rid_t **set1, int64_t *l1, int64_t *h1, rid_t **set2,
+		int64_t *l2, int64_t *h2) {
+	//exchange two sets as needed, always make sure the size of set1 is smaller than size of set2
+	if (*h1 - *l1 > *h2 - *l2) {
+		rid_t *tmp = *set2;
+		*set2 = *set1;
+		*set1 = tmp;
+		int64_t tmp_num = *l2;
+		*l2 = *l1;
+		*l1 = tmp_num;
+
+		tmp_num = *h2;
+		*h2 = *h1;
+		*h1 = tmp_num;
+
+	}
+}
+
+void BY_internal(rid_t *set1, int64_t l1, int64_t h1, rid_t * set2, int64_t l2,
+		int64_t h2, rid_t **joint, int64_t *joint_idx, int64_t *joint_num) {
+
+	if (h1 - l1 < 0 || h2 - l2 < 0)
+		return;
+	BY_exchange_as_needed(&set1, &l1, &h1, &set2, &l2, &h2);
+
+	int64_t mid = (h1 + l1) / 2;
+	rid_t mid_val = set1[mid];
+	int64_t found_pos;
+
+	if (binary_search(set2, l2, h2, mid_val, &found_pos)) {
+		*joint_idx = *joint_idx + 1; // NOTE: joint_idx starts with -1 ;
+		(*joint)[*joint_idx] = mid_val;
+		*joint_num = *joint_num + 1;
+		// recursively searching in both LEFT parts of set1 and set2
+		BY_internal(set1, l1, mid - 1, set2, l2, found_pos - 1, joint,
+				joint_idx, joint_num);
+		// recursively searching in both RIGHT parts of set1 and set2
+		BY_internal(set1, mid + 1, h1, set2, found_pos + 1, h2, joint,
+				joint_idx, joint_num);
+	} else {
+		//recursively searching in the whole set2
+		BY_internal(set1, l1, mid - 1, set2, l2, h2, joint, joint_idx,
+				joint_num);
+		BY_internal(set1, mid + 1, h1, set2, l2, h2, joint, joint_idx,
+				joint_num);
+	}
+}
+
+_Bool BY_sets_overlap(rid_t **s1, int64_t *l1, int64_t *h1, rid_t **s2,
+		int64_t *l2, int64_t *h2, int64_t *overlap_lb, int64_t *overlap_hb) {
+
+	BY_exchange_as_needed(s1, l1, h1, s2, l2, h2);
+
+	rid_t *set1 = *s1, *set2 = *s2;
+
+	rid_t min1 = set1[*l1];
+	rid_t max1 = set1[*h1];
+
+	rid_t min2 = set2[*l2];
+	rid_t max2 = set2[*h2];
+
+	if (max1 < min2 || max2 < min1) // two sets are not overlap
+		return false;
+
+	if (!binary_search(set1, *l1, *h1, min2, overlap_lb)) {
+		// minimum value of set2 is not found in set1,
+		// set the lower bound as the beginning of set1
+		*overlap_lb = *l1;
+	}
+	if (!binary_search(set1, *l1, *h1, max2, overlap_hb)) {
+		// maximum value of set2 is not found in set1,
+		// set the high bound as the beginning of set1
+		*overlap_hb = *h1;
+	}
+	return true;
+
+}
+/*
+ * Baeza-Yates Set Intersection Algorithm which applies two joining sets are sorted
+ * Reference to paper "A Fast Set Intersection Algorithm for Sorted Sequences"
+ * Return : false, empty joint list
+ *          true, joint list
+ * NOTE: the order of joint list may not been ordered.
+ */
+
+_Bool BY_intersection(rid_t *set1, int64_t l1, int64_t h1, rid_t *set2,
+		int64_t l2, int64_t h2, rid_t **joint, int64_t *joint_idx) {
+
+	// one of set is empty, do nothing
+	if (h1 - l1 < 0 || h2 - l2 < 0)
+		return false;
+
+	// find overlap of two sets, meaning,
+	// find the positions of minimum value and maximum value of set2 in set1
+	int64_t overlap_lb, overlap_hb;
+
+	if (!BY_sets_overlap(&set1, &l1, &h1, &set2, &l2, &h2, &overlap_lb,
+			&overlap_hb))
+		return false;
+
+	int64_t joint_num = 0;
+	//Recursively do find common elements using double searching
+	BY_internal(set1, overlap_lb, overlap_hb, set2, l2, h2, joint, joint_idx,
+			&joint_num);
+
+	return joint_num > 0;
+
+}
+
+/**
+ * Return: false : empty
+ */
+_Bool rids_intersection(rid_intersect_t **rids, int* rid_list_order, const int varnums,
+		rid_t **joint, int64_t *joint_num) {
+
+	if (varnums < 1)
+		return false;
+	rid_intersect_t * tmp_rids = *rids;
+	rid_intersect_t *elim = &tmp_rids[rid_list_order[0]];
+	rid_t * sub_elim = NULL;
+	int64_t sub_elim_lb, sub_elim_hb;
+	bin_id_t bin_idx = 0;
+	// go through each RID sublist
+
+#ifdef log
+	printf(" actual inter :[");
+#endif
+	for (; bin_idx < elim->num_touched_bins; bin_idx++) {
+
+		sub_elim = elim->rid_list; /*elim->rid_stride[bin_idx];*/
+		sub_elim_lb = elim->bin_lbs[bin_idx];
+		sub_elim_hb = elim->bin_hbs[bin_idx];
+
+		rid_t * tmp_result = (rid_t *) malloc(
+				sizeof(rid_t) * (sub_elim_hb - sub_elim_lb + 1));
+		int64_t tmp_result_idx = -1;
+		int v = 1; // other rid lists
+		_Bool intersect_conti = true;
+		micro_idx_t * micro_idx_p = NULL;
+		int midx_len = 40;
+		for (; v < varnums && intersect_conti; v++) {
+
+			/**************************
+			 * build micro-indexing begins
+			 **************************/
+			int seg_len = (sub_elim_hb - sub_elim_lb + 1) / midx_len;
+			// if the rid_list is not large enough,
+			// then, it is not useful to build micro-index it
+			// TODO: 5 here maybe decided later
+			bool has_micro_idx = seg_len >= 5 ? true : false;
+			if (has_micro_idx) {
+				bool remainder =
+						(sub_elim_hb - sub_elim_lb + 1) % midx_len > 0 ?
+								true : false;
+				// need add the last element into micro-index if the rid list
+				// is not devidible by `seg_len`
+				if (remainder)
+					midx_len = midx_len + 1;
+				//NOTE: allocate 1 extra slot to avoid boundary check
+				micro_idx_p = (micro_idx_t *) malloc(
+						sizeof(micro_idx_t) * (midx_len + 1));
+				int64_t iitr = 0, sub_elim_p = sub_elim_lb;
+				while (sub_elim_p <= sub_elim_hb) {
+					micro_idx_p[iitr].rid = sub_elim[sub_elim_p];
+					micro_idx_p[iitr].pos = sub_elim_p;
+					sub_elim_p += seg_len;
+					iitr++;
+				}
+				// THE LAST two elements in micro_index are always same
+				// if there is no remainder, the last second element is taken care of by above `while` loop
+				// otherwise, we need manally set this last second element
+				//put last two micro_index as the last element in rid list
+				if (remainder) {
+					micro_idx_p[midx_len - 1].rid = sub_elim[sub_elim_hb];
+					micro_idx_p[midx_len - 1].pos = sub_elim_hb;
+				}
+				micro_idx_p[midx_len].rid = sub_elim[sub_elim_hb];
+				micro_idx_p[midx_len].pos = sub_elim_hb;
+			}
+
+			/**************************
+			 * build micro-indexing ends
+			 **************************/
+			int mapped = rid_list_order[v];
+
+
+			rid_intersect_t *check_list = &tmp_rids[mapped];
+			bin_id_t check_bin_idx = 0;
+#ifdef log
+			double s = 0, e = 0;
+			s = dclock();
+#endif
+			//go through every bin sublist in set of each variable
+			while (check_bin_idx < check_list->num_touched_bins) {
+
+				int64_t check_lb = check_list->bin_lbs[check_bin_idx];
+				int64_t check_hb = check_list->bin_hbs[check_bin_idx];
+				rid_t check_lb_rid = check_list->rid_list[check_lb];
+				rid_t check_hb_rid = check_list->rid_list[check_hb];
+				/***
+				 * Go through micro-index first it exists
+				 */
+				if (has_micro_idx) {
+					int64_t shrink_lb = sub_elim_lb, shrink_hb = sub_elim_lb;
+					int itr = 0;
+					while (check_hb_rid > micro_idx_p[itr].rid && itr < midx_len) {
+						itr++;
+					}
+					// micro_idx_p has extra 1 slot at upper bound
+					// so its okay to add 1
+					shrink_hb = micro_idx_p[itr].pos;
+					itr = 0;
+					while (check_lb_rid > micro_idx_p[itr].rid && itr < midx_len) {
+						itr++;
+					}
+					//boundary case, that min. of `check_list` is smaller than min. of `sub_elim_list`
+					shrink_lb =
+							itr == 0 ?
+									micro_idx_p[itr].pos :
+									micro_idx_p[itr - 1].pos;
+					sub_elim_lb = shrink_lb; //update the new boundary
+					sub_elim_hb = shrink_hb;
+
+				}
+
+				//once there is joint result in each bin sublist, add the results into
+				//tmp_result list, tmp_result_idx is increased inside of BY_intersection function
+				BY_intersection(sub_elim, sub_elim_lb, sub_elim_hb,
+						check_list->rid_list /*&check_list->rid_stride[check_bin_idx]*/
+						, check_lb, check_hb, &tmp_result, &tmp_result_idx);
+				check_bin_idx++;
+			}
+
+#ifdef log
+			e = dclock();
+			printf("%lf,", e - s);
+			fflush(stdout);
+#endif
+			// NO result, no need to do intersect with list of next variable
+			if (tmp_result_idx == -1) {
+				intersect_conti = false;
+				// use the tmp_result as the new set to do intersection for the efficiency.
+				if (sub_elim != elim->rid_list/*->rid_stride[bin_idx]*/) {
+					free(sub_elim); // free last result space
+				}
+			} else {
+				// use the tmp_result as the new set to do intersection for the efficiency.
+				if (sub_elim != elim->rid_list/*->rid_stride[bin_idx]*/) {
+					free(sub_elim); // free last result space
+				}
+				//still has next variable's set available
+				if (v + 1 < varnums) {
+					//Reset set list and index value
+					//sort result in order to re-use the result
+					quick_sort(&tmp_result, 0, tmp_result_idx);
+					sub_elim = tmp_result;
+					sub_elim_lb = 0;
+					sub_elim_hb = tmp_result_idx;
+					tmp_result = (rid_t *) malloc(
+							sizeof(rid_t) * (tmp_result_idx + 1));
+					tmp_result_idx = -1;
+				}
+			}
+
+			if (has_micro_idx){
+				free(micro_idx_p);
+				micro_idx_p = NULL;
+			}
+
+		}
+
+		// concatenate result in `joint` variable
+		if (tmp_result_idx >= 0) {
+
+			rid_t * tmp = NULL;
+			if (*joint_num != 0) {
+				tmp = (rid_t *) malloc(sizeof(rid_t) * (*joint_num));
+				memcpy(tmp, *joint, sizeof(rid_t) * (*joint_num));
+			}
+			*joint = (rid_t *) malloc(
+					sizeof(rid_t) * (*joint_num + tmp_result_idx + 1));
+			if (tmp) {
+				memcpy(*joint, tmp, sizeof(rid_t) * (*joint_num));
+			}
+
+			memcpy(*joint + (*joint_num), tmp_result,
+					sizeof(rid_t) * (tmp_result_idx + 1));
+			*joint_num = *joint_num + tmp_result_idx + 1;
+		}
+
+		free(tmp_result);
+
+	}
+
+#ifdef log
+	printf("]");
+#endif
+
+	return *joint_num > 0;
+
+}
+
+/*
+ * value/region retrieval
+ * value constraint with AND operator
+ */
+_Bool doMultiQueryValueConstraint(const int varnums, char filebases[][1024],
+		const double *lbs, const double *hbs, retrieval_type rtype) {
+
+#ifdef log
+	double s_time = 0, e_time = 0;
+	s_time = dclock();
+#endif
+
+	if (varnums <= 0)
+		return false;
+
+	ALStore *stores = (ALStore *) malloc(varnums * sizeof(ALStore));
+
+	ALQueryEngine *engines = (ALQueryEngine *) malloc(
+			varnums * sizeof(ALQueryEngine));
+
+	ALUnivariateQuery *queries = (ALUnivariateQuery *) malloc(
+			varnums * sizeof(ALUnivariateQuery));
+
+	ALUnivariateQueryResult *results = (ALUnivariateQueryResult *) malloc(
+			varnums * sizeof(ALUnivariateQueryResult));
+	/*
+	 * Query initialization
+	 */
+	int x = 0;
+	for (; x < varnums; x++) {
+
+		TRY(tc1)
+		{
+			ALError err = ALStoreOpenPOSIX(&stores[x], filebases[x], "r",
+					false);
+			if (err != ALErrorNone)
+				THROW(tc1, 1,
+						"Could not open ALACRITY store %s for reading", filebases[x]);
+
+			ALQueryEngineInit(&engines[x], &stores[x], true);
+			ALQueryEngineStartUnivariateDoubleQuery(&engines[x], lbs[x], hbs[x],
+					VALUE_RETRIEVAL_QUERY_TYPE, &queries[x]);
+
+			/*load partition meta info */
+			ensureMetadataReady(&engines[x]);
+
+		}
+		CATCH(tc1){
+		IF_EL(1):
+		eprintf(EMSG);
+		eprintf("\n");
+	}ENDTRYCATCH
+
+}
+
+/*
+ * do query for partitions
+ */
+	ALQueryEngine *alqe = queries[0].qe;
+
+	bin_id_t *start_bins = (bin_id_t *) malloc(sizeof(bin_id_t) * varnums);
+	bin_id_t *end_bins = (bin_id_t *) malloc(sizeof(bin_id_t) * varnums);
+
+	ALPartitionStore *partitions = (ALPartitionStore *) malloc(
+			sizeof(ALPartitionStore) * varnums);
+
+	rid_intersect_t *rids = (rid_intersect_t *) malloc(
+			sizeof(rid_intersect_t) * varnums);
+
+	rid_t * joint = NULL;
+	int64_t joint_num = 0;
+
+	int* rid_list_order =  (int *) malloc(sizeof(int)*varnums);
+
+#ifdef log
+	e_time = dclock();
+	printf("*** meta preparation :%lf \n", e_time - s_time);
+#endif
+	//iterate every partitions
+	while (!ALStoreEOF(alqe->store)) {
+
+#ifdef log
+		double s_time_p = 0, e_time_p = 0;
+		s_time_p = dclock();
+		printf("**** partition[%d] {", alqe->store->cur_partition);
+#endif
+		/*
+		 * region retrieval
+		 */
+		memset(start_bins, 0, sizeof(bin_id_t) * varnums);
+		memset(end_bins, 0, sizeof(bin_id_t) * varnums);
+		memset(partitions, 0, sizeof(ALPartitionStore) * varnums);
+
+		int j = 0;
+		for (; j < varnums; j++) {
+			/* Open partition & load meta */
+			ALStoreOpenPartition(&stores[j], &partitions[j], true);
+			getPartitionMetadata(&engines[j], &partitions[j]);
+		}
+
+		_Bool empty_index = false;
+		int reorder = -1;
+		int i = 0; // reading index
+		for (; i < varnums; i++) {
+
+			const ALMetadata * const meta =
+					engines[i].metadatas[partitions[i].partition_num];
+			const ALBinLayout * const bl = &meta->binLayout;
+			// First, find which bins are touched by the query (all elements in the query range will
+			// fall into these bins, however not all elements in these bins fall into the query range).
+			// the start and end bin is left-inclusive, and right-exclusive.
+			// so, end_bin actually is not in range
+			_Bool are_bins_touched = findBinRange1C(meta, &queries[i],
+					&start_bins[i], &end_bins[i]);
+
+			// If the query range overlaps no bins, skip this partition
+			// Else, proceed with reading and processing the results
+			if (!are_bins_touched) {
+				if (rids[i].index != NULL) {
+					free(rids[i].index);
+					rids[i].index = NULL;
+					rids[i].rid_list = NULL;
+				}
+			} else {
+				// ATTENSION: StartOffset shifts 1
+				rids[i].num_rids = bl->binStartOffsets[end_bins[i]]
+						- bl->binStartOffsets[start_bins[i]];
+				rids[i].num_touched_bins = end_bins[i] - start_bins[i];
+				rids[i].bin_lbs = (int64_t *) malloc(
+						sizeof(int64_t) * rids[i].num_touched_bins);
+				rids[i].bin_hbs = (int64_t *) malloc(
+						sizeof(int64_t) * rids[i].num_touched_bins);
+
+				bin_id_t s = start_bins[i];
+				int64_t lb = 0;
+				for (; s < end_bins[i]; s++) {
+					rids[i].bin_lbs[s - start_bins[i]] = lb;
+					rids[i].bin_hbs[s - start_bins[i]] = lb
+							+ bl->binStartOffsets[s + 1]
+							- bl->binStartOffsets[s] - 1;
+					lb = lb + bl->binStartOffsets[s + 1]
+							- bl->binStartOffsets[s];
+				}
+
+				/*************
+				 * reorder `rids` according to `num_touched_bins`
+				 */
+				if (reorder == -1) {
+					rid_list_order[0] = i;
+				}else{
+					int j = reorder+1;
+					while ( j >0 && rids[rid_list_order[j-1]].num_touched_bins > rids[i].num_touched_bins){
+						rid_list_order[j] = rid_list_order[j-1];
+						j --;
+					}
+					rid_list_order[j] = i;
+				}
+				reorder ++;
+				/***********reorder ends *********************/
+
+
+#ifdef log
+				printf(" var[%d], num_rids[%llu], num_touched_bins[%llu] ", i,
+						rids[i].num_rids, rids[i].num_touched_bins);
+				fflush(stdout);
+#endif
+				readIndex(&partitions[i], meta, start_bins[i], end_bins[i],
+						&rids[i].index);
+				rids[i].rid_list = (rid_t *) rids[i].index;
+
+			}
+
+			// some index is NULL
+			if (rids[i].index == NULL) {
+				empty_index = true;
+				break;
+			}
+
+		}
+
+#ifdef log
+		e_time_p = dclock();
+		printf(" } rid loading : %lf , ", e_time_p - s_time_p);
+
+		int ii=0;
+		printf(" |reorder : ");
+		for(; ii < varnums; ii++){
+			printf("%d,", rid_list_order[ii]);
+		}
+		printf(" |");
+#endif
+
+		/*
+		 * Todo: should consider varnums == 1 case
+		 */
+
+		if (!empty_index) {
+
+#ifdef log
+			double s_time_i = 0, e_time_i = 0;
+			s_time_i = dclock();
+#endif
+			/*
+			 * bucket sorting for `rids` by num_touched_bins
+			 * the number of variables usually will not exceed 5.
+			 * In addition, instead of exchange structures in `rids`
+			 * allocate another space for the order
+			 */
+//		int* rid_list_order = (int *) malloc(sizeof(int)*varnums);
+			rids_intersection(&rids, rid_list_order , varnums, &joint, &joint_num);
+
+#ifdef log
+			e_time_i = dclock();
+			printf(" rid intersection : %lf \n", e_time_i - s_time_i);
+#endif
+		}
+
+		if (joint_num > 0) {
+			free(joint);
+			joint = NULL;
+			joint_num = 0;
+		}
+
+		int k = 0;
+		for (; k < varnums; k++) {
+			ALPartitionStoreClose(&partitions[k]);
+			if (rids[k].index != NULL) {
+				free(rids[k].index);
+				rids[k].index = NULL;
+			}
+			if (rids[k].bin_lbs != NULL) {
+				free(rids[k].bin_lbs);
+				rids[k].bin_lbs = NULL;
+			}
+			if (rids[k].bin_hbs != NULL) {
+				free(rids[k].bin_hbs);
+				rids[k].bin_lbs = NULL;
+			}
+
+		}
+
+
+
+	}
+
+	free(partitions);
+	free(stores);
+	free(engines);
+	free(queries);
+	free(results);
+	free(start_bins);
+	free(end_bins);
+	free(rids);
+	free(rid_list_order);
+	return true;
+}
+
+void process_query(char * argv[]) {
+	int varnums;
+
+	int arg_cnt = 1;
+
+	sscanf(argv[arg_cnt++], "%d", &varnums);
+
+	char path[varnums][1024];
+
+	char input_folder_path[1024];
+	// NEED '/' at end
+	strcpy(input_folder_path, argv[arg_cnt++]);
+
+	double lb[varnums], hb[varnums];
+
+	double start_value, end_value;
+	int i = 0;
+	for (; i < varnums; i++) {
+		strcpy(path[i], input_folder_path);
+		strcat(path[i], argv[arg_cnt++]);
+		sscanf(argv[arg_cnt++], "%lf", &lb[i]);
+		sscanf(argv[arg_cnt++], "%lf", &hb[i]);
+	}
+
+	double s_time = 0, e_time = 0;
+	s_time = dclock();
+
+	doMultiQueryValueConstraint(varnums, path, lb, hb, VAL_REGION_R);
+
+	e_time = dclock();
+	printf("%9.3lf\n", e_time - s_time);
+
+}
+
+/*ONLY region retrieval available now */
+
+int main(int argc, char **argv) {
+
+	if (argc < 6) {
+		printf("<Number of variables>\n");
+		printf("<Input folder path>\n");
+		printf(
+				"For number of variables in query : <name of variables> <Start range> <End range>\n");
+		printf("<name of variables> (As they appear in compressed files..)\n");
+		printf("<Start range> : start value for range query \n");
+		printf("<End range> : start value for range query \n");
+		printf(
+				"Sample usage : ./build/bin/multiquery 2 /home/xzou2/alacrity/indexing/ temp 350 450 vv 250 350");
+		return 1;
+	}
+
+//	char rfile[1024] = "alac_results.csv";
+
+	process_query(argv);
+
+//	FILE * f = fopen(rfile, "a");
+//	if (!f) {
+//		printf("can not open file %s \n", rfile);
+//	}
+//
+//	fprintf(f, "%9.3lf\n", e_time - s_time);
+
+//	fclose(f);
+
+	/*
+
+
+	 printf("multi-query \n");
+
+	 const int varnums = 2;
+	 char path[2][1024];
+	 strcpy(path[0], "/home/xzou2/alacrity/indexing/temp");
+	 strcpy(path[1], "/home/xzou2/alacrity/indexing/vv");
+	 const double lb[2] = { 350, 250 };
+	 const double hb[2] = { 450, 350 };
+	 doMultiQueryValueConstraint(varnums, path, lb, hb, VAL_REGION_R);*/
+}

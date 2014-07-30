@@ -1,0 +1,763 @@
+desc: --massif-out-file=/home/xzou2/alac_fastbit_comp/alac_multi_engine/script/exp_results/mem_trace/merge_2var_1.log
+cmd: /home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/multiquery_merge 2 /home/xzou2/data/ii_index/s3d/1part_2G/pfd/ uvel 29 48 vvel -18 -10
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=33538910
+mem_heap_B=116159304
+mem_heap_extra_B=11504
+mem_stacks_B=0
+heap_tree=peak
+n4: 116159304 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 49017904 0x407E68: ALPartitionStoreReadIndexBinsPOSIX (ALStorePOSIX.c:542)
+  n1: 49017904 0x402DE6: ALPartitionStoreReadIndexBins (ALStore.c:222)
+   n1: 49017904 0x401F47: doMultiQueryValueConstraint (multiquery_merge.c:242)
+    n1: 49017904 0x402813: process_query (multiquery_merge.c:425)
+     n0: 49017904 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401BAE: doMultiQueryValueConstraint (multiquery_merge.c:185)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401C76: doMultiQueryValueConstraint (multiquery_merge.c:205)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n0: 32536 in 22 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=2
+#-----------
+time=183748480
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=274336595
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=376975626
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=detailed
+n4: 116158792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 49017904 0x407E68: ALPartitionStoreReadIndexBinsPOSIX (ALStorePOSIX.c:542)
+  n1: 49017904 0x402DE6: ALPartitionStoreReadIndexBins (ALStore.c:222)
+   n1: 49017904 0x401F47: doMultiQueryValueConstraint (multiquery_merge.c:242)
+    n1: 49017904 0x402813: process_query (multiquery_merge.c:425)
+     n0: 49017904 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401BAE: doMultiQueryValueConstraint (multiquery_merge.c:185)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401C76: doMultiQueryValueConstraint (multiquery_merge.c:205)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n0: 32024 in 22 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=5
+#-----------
+time=462131311
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=597493163
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=676091773
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=774360912
+mem_heap_B=116159304
+mem_heap_extra_B=11504
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=914114090
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=1003647339
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=1073236161
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=1168122707
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=1231382184
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=1357941602
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=detailed
+n4: 116158792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 49017904 0x407E68: ALPartitionStoreReadIndexBinsPOSIX (ALStorePOSIX.c:542)
+  n1: 49017904 0x402DE6: ALPartitionStoreReadIndexBins (ALStore.c:222)
+   n1: 49017904 0x401F47: doMultiQueryValueConstraint (multiquery_merge.c:242)
+    n1: 49017904 0x402813: process_query (multiquery_merge.c:425)
+     n0: 49017904 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401BAE: doMultiQueryValueConstraint (multiquery_merge.c:185)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401C76: doMultiQueryValueConstraint (multiquery_merge.c:205)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n0: 32024 in 22 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=15
+#-----------
+time=1446559565
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=1560496781
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=1649120042
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=1750410897
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=1839029373
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=1952982070
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=2079608886
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=2231562011
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=2358182478
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=2459490679
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=2535469610
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=detailed
+n4: 116158792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 49017904 0x407E68: ALPartitionStoreReadIndexBinsPOSIX (ALStorePOSIX.c:542)
+  n1: 49017904 0x402DE6: ALPartitionStoreReadIndexBins (ALStore.c:222)
+   n1: 49017904 0x401F47: doMultiQueryValueConstraint (multiquery_merge.c:242)
+    n1: 49017904 0x402813: process_query (multiquery_merge.c:425)
+     n0: 49017904 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401BAE: doMultiQueryValueConstraint (multiquery_merge.c:185)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401C76: doMultiQueryValueConstraint (multiquery_merge.c:205)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n0: 32024 in 22 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=26
+#-----------
+time=2636776832
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=2738077088
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=2839373357
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=2940677023
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=3041971695
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=detailed
+n4: 116158792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 49017904 0x407E68: ALPartitionStoreReadIndexBinsPOSIX (ALStorePOSIX.c:542)
+  n1: 49017904 0x402DE6: ALPartitionStoreReadIndexBins (ALStore.c:222)
+   n1: 49017904 0x401F47: doMultiQueryValueConstraint (multiquery_merge.c:242)
+    n1: 49017904 0x402813: process_query (multiquery_merge.c:425)
+     n0: 49017904 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401BAE: doMultiQueryValueConstraint (multiquery_merge.c:185)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401C76: doMultiQueryValueConstraint (multiquery_merge.c:205)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n0: 32024 in 22 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=31
+#-----------
+time=3168597798
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=3297865018
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=3455100139
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=3573032477
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=3690958823
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=3769577690
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=3887502068
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=3966119426
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=4084042786
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=4201967396
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=4280585786
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=4398507049
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=4477121564
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=4595040563
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=4673656548
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=4791575868
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=4870193174
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=5027427042
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=5184663464
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=5247926792
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=5311187437
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=5374448750
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=detailed
+n4: 116158792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 49017904 0x407E68: ALPartitionStoreReadIndexBinsPOSIX (ALStorePOSIX.c:542)
+  n1: 49017904 0x402DE6: ALPartitionStoreReadIndexBins (ALStore.c:222)
+   n1: 49017904 0x401F47: doMultiQueryValueConstraint (multiquery_merge.c:242)
+    n1: 49017904 0x402813: process_query (multiquery_merge.c:425)
+     n0: 49017904 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401BAE: doMultiQueryValueConstraint (multiquery_merge.c:185)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401C76: doMultiQueryValueConstraint (multiquery_merge.c:205)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n0: 32024 in 22 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=53
+#-----------
+time=5437708761
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=5500973044
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=5564234310
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=5627496132
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=5690759871
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=5754020788
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=5817282319
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=5880544475
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=5943808594
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=6007069607
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=detailed
+n4: 116158792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 49017904 0x407E68: ALPartitionStoreReadIndexBinsPOSIX (ALStorePOSIX.c:542)
+  n1: 49017904 0x402DE6: ALPartitionStoreReadIndexBins (ALStore.c:222)
+   n1: 49017904 0x401F47: doMultiQueryValueConstraint (multiquery_merge.c:242)
+    n1: 49017904 0x402813: process_query (multiquery_merge.c:425)
+     n0: 49017904 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401BAE: doMultiQueryValueConstraint (multiquery_merge.c:185)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401C76: doMultiQueryValueConstraint (multiquery_merge.c:205)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n0: 32024 in 22 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=63
+#-----------
+time=6070333062
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=6133595251
+mem_heap_B=116158792
+mem_heap_extra_B=11496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=6278141281
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=6341406024
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=6404669241
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=6467934209
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=6531195555
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=6594457079
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=6657719569
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=6720979810
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=detailed
+n4: 84678396 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 33554432 0x401BAE: doMultiQueryValueConstraint (multiquery_merge.c:185)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n1: 33554432 0x401C76: doMultiQueryValueConstraint (multiquery_merge.c:205)
+  n1: 33554432 0x402813: process_query (multiquery_merge.c:425)
+   n0: 33554432 0x402899: main (multiquery_merge.c:455)
+ n1: 17537508 0x407E68: ALPartitionStoreReadIndexBinsPOSIX (ALStorePOSIX.c:542)
+  n1: 17537508 0x402DE6: ALPartitionStoreReadIndexBins (ALStore.c:222)
+   n1: 17537508 0x401F47: doMultiQueryValueConstraint (multiquery_merge.c:242)
+    n1: 17537508 0x402813: process_query (multiquery_merge.c:425)
+     n0: 17537508 0x402899: main (multiquery_merge.c:455)
+ n0: 32024 in 22 places, all below massif's threshold (01.00%)
+#-----------
+snapshot=73
+#-----------
+time=6784241441
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=6847502849
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=6910769447
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=6974034557
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=7037300383
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=7100560568
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=7163821795
+mem_heap_B=84678396
+mem_heap_extra_B=10036
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=7660516720
+mem_heap_B=82795596
+mem_heap_extra_B=8676
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=81
+#-----------
+time=8399879975
+mem_heap_B=67140888
+mem_heap_extra_B=8528
+mem_stacks_B=0
+heap_tree=empty

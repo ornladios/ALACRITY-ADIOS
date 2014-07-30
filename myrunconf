@@ -1,0 +1,16 @@
+# A default way to call configure. Will cause ALACRITY to
+# be installed in <current directory>/build. You must
+# modify the paths to timer and indexcompression as needed
+# below
+# NOTE: assumes no spaces in paths; if spaces exist in your
+#       environment, you must fix this file for yourself
+
+INSTALL_DIR=./build
+TIMER_DIR=${HOME}/workspace/c/timer/build
+RIDCOMP_DIR=${HOME}/workspace/cxx/pfordelta_for_adios_query
+
+mkdir -p "$INSTALL_DIR"
+echo ./configure --prefix=`readlink -f $INSTALL_DIR` --with-timer=`readlink -f $TIMER_DIR` --with-ridcompress=`readlink -f $RIDCOMP_DIR`
+./configure  CFLAGS="-g -O0" CXXFLAGS="-g -O0" --prefix=`readlink -f $INSTALL_DIR` --with-timer=`readlink -f $TIMER_DIR` --with-ridcompress=`readlink -f $RIDCOMP_DIR`
+#./configure  --prefix=`readlink -f $INSTALL_DIR` --with-timer=`readlink -f $TIMER_DIR` --with-ridcompress=`readlink -f $RIDCOMP_DIR`
+

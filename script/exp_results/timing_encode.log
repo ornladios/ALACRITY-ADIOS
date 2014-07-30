@@ -1,0 +1,246 @@
+PFD
+qsub: waiting for job 15052.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15052.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -x -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   27.048
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15052.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15053.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15053.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -x -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.600
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15053.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15054.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15054.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -x -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   27.065
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15054.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15055.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15055.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -x -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.696
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15055.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15056.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15056.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -x -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.592
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15056.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15057.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15057.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -x -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   28.059
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15057.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15058.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15058.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -x -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.645
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15058.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15059.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15059.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -x -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.708
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15059.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15060.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15060.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -x -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   27.007
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15060.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15061.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15061.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -x -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.628
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15061.sith-mgmt2.ccs.ornl.gov completed
+
+RPFD
+qsub: waiting for job 15062.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15062.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -h -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   25.939
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15062.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15063.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15063.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -h -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   25.698
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15063.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15064.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15064.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -h -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.067
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15064.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15065.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15065.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -h -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   27.001
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15065.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15066.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15066.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -h -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.027
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15066.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15067.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15067.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -h -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   25.904
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15067.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15068.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15068.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -h -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   25.983
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15068.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15069.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15069.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -h -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   25.925
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15069.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15070.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15070.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -h -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   27.376
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15070.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15071.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15071.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -h -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   25.843
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15071.sith-mgmt2.ccs.ornl.gov completed
+
+EPFD
+qsub: waiting for job 15072.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15072.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -r -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.793
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15072.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15073.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15073.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -r -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.660
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15073.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15074.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15074.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -r -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.784
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15074.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15075.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15075.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -r -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.794
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15075.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15076.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15076.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -r -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.713
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15076.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15077.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15077.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -r -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.701
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15077.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15078.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15078.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -r -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.664
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15078.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15079.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15079.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -r -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.736
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15079.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15080.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15080.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -r -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.782
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15080.sith-mgmt2.ccs.ornl.gov completed
+qsub: waiting for job 15081.sith-mgmt2.ccs.ornl.gov to start
+qsub: job 15081.sith-mgmt2.ccs.ornl.gov ready
+
+/ccs/home/xzou2/alac_fastbit_comp/alac_multi_engine/build/bin/alac encode -p268435456E -r -edouble -s16 /lustre/widow2/scratch/xzou2/widow0-20130305/tmp/temp.bin /lustre/widow2/scratch/xzou2/widow0-20130305/tmp_out/temp
+   26.509
+Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
+
+qsub: job 15081.sith-mgmt2.ccs.ornl.gov completed
+
