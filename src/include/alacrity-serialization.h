@@ -1,9 +1,10 @@
-#pragma once
+#ifndef ALACRITY_SERIALIZATION_H_
+#define ALACRITY_SERIALIZATION_H_
+
 #include <stdint.h>
 #include <memstream.h>
 #include <alacrity-types.h>
 
-#include <alacrity-serialization.h>
 #include <alacrity-serialization-legacy.h>
 #include <ALUtil.h>
 
@@ -24,7 +25,7 @@ ALError ALSerializeBinLayout(const ALBinLayout *binLayout, uint8_t significantBy
 ALError ALDeserializeBinLayout(ALBinLayout *binLayout, uint8_t significantBytes, memstream_t *ms);
 
 /* Get size functions */
-uint64_t ALGetDataSize(const ALIndex *index, const ALMetadata *metadata);
+uint64_t ALGetDataSize(const ALData *data, const ALMetadata *metadata);
 uint64_t ALGetIndexSize(const ALIndex *index, const ALMetadata *metadata);
 uint64_t ALGetBinLayoutSize(const ALBinLayout *binLayout, uint8_t significantBytes);
 uint64_t ALGetPartitionDataSize(const ALPartitionData *partitionData);
@@ -80,3 +81,4 @@ static inline uint64_t ALGetIndexBinSize(const ALMetadata *metadata, bin_id_t bi
     return ALGetIndexBinOffset(metadata, binID + 1) - ALGetIndexBinOffset(metadata, binID);
 }
 
+#endif /*ALACRITY_SERIALIZATION_H_*/

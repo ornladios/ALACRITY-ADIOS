@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ALACRITY_PART_MANIP_H_
+#define ALACRITY_PART_MANIP_H_
 
 #include <alacrity-types.h>
 
@@ -68,4 +69,4 @@ ALError ALMerge(const ALPartitionData *part1, const ALPartitionData *part2, ALPa
 ALError ALBuildBinLayout (const ALEncoderConfig *config, const void *input, uint64_t inputCount, ALBinLookupTable *binLookupTable, ALPartitionData *output);
 ALError ALBuildInvertedIndexFromLayout (const ALEncoderConfig *config, const void *input, uint64_t inputCount, ALBinLookupTable *binLookupTable, ALPartitionData *output);
 
-
+#endif

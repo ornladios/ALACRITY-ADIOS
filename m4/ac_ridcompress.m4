@@ -13,7 +13,7 @@ dnl If the timer lib was specified, verify that it exists and can compile
 if test "x$with_ridcompress" != xno; then
     RIDCOMPRESS_CPPFLAGS="-I$with_ridcompress -I$with_ridcompress/include"
     RIDCOMPRESS_LDFLAGS="-L$with_ridcompress -L$with_ridcompress/lib"
-    RIDCOMPRESS_LIBS="-lridcompress"
+    RIDCOMPRESS_LIBS="-lridcompress -lstdc++"
 
     saveCPPFLAGS="$CPPFLAGS"
     saveLDFLAGS="$LDFLAGS"

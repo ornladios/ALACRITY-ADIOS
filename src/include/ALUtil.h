@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ALUTIL_H_
+#define ALUTIL_H_
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -169,10 +171,10 @@ static inline ALEndianness detectEndianness() {
 #endif
 
 #define SET_ITH_BUFFER_ELEMENT(baseptr, i, val, elemsize) \
-        SET_BUFFER_ELEMENT((uint8_t *)(baseptr) + (i) * (elemsize), val, (elemsize))
+        SET_BUFFER_ELEMENT((uint8_t *)(baseptr) + (uint64_t)(i) * (elemsize), val, (elemsize))
 
 #define SET_BUFFER_ARRAY(src_ptr, dest_ptr, num, elemsize) \
-    memcpy ((src_ptr), (dest_ptr), (num) * (elemsize));
+    memcpy ((src_ptr), (dest_ptr), (uint64_t)(num) * (elemsize));
 
 #define GET_BIN_COUNT(binLayout, binID, binCount) \
     (binCount) = ((binLayout).binStartOffsets [binID + 1] - (binLayout).binStartOffsets [binID]);
@@ -226,3 +228,4 @@ static inline ALEndianness detectEndianness() {
 #define eprintf(...) (void)0
 #endif
 
+#endif

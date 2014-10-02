@@ -370,6 +370,7 @@ ALError ALDeserializePartitionData(ALPartitionData *partitionData, memstream_t *
     ALDeserializeMetadata(&partitionData->metadata, ms);
     ALDeserializeData(&partitionData->data, &partitionData->metadata, ms);
     ALDeserializeIndex(&partitionData->index, &partitionData->metadata, ms);
+	partitionData->ownsBuffers = true;
 
     return ALErrorNone;
 }

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ALACRITY_TYPES_H_
+#define ALACRITY_TYPES_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -134,4 +135,6 @@ typedef struct {
 
 #ifdef __cplusplus
 } // extern "C"
+#endif
+
 #endif

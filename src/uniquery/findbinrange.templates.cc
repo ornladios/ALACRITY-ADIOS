@@ -9,13 +9,16 @@ extern "C" {
 #include <stdint.h>
 #include <alacrity.h>
 #include <ALUtil.h>
+#include <uniquery/helpers.h>
 }
 
 // Find the bin range that intersects with the given query interval, assuming elements are in
 // one's complement (i.e., floating point numbers).
 // Template parameters should have UT = unsigned integer of size elementSize, and ST = signed integer of size elementSize
+namespace {
 template<class UT, class ST>
- bool findBinRange1CTemplate(const ALMetadata *meta, UT query_lb, UT query_ub, bin_id_t *start_bin, bin_id_t *end_bin);
+bool findBinRange1CTemplate(const ALMetadata *meta, UT query_lb, UT query_ub, bin_id_t *start_bin, bin_id_t *end_bin);
+}
 
 extern "C" {
     #include <stdbool.h>
@@ -42,8 +45,9 @@ extern "C" {
 // "s_" prefix means signed (no such prefix means unsigned)
 // "_hi" suffix means the variable contains a value to be interpreted as "sigbits" long
 //   (though 2's complement may fill the higher bits with 1's for negative numbers)
+namespace {
 template<class UT, class ST>
- bool findBinRange1CTemplate(const ALMetadata *meta, UT query_lb, UT query_ub, bin_id_t *start_bin, bin_id_t *end_bin) {
+bool findBinRange1CTemplate(const ALMetadata *meta, UT query_lb, UT query_ub, bin_id_t *start_bin, bin_id_t *end_bin) {
     const ALBinLayout * const bl = &meta->binLayout;
     const int sigbits = meta->significantBits;
     const int insigbits = (meta->elementSize << 3) - sigbits;
@@ -217,4 +221,5 @@ template<class UT, class ST>
     // * start_bin_val <= query_ub and end_bin_val >= query_lb, so the query
     //   range and bin range intersect
     return true;
+}
 }

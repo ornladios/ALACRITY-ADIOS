@@ -13,7 +13,7 @@ dnl If the timer lib was specified, verify that it exists and can compile
 if test "x$with_timer" != xno; then
     TIMER_CPPFLAGS="-I$with_timer/include"
     TIMER_LDFLAGS="-L$with_timer/lib"
-    TIMER_LIBS="-ltimer"
+    TIMER_LIBS="-ltimer -lm"
 
     saveCPPFLAGS="$CPPFLAGS"
     saveLDFLAGS="$LDFLAGS"
@@ -38,7 +38,8 @@ if test "x$with_timer" != xno; then
       )],
       [AC_MSG_FAILURE(
         [Cannot successfully link with the timer lib. Make sure it has been properly installed at the path specified ($with_timer).]dnl
-      )]dnl
+      )],
+      [-lm]dnl
     )
 
     CPPFLAGS="$saveCPPFLAGS"

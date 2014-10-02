@@ -4444,79 +4444,7 @@ fi
 
 AM_PROG_AR
 
-
-
-{ $as_echo "$as_me:$LINENO: checking for main in -lstdc++" >&5
-$as_echo_n "checking for main in -lstdc++... " >&6; }
-if test "${ac_cv_lib_stdcpp_main+set}" = set; then
-  $as_echo_n "(cached) " >&6
-else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-lstdc++  $LIBS"
-cat >conftest.$ac_ext <<_ACEOF
-/* confdefs.h.  */
-_ACEOF
-cat confdefs.h >>conftest.$ac_ext
-cat >>conftest.$ac_ext <<_ACEOF
-/* end confdefs.h.  */
-
-
-int
-main ()
-{
-return main ();
-  ;
-  return 0;
-}
-_ACEOF
-rm -f conftest.$ac_objext conftest$ac_exeext
-if { (ac_try="$ac_link"
-case "(($ac_try" in
-  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
-  *) ac_try_echo=$ac_try;;
-esac
-eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
-$as_echo "$ac_try_echo") >&5
-  (eval "$ac_link") 2>conftest.er1
-  ac_status=$?
-  grep -v '^ *+' conftest.er1 >conftest.err
-  rm -f conftest.er1
-  cat conftest.err >&5
-  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
-  (exit $ac_status); } && {
-	 test -z "$ac_c_werror_flag" ||
-	 test ! -s conftest.err
-       } && test -s conftest$ac_exeext && {
-	 test "$cross_compiling" = yes ||
-	 $as_test_x conftest$ac_exeext
-       }; then
-  ac_cv_lib_stdcpp_main=yes
-else
-  $as_echo "$as_me: failed program was:" >&5
-sed 's/^/| /' conftest.$ac_ext >&5
-
-	ac_cv_lib_stdcpp_main=no
-fi
-
-rm -rf conftest.dSYM
-rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
-      conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:$LINENO: result: $ac_cv_lib_stdcpp_main" >&5
-$as_echo "$ac_cv_lib_stdcpp_main" >&6; }
-if test "x$ac_cv_lib_stdcpp_main" = x""yes; then
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_LIBSTDC__ 1
-_ACEOF
-
-  LIBS="-lstdc++ $LIBS"
-
-else
-  { { $as_echo "$as_me:$LINENO: error: ALACRITY requires libstdc++" >&5
-$as_echo "$as_me: error: ALACRITY requires libstdc++" >&2;}
-   { (exit 1); exit 1; }; }
-fi
+#AC_CHECK_LIB([stdc++],[main],,[AC_MSG_ERROR(ALACRITY requires libstdc++)])
 
 
 
@@ -5156,7 +5084,7 @@ fi
 if test "x$with_timer" != xno; then
     TIMER_CPPFLAGS="-I$with_timer/include"
     TIMER_LDFLAGS="-L$with_timer/lib"
-    TIMER_LIBS="-ltimer"
+    TIMER_LIBS="-ltimer -lm"
 
     saveCPPFLAGS="$CPPFLAGS"
     saveLDFLAGS="$LDFLAGS"
@@ -5329,7 +5257,7 @@ if test "${ac_cv_lib_timer_timer_init+set}" = set; then
   $as_echo_n "(cached) " >&6
 else
   ac_check_lib_save_LIBS=$LIBS
-LIBS="-ltimer  $LIBS"
+LIBS="-ltimer -lm     $LIBS"
 cat >conftest.$ac_ext <<_ACEOF
 /* confdefs.h.  */
 _ACEOF
@@ -5434,7 +5362,7 @@ fi
 if test "x$with_ridcompress" != xno; then
     RIDCOMPRESS_CPPFLAGS="-I$with_ridcompress -I$with_ridcompress/include"
     RIDCOMPRESS_LDFLAGS="-L$with_ridcompress -L$with_ridcompress/lib"
-    RIDCOMPRESS_LIBS="-lridcompress"
+    RIDCOMPRESS_LIBS="-lridcompress -lstdc++"
 
     saveCPPFLAGS="$CPPFLAGS"
     saveLDFLAGS="$LDFLAGS"

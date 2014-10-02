@@ -158,7 +158,7 @@ static ALError ALDecodeWithCompressedInvertedIndex(const ALPartitionData *input,
 
             rid_t rid = *indexPtr;
 
-            REJOIN_DATUM_BITS((char*)output + rid * sizeof(rid_t), elemsize, sigbits, hi, low);
+            REJOIN_DATUM_BITS((char*)output + rid * elemsize, elemsize, sigbits, hi, low);
             // REJOIN_DATUM((char*)output + rid, elemsize, sigbytes, hi, low);
 
             dataPtr += insigbytes;

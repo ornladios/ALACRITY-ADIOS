@@ -65,8 +65,8 @@ ALError ALMerge(const ALPartitionData *part1, const ALPartitionData *part2, ALPa
 
     while (curBin[PART1] < numBins1 || curBin[PART2] < numBins2) {
         // Get the value of the next bin for each
-        if (curBin[PART1] < numBins1) nextBinVals[PART1] = binValuePtr[PART1];
-        if (curBin[PART2] < numBins2) nextBinVals[PART2] = binValuePtr[PART2];
+        if (curBin[PART1] < numBins1) nextBinVals[PART1] = binValuePtr[PART1][curBin[PART1]];
+        if (curBin[PART2] < numBins2) nextBinVals[PART2] = binValuePtr[PART2][curBin[PART2]];
 
         // Choose which partition has the bin to append next
 
@@ -139,7 +139,7 @@ ALError ALMerge(const ALPartitionData *part1, const ALPartitionData *part2, ALPa
         }
 
         // Copy the one-per-bin items (bin value, end offset)
-        binValuePtr[MERGEDPART] = nextBinVals[srcPart]; // Just copy the bin value
+        binValuePtr[MERGEDPART][curBin[MERGEDPART]] = nextBinVals[srcPart]; // Just copy the bin value
         *binEndOffPtr[MERGEDPART] = curBinOffset[MERGEDPART]; // Copy in the current offset (this works whether or not two bins were just merged
 
         // Increment all one-per-bin pointers/counters

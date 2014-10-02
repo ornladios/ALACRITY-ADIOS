@@ -6,9 +6,6 @@
 /* Define if you have libridcompress */
 #undef HAVE_LIBRIDCOMPRESS
 
-/* Define to 1 if you have the `stdc++' library (-lstdc++). */
-#undef HAVE_LIBSTDC__
-
 /* Define if you have libtimer */
 #undef HAVE_LIBTIMER
 

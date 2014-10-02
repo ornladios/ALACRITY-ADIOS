@@ -20,7 +20,7 @@ AM_PROG_CC_C_O
 m4_pattern_allow([AM_PROG_AR])
 AM_PROG_AR 
 
-AC_CHECK_LIB([stdc++],[main],,[AC_MSG_ERROR(ALACRITY requires libstdc++)])
+#AC_CHECK_LIB([stdc++],[main],,[AC_MSG_ERROR(ALACRITY requires libstdc++)])
 
 m4_include([m4/ac_timer.m4])
 m4_include([m4/ac_ridcompress.m4])

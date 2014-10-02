@@ -12,11 +12,14 @@ extern "C" {
 
 #include <alacrity.h>
 #include <ALUtil.h>
+#include <uniquery/helpers.h>
 }
 
+namespace {
 template<class ET>
 uint64_t trimQueryResultsTemplate(ALUnivariateQueryResult *result, const ALMetadata *meta,
                                   ET lb, ET ub, bin_id_t start_bin, bin_id_t end_bin);
+}
 
 extern "C" {
 uint64_t trimQueryResults(ALUnivariateQueryResult *result, const ALMetadata *meta,
@@ -34,6 +37,7 @@ uint64_t trimQueryResults(ALUnivariateQueryResult *result, const ALMetadata *met
 }
 }
 
+namespace {
 template<class ET>
 uint64_t trimQueryResultsTemplate(ALUnivariateQueryResult *result, const ALMetadata *meta,
                                   ET lb, ET ub, bin_id_t start_bin, bin_id_t end_bin) {
@@ -87,4 +91,5 @@ uint64_t trimQueryResultsTemplate(ALUnivariateQueryResult *result, const ALMetad
 	result->resultCount = lastBinTrimmedEndOff - firstBinTrimmedStartOff;
 
 	return oldResultCount - result->resultCount;
+}
 }

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ALACRITY_SERIALIZATION_DEBUG_H_
+#define ALACRITY_SERIALIZATION_DEBUG_H_
 
 #include "ALUtil.h"
 
@@ -36,3 +37,5 @@
     printf ("[%s] significantBytes = %d\n", __FUNCTION__, metadata.significantBits); \
     /*printf ("[%s] indexForm = %d\n", __FUNCTION__, metadata.indexForm);*/ \
 }
+
+#endif /*ALACRITY_SERIALIZATION_DEBUG_H_*/

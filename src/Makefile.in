@@ -225,7 +225,8 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(srcdir) -I$(srcdir)/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
-AM_CFLAGS = -g 
+AM_CFLAGS = -g
+AM_CXXFLAGS = -fno-exceptions -fno-rtti
 ALACRITY_EXT_INCLUDES = \
 	include/alacrity.h \
 	include/alacrity-core.h \

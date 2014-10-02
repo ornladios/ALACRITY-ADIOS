@@ -82,6 +82,7 @@ int main(int argc, char **argv) {
 
 int doQuery(const char *filebase, double lb, double ub) {
 	ALStore store;
+	ALGlobalMetadata gmeta;
 	ALQueryEngine qe;
 	ALUnivariateQuery query;
 	ALUnivariateQueryResult result;
@@ -92,10 +93,14 @@ int doQuery(const char *filebase, double lb, double ub) {
 	{
 		ALError err = ALStoreOpenPOSIX(&store, filebase, "r",
 				OPTIONS.legacyFormat);
-		if (err != ALErrorNone)
+		if (err != ALErrorNone) {
 			THROW(tc1, 1,
 					"Could not open ALACRITY store %s for reading", filebase);
-
+		}
+        if (ALStoreGetGlobalMetadata(&store, &gmeta) != ALErrorNone) {
+            THROW(tc1, 2,
+                  "Could not read global metadata from ALACRITY store %s", filebase);
+        }
 		ALQueryEngineInit(&qe, &store, true);
 		ALQueryEngineStartUnivariateDoubleQuery(&qe, lb, ub, VALUE_RETRIEVAL_QUERY_TYPE, &query);
 		//This modification is to measure the cost of data candidate check
@@ -117,6 +122,7 @@ int doQuery(const char *filebase, double lb, double ub) {
 //		printf("total query process %f \n ", timer_get_total_interval("totalqueryprocess"));
 	}
 	CATCH(tc1){
+	IF_EL(2):
 	IF_EL(1):
 	eprintf(EMSG);
 	eprintf("\n");

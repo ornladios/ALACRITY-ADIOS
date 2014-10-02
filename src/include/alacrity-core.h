@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ALACRITY_CORE_H_
+#define ALACRITY_CORE_H_
 
 #include <alacrity-types.h>
 
@@ -8,3 +9,4 @@ char * ALErrorString(ALError e);
 // Destroy an ALPartitionData structure produced by ALACRITY
 ALError ALPartitionDataDestroy(ALPartitionData *data);
 
+#endif

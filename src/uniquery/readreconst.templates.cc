@@ -14,18 +14,19 @@ extern "C" {
 
 #include <alacrity.h>
 #include <ALUtil.h>
+#include <uniquery/helpers.h>
 }
 
+namespace {
 template<class UT>
 static uint64_t readAndReconstituteDataTemplate(ALPartitionStore *ps, const ALMetadata *meta,
                                                 bin_id_t start_bin, bin_id_t end_bin,
                                                 _Bool end_bins_only, ALData *data);
 
-
 template<class UT>
 static void reconstituteElements(const ALMetadata *meta, bin_id_t start_bin, bin_id_t end_bin,
 		                         char *start_bin_input, char *start_bin_output);
-
+}
 
 extern "C" {
 uint64_t readAndReconstituteData(ALPartitionStore *ps, const ALMetadata *meta,
@@ -67,6 +68,7 @@ void reconstituteData(const ALMetadata *meta, bin_id_t start_bin, bin_id_t end_b
 }
 }
 
+namespace {
 // start_bin_{input,output} = pointer to the beginning of the data for the start_bin
 // in the {input,output} buffer
 template<class UT>
@@ -147,4 +149,4 @@ static uint64_t readAndReconstituteDataTemplate(ALPartitionStore *ps, const ALMe
 
     return elementCount;
 }
-
+}

@@ -85,7 +85,12 @@ static ALError convertIIToCII(ALMetadata *metadata,
 
     assert(new_index_wcsize >= outputCurPtr - output_index); // Ensure we didn't overrun
     output_index = realloc(output_index, outputCurPtr - output_index); // Shrink the index down to max size
-    FREE(input_index);
+
+    // Bugfix: ensure we capture the new output_index pointer. Previously, it was assumed that since we're
+    // shrinking the buffer, it would never move, but this appears not to be the case on some systems...
+    *indexPtr = output_index;
+
+	FREE(input_index);
 
     return ALErrorNone;
 }
@@ -185,7 +190,7 @@ ALError ALConvertPartialIndexForm(const ALMetadata *metadata,
 
     if (oldForm == ALCompressedInvertedIndex &&
         newForm == ALInvertedIndex) {
-        return convertCIIToII(metadata, partialIndex, lo_bin, hi_bin, false);
+        return convertCIIToII((ALMetadata *)metadata, partialIndex, lo_bin, hi_bin, false);
     } else {
         eprintf("ERROR: Conversion from index form %d to %d is not supported at this time\n",
                 oldForm, newForm);

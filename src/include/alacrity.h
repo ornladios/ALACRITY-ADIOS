@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef ALACRITY_H_
+#define ALACRITY_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -22,3 +22,4 @@ extern "C" {
 }
 #endif
 
+#endif /*ALACRITY_H_*/

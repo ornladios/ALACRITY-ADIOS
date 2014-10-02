@@ -8,6 +8,10 @@
 #ifndef BINRANGE_H_
 #define BINRANGE_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 #include <stdbool.h>
 #include <alacrity.h>
@@ -67,4 +71,9 @@ uint64_t trimQueryResults(ALUnivariateQueryResult *result, const ALMetadata *met
  */
 void reconstituteData(const ALMetadata *meta, bin_id_t start_bin, bin_id_t end_bin,
 		                         char *start_bin_input, char *start_bin_output);
+
+#ifdef __cplusplus
+}
+#endif
+
 #endif /* BINRANGE_H_ */

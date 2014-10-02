@@ -1,3 +1,6 @@
+#ifndef ALACRITY_FILESTORE_H_
+#define ALACRITY_FILESTORE_H_
+
 #include <stdint.h>
 #include <alacrity-types.h>
 
@@ -26,3 +29,4 @@ ALError ALFileStoreOpen(ALFileStore *fs, const char *basename, uint64_t num_part
 ALError ALFileStoreAppend(ALFileStore *fs, const ALPartitionData *part);
 ALError ALFileStoreClose(ALFileStore *fs);
 
+#endif
