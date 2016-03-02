@@ -278,7 +278,7 @@ _Bool doMultiQueryValueConstraint(const int varnums, char filebases[][1024],
 
 			if ( !are_bins_touched) {
 				empty_index = true;
-				printf("no bin is touched \n");
+				// printf("no bin is touched \n");
 				break;
 			}else{
 
