@@ -105,19 +105,19 @@ int doQuery(const char *filebase, double lb, double ub) {
 		ALQueryEngineStartUnivariateDoubleQuery(&qe, lb, ub, VALUE_RETRIEVAL_QUERY_TYPE, &query);
 		//This modification is to measure the cost of data candidate check
 		//ALQueryEngineStartUnivariateDoubleQuery(&qe, lb, ub, REGION_RETRIEVAL_CANDIDATE_CHECK_QUERY_TYPE, &query);
-
+		uint64_t totalResultCount = 0;
 		while (ALQueryNextResult(&query, &result)) {
-        	printf("Read %llu results\n", result.resultCount);
-
+		totalResultCount += result.resultCount;
         	if(result.data.asDouble != NULL	){
 				uint64_t j = 0;
 				double * d = (double *) result.data.asDouble;
-				for(; j < result.resultCount; j ++){
+				/*for(; j < result.resultCount; j ++){
 					printf("rid : %d, val: %f \n", result.rids[j], d[j]);
-				}
+				}*/
         	}
 			ALQueryResultDestroy(&result);
 		}
+        	printf("total results: [%llu] \n", totalResultCount);
 //		timer_stop("totalqueryprocess");
 //		printf("total query process %f \n ", timer_get_total_interval("totalqueryprocess"));
 	}
