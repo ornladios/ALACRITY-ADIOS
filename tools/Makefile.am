@@ -3,7 +3,7 @@ AM_LDFLAGS = -static-libstdc++
 #AM_CPPFLAGS =  -I$(top_srcdir)/src/include
 #AM_CPPFLAGS = 
 
-bin_PROGRAMS = alac uniquery
+bin_PROGRAMS = alac uniquery multiquery
 
 alac_SOURCES = alacrity.c
 alac_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS) -static-libstdc++
@@ -14,3 +14,8 @@ uniquery_SOURCES = uniquery.c
 uniquery_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS) -static-libstdc++
 uniquery_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) 
 uniquery_CPPFLAGS =  -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+
+multiquery_SOURCES = multiquery.c
+multiquery_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS)
+multiquery_LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS)  
+multiquery_CPPFLAGS =  -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
