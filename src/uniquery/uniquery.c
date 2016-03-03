@@ -147,7 +147,7 @@ _Bool ALQueryNextResult(ALUnivariateQuery *uniquery, ALUnivariateQueryResult *re
 
     	readIndex(&ps, meta, start_bin, end_bin, &index);
 
-    	printf("touched bin range [%d, %d] \n ", start_bin, end_bin);
+    	//printf("touched bin range [%d, %d] \n ", start_bin, end_bin);
 
     	timer_start("datacandidate");
 
@@ -182,7 +182,7 @@ _Bool ALQueryNextResult(ALUnivariateQuery *uniquery, ALUnivariateQueryResult *re
     	}
 
     	timer_stop("datacandidate");
-    	printf("candidate check %f \n", timer_get_total_interval("datacandidate"));
+    	//printf("candidate check %f \n", timer_get_total_interval("datacandidate"));
     }
 
     ALPartitionStoreClose(&ps);
