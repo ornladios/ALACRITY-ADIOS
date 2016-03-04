@@ -136,7 +136,7 @@ double dclock(void) {
 }
 
 
-double encode_time = 0, compress_time = 0, write_time = 0;
+double encode_time = 0, compress_time = 0, write_time = 0, total_time = 0;
 
 int main(int argc, char **argv) {
     cmdstr = argv[0];
@@ -345,6 +345,8 @@ int encodeCommandEncode(FILE *infile, uint64_t infile_len, ALStore *outfile) {
     encode_time = 0;
     compress_time = 0;
     write_time = 0;
+    total_time = 0;
+    double ss = dclock();
     while (!feof(infile) && !ferror(infile) && (bytesread = fread(inbuf, 1, buflen, infile)) != 0) {
         i++;
         dbprintf("Encoding partition %d with size %llu...\n", i, bytesread);
@@ -369,8 +371,8 @@ int encodeCommandEncode(FILE *infile, uint64_t infile_len, ALStore *outfile) {
         ALPartitionDataDestroy(&partdata); // TODO: make this automatic when encoding over an existing partition data
         dbprintf("Partition %d done!\n", i);
     }
-
-    printf("[encode: %9.3lf] [compress: %9.3lf] [write: %9.3lf] [total: %9.3lf]\n", encode_time, compress_time, write_time, encode_time + compress_time + write_time );
+    total_time = dclock() - ss;
+    printf("[read: %9.3lf] [encode: %9.3lf] [compress: %9.3lf] [write: %9.3lf] [total: %9.3lf]\n", total_time - (encode_time + compress_time + write_time ),  encode_time, compress_time, write_time, encode_time + compress_time + write_time , total_time);
     if (ferror(infile)) {
         fprintf(stderr, "Error reading from input file, aborting\n");
         return 1;
