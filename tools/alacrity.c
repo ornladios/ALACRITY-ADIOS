@@ -20,6 +20,7 @@ int showbinsCommand(int argc, char **argv);
 int bidtovCommand(int argc, char **argv);
 int showbinlensCommand(int argc, char **argv);
 
+#define BREAKDOWN
 
 //
 // COMMAND LIST
@@ -135,7 +136,7 @@ double dclock(void) {
 }
 
 
-double encode_time = 0;
+double encode_time = 0, compress_time = 0, write_time = 0;
 
 int main(int argc, char **argv) {
     cmdstr = argv[0];
@@ -342,28 +343,34 @@ int encodeCommandEncode(FILE *infile, uint64_t infile_len, ALStore *outfile) {
     int i = 0;
     double s  ;
     encode_time = 0;
+    compress_time = 0;
+    write_time = 0;
     while (!feof(infile) && !ferror(infile) && (bytesread = fread(inbuf, 1, buflen, infile)) != 0) {
         i++;
         dbprintf("Encoding partition %d with size %llu...\n", i, bytesread);
         s  = dclock();
         ALEncode(&econfig, inbuf, bytesread / datatypeLen, &partdata);
-
-        if (OPTIONS.index_form >= ALCompressedInvertedIndex) // all other compressed index based on inverted index
-            ALConvertIndexForm(&partdata.metadata, &partdata.index, OPTIONS.index_form);
-
         encode_time  = encode_time +  (dclock() - s);
 
+        s = dclock();
+        if (OPTIONS.index_form >= ALCompressedInvertedIndex) // all other compressed index based on inverted index
+            ALConvertIndexForm(&partdata.metadata, &partdata.index, OPTIONS.index_form);
+        compress_time  = compress_time +  (dclock() - s);
+
+        s = dclock();
         if (ALStoreWritePartition(outfile, &partdata) != ALErrorNone) {
             fprintf(stderr, "Error appending ALACRITY partition to file, aborting\n");
             abort();
             return 1;
         }
+        write_time  = write_time +  (dclock() - s);
+
 
         ALPartitionDataDestroy(&partdata); // TODO: make this automatic when encoding over an existing partition data
         dbprintf("Partition %d done!\n", i);
     }
 
-    printf("%9.3lf\n", encode_time);
+    printf("[encode: %9.3lf] [compress: %9.3lf] [write: %9.3lf] [total: %9.3lf]\n", encode_time, compress_time, write_time, encode_time + compress_time + write_time );
     if (ferror(infile)) {
         fprintf(stderr, "Error reading from input file, aborting\n");
         return 1;
