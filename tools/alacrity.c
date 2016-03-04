@@ -372,7 +372,7 @@ int encodeCommandEncode(FILE *infile, uint64_t infile_len, ALStore *outfile) {
         dbprintf("Partition %d done!\n", i);
     }
     total_time = dclock() - ss;
-    printf("[read: %9.3lf] [encode: %9.3lf] [compress: %9.3lf] [write: %9.3lf] [total: %9.3lf]\n", total_time - (encode_time + compress_time + write_time ),  encode_time, compress_time, write_time, encode_time + compress_time + write_time , total_time);
+    printf("[read: %9.3lf] [encode: %9.3lf] [compress: %9.3lf] [write: %9.3lf] [total: %9.3lf]\n", total_time - (encode_time + compress_time + write_time ),  encode_time, compress_time, write_time, total_time);
     if (ferror(infile)) {
         fprintf(stderr, "Error reading from input file, aborting\n");
         return 1;
