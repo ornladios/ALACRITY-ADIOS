@@ -123,7 +123,7 @@ timer_start("totalqueryprocess");
 
 //        	printf("total results: [%llu] \n", totalResultCount);
 timer_stop("totalqueryprocess");
-		printf("total_time: %9.3lf metadata_read: %9.3lf index_read: %9.3lf lob_read: %9.3lf candidate_check: %9.3lf \n ", timer_get_total_interval("totalqueryprocess"),
+		printf("total_time: %9.3lf    metadata_read: %9.3lf     index_read: %9.3lf    lob_read: %9.3lf      candidate_check: %9.3lf\n ", timer_get_total_interval("totalqueryprocess"),
 				timer_get_total_interval("metadata_read"), timer_get_total_interval("index_read"), timer_get_total_interval("low_read"), timer_get_total_interval("candidate_check"));
 	}
 	CATCH(tc1){
