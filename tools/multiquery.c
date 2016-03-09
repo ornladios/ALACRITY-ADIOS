@@ -136,8 +136,8 @@ int compfunc (const void *theone, const void *theotherone)
 _Bool doMultiQueryValueConstraint(const int varnums, char filebases[][1024],
 		const double *lbs, const double *hbs, char varnames[][1024]) {
 
-	double setup_s;
-	setup_s = dclock();
+//	double setup_s;
+//	setup_s = dclock();
 
 	if (varnums <= 0)
 		return false;
@@ -212,12 +212,12 @@ _Bool doMultiQueryValueConstraint(const int varnums, char filebases[][1024],
 //	uint64_t g_total = 0;
 
 
-	setup_time = setup_time + (dclock() - setup_s);
+	// setup_time = setup_time + (dclock() - setup_s);
 
 
 	while (!ALStoreEOF(alqe->store)) {
 
-		setup_s = dclock();
+		// setup_s = dclock();
 		/*
 		 * region retrieval
 		 */
@@ -256,12 +256,12 @@ _Bool doMultiQueryValueConstraint(const int varnums, char filebases[][1024],
 		int reorder = -1;
 		int i = 0; // reading index
 
-		setup_time = setup_time + (dclock() - setup_s);
+	//	setup_time = setup_time + (dclock() - setup_s);
 
 		for (; i < varnums; i++) {
 
 
-			setup_s = dclock();
+		//	setup_s = dclock();
 
 
 			memset(tmp_bitmap, 0, BITNSLOTS64(psize) * sizeof(uint64_t));
@@ -286,14 +286,17 @@ _Bool doMultiQueryValueConstraint(const int varnums, char filebases[][1024],
 									- bl->binStartOffsets[start_bins[i]];
 			ALIndex r_index =NULL;
 
-			setup_time = setup_time + (dclock() - setup_s);
+			//setup_time = setup_time + (dclock() - setup_s);
 
 
-			io_s = dclock();
+		//	io_s = dclock();
+timer_start("index_read");
 			 ALPartitionStoreReadIndexBins(&partitions[i], meta, start_bins[i], end_bins[i], &r_index);
-			 io_time = io_time + (dclock()-io_s);
+timer_stop("index_read");
+		//	 io_time = io_time + (dclock()-io_s);
 
-			 decode_s = dclock();
+			 //decode_s = dclock();
+timer_start("decode");
     		 const ALIndexForm oldForm = meta->indexMeta.indexForm;
     		 //printf("old form: %d, brbe[%d], bitrun[%d], bitexp[%d], pfd[%d] \n"
     		 //	 ,oldForm , ALCompressedMixInvertedIndex, ALCompressedHybridInvertedIndex,ALCompressedExpansionII ,ALCompressedInvertedIndex);
@@ -351,22 +354,24 @@ _Bool doMultiQueryValueConstraint(const int varnums, char filebases[][1024],
 
 				 return false; 
 			 }
-
-				 decode_time = decode_time + (dclock()- decode_s);
-
+timer_stop("decode");
+				 //decode_time = decode_time + (dclock()- decode_s);
+timer_start("bit_op");
 				bit_inter_s = dclock();
 				int k = 0;
 				for (; k < BITNSLOTS64(psize); k++) {
 					p_bitmap[k] = p_bitmap[k] & tmp_bitmap[k];
 				}
-				bit_inter_time = bit_inter_time + (dclock() - bit_inter_s);
+timer_stop("bit_op");
+//				bit_inter_time = bit_inter_time + (dclock() - bit_inter_s);
 
 			}
 		}
 
 
 		/************check total number by counting the binary 1 number *******/
-		bit_recover_s = dclock();
+//		bit_recover_s = dclock();
+timer_start("bits_to_rids");
 		total_result_count =0;
 		int kk = 0;
 		for (; kk < BITNSLOTS64(psize); kk++) {
@@ -427,7 +432,8 @@ _Bool doMultiQueryValueConstraint(const int varnums, char filebases[][1024],
 
 			free(recovered_rids);
 		}
-		bit_recover_time = bit_recover_time + (dclock() - bit_recover_s);
+	//	bit_recover_time = bit_recover_time + (dclock() - bit_recover_s);
+timer_stop("bits_to_rids");
 
 
 		int k = 0;
@@ -479,17 +485,17 @@ void process_query(char * argv[]) {
 		sscanf(argv[arg_cnt++], "%lg", &hb[i]);
 	}
 
-
-	double s  =dclock();
+	timer_init();
+timer_start("total");
 	doMultiQueryValueConstraint(varnums, path, lb, hb,varnames);
-
+timer_stop("total");
 	//printf("%9.3lf\t%9.3lf\t%9.3lf\t%9.3lf\t%9.3lf\t%9.3lf\t%9.3lf\n"
 		//		,setup_time,bit_construct_time, decode_time, io_time, bit_inter_time, bit_recover_time,dclock()-s);
 
-	//so werid problem, decode time is always 0, this is a workaround approach, also, remove the bit_construct_time from output, its always 0
-	double totalt = dclock()-s;
-	printf("%9.3lf\t%9.3lf\t%9.3lf\t%9.3lf\t%9.3lf\t%9.3lf\n"
-				,setup_time, totalt - (setup_time + io_time + bit_inter_time + bit_recover_time), io_time, bit_inter_time, bit_recover_time, totalt);
+	//printf("%9.3lf\t%9.3lf\t%9.3lf\t%9.3lf\t%9.3lf\t%9.3lf\n"
+		//		,setup_time, totalt - (setup_time + io_time + bit_inter_time + bit_recover_time), io_time, bit_inter_time, bit_recover_time, timer_get_total_interval("total"));
+	printf("total: %9.3lf    index_read: %9.3lf    decode: %9.3lf    bit_op: %9.3lf     bits_to_rids: %9.3lf\n", timer_get_total_interval("total"),
+			timer_get_total_interval("index_read"), timer_get_total_interval("decode"), timer_get_total_interval("bit_op"), timer_get_total_interval("bits_to_rids"));
 
 }
 
@@ -510,29 +516,7 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
-//	char rfile[1024] = "alac_results.csv";
-
 	process_query(argv);
 
-//	FILE * f = fopen(rfile, "a");
-//	if (!f) {
-//		printf("can not open file %s \n", rfile);
-//	}
-//
-//	fprintf(f, "%9.3lf\n", e_time - s_time);
 
-//	fclose(f);
-
-	/*
-
-
-	 printf("multi-query \n");
-
-	 const int varnums = 2;
-	 char path[2][1024];
-	 strcpy(path[0], "/home/xzou2/alacrity/indexing/temp");
-	 strcpy(path[1], "/home/xzou2/alacrity/indexing/vv");
-	 const double lb[2] = { 350, 250 };
-	 const double hb[2] = { 450, 350 };
-	 doMultiQueryValueConstraint(varnums, path, lb, hb, VAL_REGION_R);*/
 }
