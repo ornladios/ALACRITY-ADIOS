@@ -19,6 +19,7 @@
 // Internal headers under src/
 #include <uniquery/helpers.h>
 
+/*
 
 double dclock(void) {
 	struct timeval tv;
@@ -26,6 +27,7 @@ double dclock(void) {
 
 	return (double) tv.tv_sec + (double) tv.tv_usec * 1e-6;
 }
+*/
 
 void ensureMetadataReady(ALQueryEngine *qe);
 
