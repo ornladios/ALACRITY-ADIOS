@@ -13,10 +13,19 @@
 #include <alacrity.h>
 #include <uniquery.h>
 #include <ALUtil.h>
+#include <sys/stat.h>
+#include <sys/time.h>
 
 // Internal headers under src/
 #include <uniquery/helpers.h>
 
+
+double dclock(void) {
+	struct timeval tv;
+	gettimeofday(&tv, 0);
+
+	return (double) tv.tv_sec + (double) tv.tv_usec * 1e-6;
+}
 
 void ensureMetadataReady(ALQueryEngine *qe);
 
@@ -125,8 +134,9 @@ _Bool ALQueryNextResult(ALUnivariateQuery *uniquery, ALUnivariateQueryResult *re
 
     ALPartitionStore ps;
     ALStoreOpenPartition(qe->store, &ps, true);
-
+timer_start("metadata_read");
     const ALMetadata * const meta = getPartitionMetadata(qe, &ps);
+timer_stop("metadata_read");
     const ALBinLayout * const bl = &meta->binLayout;
     bin_id_t start_bin, end_bin;
     uint64_t resultCount;
@@ -144,9 +154,9 @@ _Bool ALQueryNextResult(ALUnivariateQuery *uniquery, ALUnivariateQueryResult *re
     	ALIndex index;
 
     	resultCount = bl->binStartOffsets[end_bin] - bl->binStartOffsets[start_bin];
-
+timer_start("index_read")
     	readIndex(&ps, meta, start_bin, end_bin, &index);
-
+timer_stop("index_read");
     	//printf("touched bin range [%d, %d] \n ", start_bin, end_bin);
 
     	timer_start("datacandidate");

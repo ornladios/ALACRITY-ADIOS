@@ -64,18 +64,21 @@ int main(int argc, char **argv) {
 		runs = atoi(argv[3]);
 	}
 	timer_init();
-	int k = 0;
+
+	doQuery(filebase, lb, ub);
+
+	/*int k = 0;
 	for (; k < runs; k++) {
 		timer_start("uniquery");
 		doQuery(filebase, lb, ub);
 		timer_stop("uniquery");
 	}
 	double t = timer_get_total_interval("uniquery");
-	printf("uniquery avg. time %f \n", t/runs);
+	printf("uniquery avg. time %f \n", t/runs);*/
 
 	/******** added by chris ends *********/
 
-	//timer_print_timers_short();
+	timer_print_timers_short();
 	// At the compiler's complaint...
 	return 0;
 }
@@ -87,7 +90,7 @@ int doQuery(const char *filebase, double lb, double ub) {
 	ALUnivariateQuery query;
 	ALUnivariateQueryResult result;
 
-//	timer_start("totalqueryprocess");
+timer_start("totalqueryprocess");
 
 	TRY(tc1)
 	{
@@ -117,9 +120,11 @@ int doQuery(const char *filebase, double lb, double ub) {
         	}
 			ALQueryResultDestroy(&result);
 		}
-        	printf("total results: [%llu] \n", totalResultCount);
-//		timer_stop("totalqueryprocess");
-//		printf("total query process %f \n ", timer_get_total_interval("totalqueryprocess"));
+
+//        	printf("total results: [%llu] \n", totalResultCount);
+timer_stop("totalqueryprocess");
+		printf("total_time: %9.3lf metadata_read: %9.3lf index_read: %9.3lf \n ", timer_get_total_interval("totalqueryprocess"),
+				timer_get_total_interval("metadata_read"), timer_get_total_interval("index_read"));
 	}
 	CATCH(tc1){
 	IF_EL(2):
