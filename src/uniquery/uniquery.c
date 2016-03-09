@@ -161,7 +161,7 @@ timer_start("index_read");
 timer_stop("index_read");
     	//printf("touched bin range [%d, %d] \n ", start_bin, end_bin);
 
-    	timer_start("datacandidate");
+
 
     	if (uniquery->queryType == REGION_RETRIEVAL_INDEX_ONLY_QUERY_TYPE) {
     		// No data, no candidate checks, just return the results as-is
@@ -169,7 +169,7 @@ timer_stop("index_read");
         	populateQueryResult(result, data, index, resultCount);
     	} else {
     		// Some or all data will be read, with candidate checks either way
-
+timer_start("lob_read");
     		// Read what data is required
     		if (uniquery->queryType == REGION_RETRIEVAL_CANDIDATE_CHECK_QUERY_TYPE)
             	readAndReconstituteData(&ps, meta, start_bin, end_bin, true, &data); // read end bins only
@@ -179,13 +179,15 @@ timer_stop("index_read");
     			eprintf("Invalid query type %d in fucntion %s\n", uniquery->queryType, __FUNCTION__);
     			assert(false); // Bad query type
     		}
+timer_stop("lob_read");
 
+timer_start("candidate_check");
     		// Package results
         	populateQueryResult(result, data, index, resultCount);
 
         	// Candidate checks: trim values in the boundary bins that do not lie in the query range
         	uint64_t trimmed = trimQueryResults(result, meta, uniquery, start_bin, end_bin);
-
+timer_stop("candidate_check");
         	// If it's a region retrieval query, we can free the data buffer
         	if (uniquery->queryType == REGION_RETRIEVAL_CANDIDATE_CHECK_QUERY_TYPE) {
         		result->data.asChar = NULL;
@@ -193,7 +195,7 @@ timer_stop("index_read");
         	}
     	}
 
-    	timer_stop("datacandidate");
+
     	//printf("candidate check %f \n", timer_get_total_interval("datacandidate"));
     }
 
