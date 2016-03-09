@@ -51,8 +51,10 @@ int main(int argc, char **argv) {
 
 	// Make sure there's at least one argument for the command, then capture
 	// it and advance past it
-	if (argc < 3)
+	if (argc < 3){
 		usage_and_exit();
+		return 1;
+	}
 
 	const char *filebase = argv[0];
 	double lb = atof(argv[1]);
@@ -124,7 +126,7 @@ timer_start("totalqueryprocess");
 //        	printf("total results: [%llu] \n", totalResultCount);
 timer_stop("totalqueryprocess");
 		printf("total_time: %9.3lf    metadata_read: %9.3lf     index_read: %9.3lf    lob_read: %9.3lf      candidate_check: %9.3lf\n ", timer_get_total_interval("totalqueryprocess"),
-				timer_get_total_interval("metadata_read"), timer_get_total_interval("index_read"), timer_get_total_interval("low_read"), timer_get_total_interval("candidate_check"));
+				timer_get_total_interval("metadata_read"), timer_get_total_interval("index_read"), timer_get_total_interval("lob_read"), timer_get_total_interval("candidate_check"));
 	}
 	CATCH(tc1){
 	IF_EL(2):
