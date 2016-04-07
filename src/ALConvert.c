@@ -50,7 +50,7 @@ static ALError convertIIToCII(ALMetadata *metadata,
         binCompressedLen = ALGetMaxCompressedRIDLength(binLen);
 
         if (toindexForm == ALCompressedSkipInvertedIndex) {
-        	binCompressedLen = ALSkippingSufficientBufferSize(binLen);
+        	// binCompressedLen = ALSkippingSufficientBufferSize(binLen); //discarded
         }else {
         	binCompressedLen = binLen * sizeof(rid_t); // Max compressed length
         }
