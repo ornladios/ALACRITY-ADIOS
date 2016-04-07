@@ -27,7 +27,7 @@ static ALError convertIIToCII(ALMetadata *metadata,
         		|| toindexForm == ALCompressedMixInvertedIndex ){
 			new_index_wcsize += ALGetMaxCompressedRIDLength(binLen);
         }else if (toindexForm == ALCompressedSkipInvertedIndex){
-        	new_index_wcsize += ALSkippingSufficientBufferSize(binLen);
+        	//new_index_wcsize += ALSkippingSufficientBufferSize(binLen); //discarded
         }else {
         	printf("not support index form \n");
         	return ALErrorSomething;
@@ -61,7 +61,7 @@ static ALError convertIIToCII(ALMetadata *metadata,
 			ALHybridCompressRIDs(inputCurPtr, binLen, outputCurPtr, &binCompressedLen);
         else if (toindexForm == ALCompressedSkipInvertedIndex){
 	//	printf("skipping conversion \n");
-        	ALSkippingCompressRIDs(inputCurPtr, binLen, outputCurPtr, &binCompressedLen);
+        //	ALSkippingCompressRIDs(inputCurPtr, binLen, outputCurPtr, &binCompressedLen); // discarded
         }else if (toindexForm == ALCompressedExpansionII){
         	// expansion PFD, EPFD
         	ALExpandCompressRIDs(inputCurPtr, binLen, outputCurPtr, &binCompressedLen);
