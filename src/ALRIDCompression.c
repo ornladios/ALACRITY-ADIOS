@@ -73,7 +73,7 @@ ALError ALExpandDecompressRIDs_set_bmap(const char *input, uint64_t inputLength,
 
 
 /************** FOLLOWING IS SKIPPING METHOD************************** */
-
+/*
 uint64_t ALSkippingSufficientBufferSize(uint32_t inputCount) {
 	return get_sufficient_skipping_buffer_size(inputCount);
 }
@@ -101,6 +101,7 @@ ALError ALSkippingDecompressRIDs(const char *input, const uint64_t inputLength, 
 	return ret ? ALErrorNone : ALErrorSomething;
 }
 
+*/
 /*
  * original decoding method: given by a raw rid value, decompress block
  * return:
@@ -108,10 +109,9 @@ ALError ALSkippingDecompressRIDs(const char *input, const uint64_t inputLength, 
  *   1 : rid is found, desired block is decompressed
  *   0 : decompression error
  */
-int ALSkippingPartiallyDecompress(const char *input, const uint64_t inputLength, const uint32_t rid, uint32_t *output, uint32_t *outputCount){
+/*int ALSkippingPartiallyDecompress(const char *input, const uint64_t inputLength, const uint32_t rid, uint32_t *output, uint32_t *outputCount){
 	return decode_skipping_partially(input,  inputLength, rid, output, outputCount);
-}
-
+}*/
 
 uint32_t ALPForDetlaBlockSize() {
 	return pfordelta_block_size();
@@ -145,6 +145,7 @@ ALError ALDecompressRIDs(const char *input, uint64_t inputLength, uint32_t *outp
     return ret ? ALErrorNone : ALErrorSomething;
 }
 
+/*
 ALError ALInpsectEncodedRIDs(const char *input, uint64_t inputLength, uint32_t *output, uint32_t *outputCount
 		, uint64_t b_stat[], uint64_t exp_stat[]) {
     int ret = print_encode_stat(input, inputLength, output, outputCount,b_stat, exp_stat);
@@ -164,6 +165,7 @@ ALError ALDecompressRIDs_inspect_consecutive_binary_stat(const char *input, uint
     int ret = print_consecutive_binary_stat(input, inputLength, output, outputCount,b_stat, exp_stat);
     return ret ? ALErrorNone : ALErrorSomething;
 }
+*/
 
 ALError ALDecompressRIDs_set_bmap(const char *input, uint64_t inputLength, void **bmap) {
     int ret = decode_rids_set_bmap(input, inputLength,bmap);
