@@ -10,6 +10,13 @@
 #include <alacrity-rid-compress.h>
 #include <pfordelta-c-interface.h>
 
+
+
+ALError ALDecompressDeltas(const char *input, uint64_t inputLength, uint32_t *output, uint32_t *outputCount) {
+    int ret = adios_decode_deltas(input, inputLength, output, outputCount);
+    return ret ? ALErrorNone : ALErrorSomething;
+}
+
 /*
  * 1: PG space is fully contained in the selection box, 0: intersected
  */
@@ -28,6 +35,15 @@ uint32_t ALDecompressRIDtoSelBox(bool isPGContained
 }
 
 /************ EPFD + RPFD METHOD ****************/
+
+
+// NOTE: outputCount should hold the maximum output buffer count
+// output RID list
+ALError ALERPFDDecompressRIDs(const char *input, uint64_t inputLength, uint32_t *output, uint32_t *outputCount) {
+	int ret = adios_expand_runlength_decode_rid(input, inputLength, output, outputCount);
+    return ret ? ALErrorNone : ALErrorSomething;
+}
+
 
 ALError ALERPFDCompressRIDs(const uint32_t *input, uint32_t inputCount, char *output, uint64_t *outputLength) {
 	int ret = exapnd_runlength_encode_rids(input, inputCount, output, outputLength);
