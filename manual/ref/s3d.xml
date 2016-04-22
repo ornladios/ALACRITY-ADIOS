@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<adios-config host-language="C">
+    <adios-group name="S3D" coordination-communicator="comm">
+            <var name="lx" type="integer"/>
+            <var name="ly" type="integer"/>
+            <var name="lz" type="integer"/>
+            <var name="nx" type="integer"/>
+            <var name="ny" type="integer"/>
+            <var name="nz" type="integer"/>
+            <var name="gx" type="integer"/>
+            <var name="gy" type="integer"/>
+            <var name="gz" type="integer"/>
+            <var name="size" type="integer"/>
+            <var name="rank" type="integer"/>
+            <global-bounds dimensions="gx,gy,gz" offsets="lx,ly,lz">
+                <var name="/temp" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=16,origData=false"/>
+                <var name="/pressure" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=24,origData=false"/>
+                <var name="/uvel" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=16,origData=false"/>
+                <var name="/vvel" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=16,origData=false"/>
+                <var name="/wvel" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALInvertedIndex,sigBits=16,origData=false"/>
+                <var name="/H2" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=16,origData=false"/>
+                <var name="/H2O2" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=16,origData=false"/>
+                <var name="/H2O" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=16,origData=false"/>
+                <var name="/H" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=16,origData=false"/>
+                <var name="/HO2" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=16,origData=false"/>
+                <var name="/O2" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=24,origData=false"/>
+                <var name="/O" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=16,origData=false"/>
+                <var name="/OH" gwrite="t" type="double" dimensions="nx,ny,nz" transform="alacrity:indexForm=ALCompressedInvertedIndex,sigBits=16,origData=false"/>
+            </global-bounds>
+        </adios-group>
+
+<method group="S3D" method="MPI"/>
+
+<buffer size-MB="6144" allocate-time="now"/>
+
+</adios-config>
+
+
