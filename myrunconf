@@ -6,8 +6,9 @@
 #       environment, you must fix this file for yourself
 
 INSTALL_DIR=./build
-TIMER_DIR=${HOME}/workspace/c/timer/build
-RIDCOMP_DIR=${HOME}/workspace/cxx/pfordelta_for_adios_query
+DEP_DIR=/scratch2/scratchdirs/xzou2/alac-final-test
+TIMER_DIR=${DEP_DIR}/Timer/build
+RIDCOMP_DIR=${DEP_DIR}/PForDelta
 
 mkdir -p "$INSTALL_DIR"
 echo ./configure --prefix=`readlink -f $INSTALL_DIR` --with-timer=`readlink -f $TIMER_DIR` --with-ridcompress=`readlink -f $RIDCOMP_DIR`

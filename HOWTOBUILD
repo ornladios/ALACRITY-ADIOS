@@ -1,11 +1,10 @@
 Dependencies:
-* Build <SVN>/systems/software/timer somewhere
-* Build <SVN>/systems/branches/saurabh/indexcompression somewhere
+* Build https://github.com/ncsu-samatova/Timer.git somewhere
+* Build https://github.com/ncsu-samatova/PForDelta.git somewhere
 
 When you first check out ALACRITY:
-1. Copy ./runconf to ./myrunconf
-2. Edit ./myrunconf, setting the paths for timer and indexcompression, and your output build path
-3. Run ./myrunconf
+1. Edit ./myrunconf, setting the paths for timer and indexcompression, and your output build path
+2. Run ./myrunconf
 
 After that, to rebuild any time:
 1. Run make; make install
