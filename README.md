@@ -10,14 +10,14 @@ http://ftp.gnu.org/gnu/automake/
 http://ftp.gnu.org/gnu/autoconf/
 https://ftp.gnu.org/gnu/libtool/
 
-1. Build timer package 
+1. Build timer package   [git@github.com:ncsu-samatova/Timer.git]
    1.1 cd [TIMER SOURCE CODE]
    1.2 ./configure --prefix=[TIMER INSTALL PATH]
    1.3 make ; make install 
-2. Build indexcompression package
-   1.1 cd [indexcompression PATH] 
+2. Build PForDelta package [git@github.com:ncsu-samatova/PForDelta.git]
+   1.1 cd [PForDelta PATH] 
    1.2 make libridcompress.a    // this will produce libridcompress.a in current folder
-3. Build ALACRITY
+3. Build ALACRITY [git@github.com:ncsu-samatova/ALACRITY.git]
    1.1 cd [ALACRITY PATH]
    1.2 Copy ./runconf to ./myrunconf
    1.3 Edit ./myrunconf, setting the paths for timer and indexcompression, and your output build path
