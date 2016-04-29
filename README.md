@@ -1,5 +1,5 @@
-alac_for_adios_query
-====================
+ALACRITY for ADIOS, a fork of ALACRITY from North Carolina State University
+===========================================================================
 
 ===============Install ALACRITY===========================
 DEPENDENCES:
@@ -10,22 +10,19 @@ http://ftp.gnu.org/gnu/automake/
 http://ftp.gnu.org/gnu/autoconf/
 https://ftp.gnu.org/gnu/libtool/
 
-1. Build timer package   [git@github.com:ncsu-samatova/Timer.git]
-   1.1 cd [TIMER SOURCE CODE]
-   1.2 ./configure --prefix=[TIMER INSTALL PATH]
-   1.3 make ; make install 
-2. Build PForDelta package [git@github.com:ncsu-samatova/PForDelta.git]
+1. Build PForDelta package [git@github.com:ncsu-samatova/PForDelta.git]
    1.1 cd [PForDelta PATH] 
    1.2 make libridcompress.a    // this will produce libridcompress.a in current folder
-3. Build ALACRITY [git@github.com:ncsu-samatova/ALACRITY.git]
+2. Build ALACRITY [git@github.com:ncsu-samatova/ALACRITY.git]
    1.1 cd [ALACRITY PATH]
+   1.2 ./autogen.sh
    1.2 Copy ./runconf to ./myrunconf
    1.3 Edit ./myrunconf, setting the paths for timer and indexcompression, and your output build path
    1.4 Run ./myrunconf
 
 ==============Index & Query ============================
 1. Build Index: 
-   1.1 cd [alalrity install path]
+   1.1 cd [alacrity install path]
    1.2 The executable file 'alac' is the command we need. It has following arguments ( type ./build/bin/alac, we can see the detail usage): 
          'encode': indicates to indexing the data
          -p      : partition size, we can specify total size or total element number
@@ -40,7 +37,7 @@ https://ftp.gnu.org/gnu/libtool/
     Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
 
 2. Perform Query: 
-   2.1 cd [alalrity install path]
+   2.1 cd [alacrity install path]
    2.2 The executable file 'uniquery' is the command we need. It has following arguments ( type ./build/bin/uniquery, we can see the detail usage): 
 	[input data base path]: the path is the output path of the indexing stage
         [low boundary value]
@@ -51,6 +48,6 @@ https://ftp.gnu.org/gnu/libtool/
         uniquery avg. time 0.261354 
 
 ===============ASSUMPTIONS=========================================
-1. ALACRITY now only takes at most 2GB partition data size. 
+1. ALACRITY supports at most 2GB partition data size. 
 2. The output of ALACRITY query does not output all RIDs. 
 
