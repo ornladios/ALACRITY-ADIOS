@@ -12,12 +12,12 @@
 
 #include <alacrity.h>
 #include <uniquery.h>
-#include <ALUtil.h>
 #include <sys/stat.h>
 #include <sys/time.h>
 
 // Internal headers under src/
 #include <uniquery/helpers.h>
+#include "../include/alacrity-util.h"
 
 /*
 
@@ -136,9 +136,9 @@ _Bool ALQueryNextResult(ALUnivariateQuery *uniquery, ALUnivariateQueryResult *re
 
     ALPartitionStore ps;
     ALStoreOpenPartition(qe->store, &ps, true);
-timer_start("metadata_read");
+ALTimer_start("metadata_read");
     const ALMetadata * const meta = getPartitionMetadata(qe, &ps);
-timer_stop("metadata_read");
+ALTimer_stop("metadata_read");
     const ALBinLayout * const bl = &meta->binLayout;
     bin_id_t start_bin, end_bin;
     uint64_t resultCount;
@@ -156,9 +156,9 @@ timer_stop("metadata_read");
     	ALIndex index;
 
     	resultCount = bl->binStartOffsets[end_bin] - bl->binStartOffsets[start_bin];
-timer_start("index_read");
+ALTimer_start("index_read");
     	readIndex(&ps, meta, start_bin, end_bin, &index);
-timer_stop("index_read");
+ALTimer_stop("index_read");
     	//printf("touched bin range [%d, %d] \n ", start_bin, end_bin);
 
 
@@ -169,7 +169,7 @@ timer_stop("index_read");
         	populateQueryResult(result, data, index, resultCount);
     	} else {
     		// Some or all data will be read, with candidate checks either way
-timer_start("lob_read");
+ALTimer_start("lob_read");
     		// Read what data is required
     		if (uniquery->queryType == REGION_RETRIEVAL_CANDIDATE_CHECK_QUERY_TYPE)
             	readAndReconstituteData(&ps, meta, start_bin, end_bin, true, &data); // read end bins only
@@ -179,15 +179,15 @@ timer_start("lob_read");
     			eprintf("Invalid query type %d in fucntion %s\n", uniquery->queryType, __FUNCTION__);
     			assert(false); // Bad query type
     		}
-timer_stop("lob_read");
+ALTimer_stop("lob_read");
 
-timer_start("candidate_check");
+ALTimer_start("candidate_check");
     		// Package results
         	populateQueryResult(result, data, index, resultCount);
 
         	// Candidate checks: trim values in the boundary bins that do not lie in the query range
         	uint64_t trimmed = trimQueryResults(result, meta, uniquery, start_bin, end_bin);
-timer_stop("candidate_check");
+ALTimer_stop("candidate_check");
         	// If it's a region retrieval query, we can free the data buffer
         	if (uniquery->queryType == REGION_RETRIEVAL_CANDIDATE_CHECK_QUERY_TYPE) {
         		result->data.asChar = NULL;

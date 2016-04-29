@@ -7,9 +7,8 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
-
 #include <timer.h>
+#include "../src/include/alacrity-util.h"
 
 int main (int argc, char *argv [])
 {
@@ -18,7 +17,7 @@ int main (int argc, char *argv [])
         return 1;
     }
 
-    timer_init();
+    ALTimer_init();
 
     const char *infilename = argv[1];
     int elemsize = atoi(argv[2]);
@@ -47,13 +46,13 @@ int main (int argc, char *argv [])
     ALPartitionData output;
     ALBinLookupTable lookupTable;
 
-    timer_start("buildBinLayout");
+    ALTimer_start("buildBinLayout");
     ALBuildBinLayout(&config, data, numDoubles, &lookupTable, &output);
-    timer_stop("buildBinLayout");
+    ALTimer_stop("buildBinLayout");
 
-    timer_start("buildIndex");
+    ALTimer_start("buildIndex");
     ALBuildInvertedIndexFromLayout(&config, data, numDoubles, &lookupTable, &output);
-    timer_stop("buildIndex");
+    ALTimer_stop("buildIndex");
 
     dbprintf("Encoded the data with an inverted index\n");
 
@@ -62,9 +61,9 @@ int main (int argc, char *argv [])
 
     uint64_t old_size = ALGetIndexSize(&output.index, &output.metadata);
 
-    timer_start("compressIndex");
+    ALTimer_start("compressIndex");
     ALConvertIndexForm(&output.metadata, &output.index, ALCompressedInvertedIndex);
-    timer_stop("compressIndex");
+    ALTimer_stop("compressIndex");
     dbprintf("Compressed inverted index\n");
 
     uint64_t new_size = ALGetIndexSize(&output.index, &output.metadata);
@@ -81,7 +80,7 @@ int main (int argc, char *argv [])
     printf("Overall Compression ratio = %f\n", 1.0 * (data_size + metadata_size + old_size) / (data_size + metadata_size + new_size));
     dbprintf("Done\n");
 
-    timer_print_timers_short();
+    ALTimer_print_timers_short();
 
     ALStore store;
     ALStoreOpenPOSIX(&store, "/intrepid-fs1/users/daboyuka/scratch/q", "w", false);

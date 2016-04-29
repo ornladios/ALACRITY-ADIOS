@@ -4,9 +4,8 @@
 
 #include <assert.h>
 #include <alacrity.h>
-#include <ALUtil.h>
-
 #include "alacrity-serialization-debug.h"
+#include "include/alacrity-util.h"
 
 typedef enum {
     ALList,        //array of unique counts
@@ -189,7 +188,7 @@ void initMetadataAndAllocateBuffers(ALPartitionData *part, const ALEncoderConfig
     meta->partitionLength = inputCount;
     meta->significantBits = config->significantBits;
     meta->datatype = config->datatype;
-    meta->endianness = detectEndianness();
+    meta->endianness = alacrity_util_detectEndianness();
 }
 
 static inline bin_id_t lookupBinID(high_order_bytes_t value, const ALBinLookupTable *binLookupTable) {

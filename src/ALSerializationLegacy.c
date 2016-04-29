@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <string.h> // Needed for memcpy
 
-#include <ALUtil.h>
 #include <memstream.h>
 #include <alacrity-types.h>
 #include <alacrity-serialization.h>
 #include <alacrity-serialization-legacy.h>
 #include <alacrity-serialization-debug.h>
+#include "include/alacrity-util.h"
 
 
 // Custom memstream append/read functions for efficiency

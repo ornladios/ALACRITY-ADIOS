@@ -5,8 +5,8 @@
 #include <assert.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
 #include <alacrity-rid-compress.h>
+#include "include/alacrity-util.h"
 
 static ALError ALDecodeWithCompressedIndex(const ALPartitionData *input,
                                            void            *output,
@@ -64,8 +64,8 @@ static ALError ALDecodeWithInvertedIndex(const ALPartitionData *input,
     const ALBinLayout const *bl = &input->metadata.binLayout;
     const int elemsize = input->metadata.elementSize;
     const int sigbits = input->metadata.significantBits;
-    const int sigbytes = sigBytesCeil(&input->metadata);
-    const int insigbytes = insigBytesCeil(&input->metadata);
+    const int sigbytes = alacrity_util_sigBytesCeil(&input->metadata);
+    const int insigbytes = alacrity_util_insigBytesCeil(&input->metadata);
 
     char *dataptr = (char*)input->data;
     bin_offset_t *binvalptr = bl->binValues;

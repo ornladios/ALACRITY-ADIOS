@@ -1,6 +1,6 @@
 #include <alacrity-types.h>
 #include <alacrity-core.h>
-#include <ALUtil.h>
+#include "include/alacrity-util.h"
 
 ALError ALPartitionDataDestroy(ALPartitionData *part) {
 	if (part->ownsBuffers) {

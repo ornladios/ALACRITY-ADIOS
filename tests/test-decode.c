@@ -9,7 +9,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../src/include/alacrity-util.h"
 
 
 int main(int argc, char **argv) {

@@ -8,7 +8,7 @@
 #include <alacrity-filestore.h>
 #include <alacrity-serialization.h>
 #include <alacrity-serialization-legacy.h>
-#include <ALUtil.h>
+#include "include/alacrity-util.h"
 
 // If defined, ALFileStore will print a warning to stderr if fewer partitions are appended to a file store than expected
 // (this is not an error, it just wastes some disk space)

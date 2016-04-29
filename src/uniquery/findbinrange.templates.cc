@@ -1,3 +1,4 @@
+
 /*
  * binrange_template.cc
  *
@@ -8,7 +9,7 @@
 extern "C" {
 #include <stdint.h>
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../include/alacrity-util.h"
 #include <uniquery/helpers.h>
 }
 
@@ -51,8 +52,8 @@ bool findBinRange1CTemplate(const ALMetadata *meta, UT query_lb, UT query_ub, bi
     const ALBinLayout * const bl = &meta->binLayout;
     const int sigbits = meta->significantBits;
     const int insigbits = (meta->elementSize << 3) - sigbits;
-    const int sigbytes = sigBytesCeil(meta);
-    const int insigbytes = insigBytesCeil(meta);
+    const int sigbytes = alacrity_util_sigBytesCeil(meta);
+    const int insigbytes = alacrity_util_insigBytesCeil(meta);
     const UT sign_mask_hi = ((UT)1) << (sigbits - 1);
 
     // Note, by converting the query bounds to bin values, we can treat them as

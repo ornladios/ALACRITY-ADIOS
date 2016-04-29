@@ -1,3 +1,4 @@
+
 /*
  * reconst.templates.cc
  *
@@ -13,7 +14,7 @@ extern "C" {
 #include <assert.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../include/alacrity-util.h"
 #include <uniquery/helpers.h>
 }
 
@@ -76,7 +77,7 @@ static void reconstituteElements(const ALMetadata *meta, bin_id_t start_bin, bin
 		                         char *start_bin_input, char *start_bin_output) {
 
 	const ALBinLayout * const bl = &meta->binLayout;
-	int insigbytes = insigBytesCeil(meta);
+	int insigbytes = alacrity_util_insigBytesCeil(meta);
 	int insigbits = (meta->elementSize << 3) - meta->significantBits;
 
 	UT reconst_elem;
@@ -108,7 +109,7 @@ static uint64_t readAndReconstituteDataTemplate(ALPartitionStore *ps, const ALMe
                                                 _Bool end_bins_only, ALData *data) {
     const ALBinLayout * const bl = &meta->binLayout;
     const int insigbits = (meta->elementSize << 3) - meta->significantBits;
-    const int insigbytes = insigBytesCeil(meta);
+    const int insigbytes = alacrity_util_insigBytesCeil(meta);
 
     const bin_offset_t elementCount = bl->binStartOffsets[end_bin] - bl->binStartOffsets[start_bin];
 	const bin_offset_t start_bin_off = bl->binStartOffsets[start_bin];

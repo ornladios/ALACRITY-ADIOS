@@ -14,7 +14,7 @@
 #include <sys/stat.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include <alacrity-util.h>
 
 // Internal includes under tools/
 #include <trycatch.h>

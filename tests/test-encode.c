@@ -9,7 +9,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../src/include/alacrity-util.h"
 
 // #include "timer.h"
 
@@ -101,7 +101,7 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    wcount = fwrite(output.data, insigBytesCeil(&output.metadata), numElements, outdatafile);
+    wcount = fwrite(output.data, alacrity_util_insigBytesCeil(&output.metadata), numElements, outdatafile);
     if (wcount != numElements) {
         fprintf(stderr, "Expected write %d data elements, wrote %d\n", numElements, wcount);
         return 1;

@@ -2,7 +2,7 @@
 #include <alacrity-serialization.h>
 #include <alacrity-serialization-legacy.h>
 #include <alacrity-store.h>
-#include <ALUtil.h>
+#include "include/alacrity-util.h"
 
 typedef ALError (*LoadGlobalMetadataFunc)(ALStore *store);
 typedef ALError (*WritePartitionFunc)(ALStore *store, const ALPartitionData *part);

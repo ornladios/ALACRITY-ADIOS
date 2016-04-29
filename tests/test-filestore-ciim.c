@@ -9,7 +9,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../src/include/alacrity-util.h"
 
 static void cmp_metadata(ALMetadata *m1, ALMetadata *m2) {
     assert(m1->elementSize == m2->elementSize);
@@ -66,7 +66,7 @@ int main(int argc, char **argv) {
     ALEncode(&config, data, numDoubles, &output);
     free(data); // Don't need raw data anymore
 
-    uint8_t insigbytes = insigBytesCeil(&output.metadata);
+    uint8_t insigbytes = alacrity_util_insigBytesCeil(&output.metadata);
 
     printf("Encoded data in ALACRITY format\n");
 

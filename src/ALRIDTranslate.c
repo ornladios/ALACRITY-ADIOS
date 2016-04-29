@@ -8,7 +8,7 @@
 #include <alacrity-types.h>
 #include <alacrity-rid-compress.h>
 #include <alacrity-serialization.h>
-#include <ALUtil.h>
+#include "include/alacrity-util.h"
 
 ALError ALTranslateRIDs(const ALMetadata *metadata,
                         ALIndex *index,

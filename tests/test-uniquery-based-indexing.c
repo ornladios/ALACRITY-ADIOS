@@ -10,9 +10,9 @@
 
 #include <alacrity.h>
 #include <uniquery.h>
-#include <ALUtil.h>
-
 #include <sys/time.h>
+
+#include "../src/include/alacrity-util.h"
 double dclock1(void) {
 	struct timeval tv;
 	gettimeofday(&tv, 0);

@@ -7,7 +7,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../src/include/alacrity-util.h"
 
 #define N 1024
 #define DELTA1 ((int32_t)50)

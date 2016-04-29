@@ -10,7 +10,8 @@
 #include <sys/time.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+
+#include "../src/include/alacrity-util.h"
 
 #define MIN_PART_SIZE 1
 

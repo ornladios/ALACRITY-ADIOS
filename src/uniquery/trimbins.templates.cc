@@ -1,3 +1,4 @@
+
 /*
  * trimbins.templates.cc
  *
@@ -11,7 +12,7 @@ extern "C" {
 #include <assert.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../include/alacrity-util.h"
 #include <uniquery/helpers.h>
 }
 

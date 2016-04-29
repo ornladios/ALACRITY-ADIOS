@@ -13,7 +13,7 @@
 #include <alacrity-store.h>
 #include <alacrity-serialization.h>
 #include <alacrity-serialization-legacy.h>
-#include <ALUtil.h>
+#include "../include/alacrity-util.h"
 
 typedef struct {
     FILE *metadatafp, *tmpmetadatafp, *datafp, *iindexfp, *cindexfp;

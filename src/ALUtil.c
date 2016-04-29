@@ -1,16 +1,16 @@
-#include "ALUtil.h"
 #include <string.h>
 #include <stdlib.h>
+#include "include/alacrity-util.h"
 
-uint8_t sigBytesCeil(const ALMetadata *meta) {
+uint8_t alacrity_util_sigBytesCeil(const ALMetadata *meta) {
     return (meta->significantBits + 0x07) >> 3;
 }
 
-uint8_t insigBytesCeil(const ALMetadata *meta) {
+uint8_t alacrity_util_insigBytesCeil(const ALMetadata *meta) {
     return ((meta->elementSize << 3) - meta->significantBits + 0x07) >> 3;
 }
 
-char *to_binary (void *value, uint8_t sz, uint8_t nbits)
+char *alacrity_util_to_binary (void *value, uint8_t sz, uint8_t nbits)
 {
     int32_t i = 0;
     char *binary_value = (char *) malloc (128);

@@ -1,8 +1,9 @@
-AM_CPPFLAGS = -I$(top_srcdir)/src/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS) $(COMPUTIL_CPPFLAGS)
+AM_CPPFLAGS = -I$(top_srcdir)/src/include $(RIDCOMPRESS_CPPFLAGS) $(COMPUTIL_CPPFLAGS)
 AM_LDFLAGS = $(TIMER_LDFLAGS) $(RIDCOMPRESS_LDFLAGS) $(COMPUTIL_LDFLAGS)
-LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(TIMER_LIBS) $(COMPUTIL_LIBS)
+LDADD = ../src/libalacrity.a $(RIDCOMPRESS_LIBS) $(COMPUTIL_LIBS)
 
 check_PROGRAMS =
+check_PROGRAMS += test-timer
 check_PROGRAMS += test-encode
 #check_PROGRAMS += test-decode
 check_PROGRAMS += test-merge
@@ -17,6 +18,7 @@ check_PROGRAMS += test-uniquery
 check_PROGRAMS += test-uniquery-bi
 check_PROGRAMS += bench-encode
 
+test_timer_SOURCES = test-timer.c
 test_encode_SOURCES = test-encode.c
 #test_decode_SOURCES = test-decode.c
 test_merge_SOURCES = test-merge.c

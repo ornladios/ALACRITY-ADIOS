@@ -1,5 +1,5 @@
-#ifndef ALUTIL_H_
-#define ALUTIL_H_
+#ifndef ALACRITY_UTIL_H_
+#define ALACRITY_UTIL_H_
 
 #include <string.h>
 #include <stdio.h>
@@ -8,13 +8,13 @@
 
 #include <alacrity-types.h>
 
-uint8_t sigBytesCeil(const ALMetadata *meta);
-uint8_t insigBytesCeil(const ALMetadata *meta);
-char *to_binary (void *value, uint8_t sz, uint8_t nbits);
+uint8_t alacrity_util_sigBytesCeil(const ALMetadata *meta);
+uint8_t alacrity_util_insigBytesCeil(const ALMetadata *meta);
+char *alacrity_util_to_binary (void *value, uint8_t sz, uint8_t nbits);
 
 // Checks the endianness of the system by making a 2-byte type, and then
 // checking the value of the first (lower-address) byte
-static inline ALEndianness detectEndianness() {
+static inline ALEndianness alacrity_util_detectEndianness() {
 	uint16_t val = 0x1122;
 	uint8_t firstbyte = *(uint8_t*)&val;
 	return firstbyte == 0x22 ? ENDIAN_LITTLE : ENDIAN_BIG;

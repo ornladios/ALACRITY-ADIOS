@@ -5,7 +5,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../src/include/alacrity-util.h"
 
 // TODO: relativize RIDs to some base RID per partition
 

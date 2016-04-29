@@ -20,10 +20,8 @@
 
 #include <alacrity.h>
 #include <uniquery.h>
-#include <ALUtil.h>
-
-// Internal includes under tools/
 #include <trycatch.h>
+#include "../src/include/alacrity-util.h"
 
 double dclock(void) {
 	struct timeval tv;

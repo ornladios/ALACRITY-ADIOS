@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <string.h> // Needed for memcpy
 
-#include <ALUtil.h>
 #include <memstream.h>
 #include <alacrity-types.h>
 #include <alacrity-serialization.h>
 #include <alacrity-serialization-debug.h>
+#include "include/alacrity-util.h"
 
 //
 // Important notes:
@@ -69,7 +69,7 @@ uint64_t ALGetIndexMetadataSize(const ALIndexMetadata *indexMeta, const ALMetada
  * OUTPUT: size in bytes consumed by the index object.
  */
 uint64_t ALGetIndexSize(const ALIndex *index, const ALMetadata *metadata) {
-    const uint8_t sigbytes = sigBytesCeil(metadata);
+    const uint8_t sigbytes = alacrity_util_sigBytesCeil(metadata);
     switch (metadata->indexMeta.indexForm) {
     case ALInvertedIndex:
         return metadata->partitionLength * sizeof(rid_t);

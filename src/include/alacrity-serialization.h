@@ -6,7 +6,7 @@
 #include <alacrity-types.h>
 
 #include <alacrity-serialization-legacy.h>
-#include <ALUtil.h>
+#include "alacrity-util.h"
 
 ALError ALSerializePartitionData(const ALPartitionData *input, memstream_t *ms);
 ALError ALDeserializePartitionData(ALPartitionData *partitionData, memstream_t *ms);
@@ -45,12 +45,12 @@ static inline ALError ALDeserializeMetadataInPlace (ALMetadata *metadata, memstr
 // uint64_t ALGetIndexBinSize(const ALMetadata *metadata, bin_id_t binID);
 
 static inline uint64_t ALGetDataBinOffset(const ALMetadata *metadata, bin_id_t bin) {
-    const uint8_t insigbytes = insigBytesCeil(metadata);
+    const uint8_t insigbytes = alacrity_util_insigBytesCeil(metadata);
     return metadata->binLayout.binStartOffsets[bin] * insigbytes;
 }
 
 static inline uint64_t ALGetIndexBinOffset(const ALMetadata *metadata, bin_id_t bin) {
-    const uint8_t sigbytes = sigBytesCeil(metadata);
+    const uint8_t sigbytes = alacrity_util_sigBytesCeil(metadata);
     switch (metadata->indexMeta.indexForm) {
     case ALInvertedIndex:
         return metadata->binLayout.binStartOffsets[bin] * sizeof(rid_t);

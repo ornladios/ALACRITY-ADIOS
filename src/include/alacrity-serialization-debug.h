@@ -1,7 +1,7 @@
 #ifndef ALACRITY_SERIALIZATION_DEBUG_H_
 #define ALACRITY_SERIALIZATION_DEBUG_H_
 
-#include "ALUtil.h"
+#include "alacrity-util.h"
 
 #define ALPrintData(data, n) \
 { \

@@ -7,7 +7,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../src/include/alacrity-util.h"
 
 int ALBinLayout_is_equal (ALBinLayout leftBinLayout, ALBinLayout rightBinLayout, uint8_t significantBits)
 {

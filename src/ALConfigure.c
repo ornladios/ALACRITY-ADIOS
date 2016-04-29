@@ -5,7 +5,7 @@
 
 #include <alacrity-part-manip.h>
 #include <alacrity-types.h>
-#include <ALUtil.h>
+#include "include/alacrity-util.h"
 
 ALError ALEncoderConfigure(ALEncoderConfig  *config,
                            int              significantBits,

@@ -6,9 +6,9 @@
  */
 
 #include <alacrity.h>
-#include <ALUtil.h>
 #include <alacrity-rid-compress.h>
 #include <pfordelta-c-interface.h>
+#include "include/alacrity-util.h"
 
 
 

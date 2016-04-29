@@ -7,7 +7,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../src/include/alacrity-util.h"
 
 int ALBinLayout_is_equal (ALBinLayout leftBinLayout, ALBinLayout rightBinLayout, uint8_t significantBits)
 {
@@ -129,8 +129,8 @@ int main (int argc, char *argv [])
     ALConvertIndexForm(&output.metadata, &output.index, ALCompressedInvertedIndex);
     printf("Compressed inverted index\n");
 
-    const uint8_t sigbtyes = sigBytesCeil(&output.metadata);
-    const uint8_t insigbytes = insigBytesCeil(&output.metadata);
+    const uint8_t sigbtyes = alacrity_util_sigBytesCeil(&output.metadata);
+    const uint8_t insigbytes = alacrity_util_insigBytesCeil(&output.metadata);
     int wcount = fwrite(output.index, 1, ALGetIndexSize(&output.index, &output.metadata), outindexfile);
     fprintf(stderr, "Wrote %d index bytes\n", wcount);
     if (wcount != ALGetIndexSize(&output.index, &output.metadata)) {

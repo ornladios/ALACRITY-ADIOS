@@ -4,8 +4,8 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include <ALUtil.h>
 #include <alacrity.h>
+#include "include/alacrity-util.h"
 
 // TODO: relativize RIDs to some base RID per partition
 

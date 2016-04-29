@@ -6,7 +6,7 @@
 
 #include <alacrity-types.h>
 #include <alacrity-store.h>
-#include <ALUtil.h>
+#include "../include/alacrity-util.h"
 
 typedef struct {
     // State required for reading/writing goes here.

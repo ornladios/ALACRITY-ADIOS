@@ -16,7 +16,7 @@
 
 #include <alacrity.h>
 #include <uniquery.h>
-#include <ALUtil.h>
+#include <alacrity-util.h>
 
 // Internal includes under tools/
 #include <trycatch.h>

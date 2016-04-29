@@ -9,7 +9,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../src/include/alacrity-util.h"
 
 const _Bool USE_LEGACY_FORMAT = false;
 

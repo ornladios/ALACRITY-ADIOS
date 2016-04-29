@@ -9,7 +9,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <ALUtil.h>
+#include "../src/include/alacrity-util.h"
 
 const _Bool USE_LEGACY_FORMAT = false;
 
@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
 
     printf("Compressed inverted index\n");
 
-    uint8_t insigbytes = insigBytesCeil(&output.metadata);
+    uint8_t insigbytes = alacrity_util_insigBytesCeil(&output.metadata);
 
     ALStore store;
     ALStoreOpenPOSIX(&store, outfilenamebase, "w", USE_LEGACY_FORMAT);

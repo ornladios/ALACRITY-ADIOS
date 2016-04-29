@@ -10,7 +10,7 @@
 
 #include <alacrity.h>
 #include <uniquery.h>
-#include <ALUtil.h>
+#include "../src/include/alacrity-util.h"
 
 const int N = (1<<20);
 

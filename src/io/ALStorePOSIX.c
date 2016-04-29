@@ -15,7 +15,7 @@
 #include <alacrity-store.h>
 #include <alacrity-serialization.h>
 #include <alacrity-serialization-legacy.h>
-#include <ALUtil.h>
+#include "../include/alacrity-util.h"
 
 typedef struct {
     FILE *metadatafp, *tmpmetadatafp, *datafp, *iindexfp, *cindexfp;
@@ -513,7 +513,7 @@ ALError ALPartitionStoreReadDataBinsPOSIX(ALPartitionStore *ps, const ALMetadata
     ALStorePOSIXState *params = (ALStorePOSIXState*)ps->source->impl_state;
     ALPartitionStorePOSIXState *pstore_state = (ALPartitionStorePOSIXState*)ps->impl_state;
 
-    const char insigbytes = insigBytesCeil(meta);
+    const char insigbytes = alacrity_util_insigBytesCeil(meta);
     const uint64_t first_bin_off = pstore_state->data_offset + meta->binLayout.binStartOffsets[low_bin] * insigbytes;
     const uint64_t last_bin_off = pstore_state->data_offset + meta->binLayout.binStartOffsets[hi_bin] * insigbytes;
     const uint64_t bin_read_len = last_bin_off - first_bin_off;
@@ -531,7 +531,7 @@ ALError ALPartitionStoreReadIndexBinsPOSIX(ALPartitionStore *ps, const ALMetadat
     ALStorePOSIXState *params = (ALStorePOSIXState*)ps->source->impl_state;
     ALPartitionStorePOSIXState *pstore_state = (ALPartitionStorePOSIXState*)ps->impl_state;
 
-    const char insigbytes = insigBytesCeil(meta);
+    const char insigbytes = alacrity_util_insigBytesCeil(meta);
     const uint64_t first_bin_off = pstore_state->index_offset + ALGetIndexBinOffset(meta, low_bin);
     const uint64_t last_bin_off = pstore_state->index_offset + ALGetIndexBinOffset(meta, hi_bin);
     const uint64_t bin_read_len = last_bin_off - first_bin_off;

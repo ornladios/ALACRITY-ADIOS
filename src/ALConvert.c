@@ -6,14 +6,14 @@
 
 #include "alacrity.h"
 #include <alacrity-rid-compress.h>
-#include "ALUtil.h"
+#include "include/alacrity-util.h"
 
 static ALError convertIIToCII(ALMetadata *metadata,
                               ALIndex *indexPtr, ALIndexForm toindexForm ) {
     const ALBinLayout const *bl = &metadata->binLayout;
     const int elemsize = metadata->elementSize;
-    const int sigbytes = sigBytesCeil(metadata);
-    const int insigbytes = insigBytesCeil(metadata);
+    const int sigbytes = alacrity_util_sigBytesCeil(metadata);
+    const int insigbytes = alacrity_util_insigBytesCeil(metadata);
     const rid_t * input_index = (rid_t*)*indexPtr;
 
     bin_offset_t binLen;

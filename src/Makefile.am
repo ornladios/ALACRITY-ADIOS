@@ -2,6 +2,8 @@ AM_CPPFLAGS = -I$(srcdir) -I$(srcdir)/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CP
 AM_CFLAGS = -g
 AM_CXXFLAGS = -fno-exceptions -fno-rtti
 
+AUTOMAKE_OPTIONS = subdir-objects
+
 ALACRITY_EXT_INCLUDES = \
 	include/alacrity.h \
 	include/alacrity-core.h \
@@ -15,13 +17,17 @@ ALACRITY_EXT_INCLUDES = \
 	include/alacrity-store.h \
 	include/alacrity-types.h \
 	include/alacrity-datatype.h \
-	include/ALUtil.h \
-	include/memstream.h \
+	include/alacrity-util.h \
+	include/memstream.h 
+
+ALACRITY_INT_INCLUDES = \
 	include/uniquery.h \
+        include/timer.h \
 	uniquery/helpers.h
 
 lib_LIBRARIES = libalacrity.a
 libalacrity_a_SOURCES = \
+    timer/timer.c \
     ALConfigure.c ALEncode.c ALDecode.c ALConvert.c ALMerge.c \
     ALFileStore.c ALStore.c  ALSerialization.c ALSerializationLegacy.c \
     ALDataDestroy.c ALDatatype.c ALUtil.c \

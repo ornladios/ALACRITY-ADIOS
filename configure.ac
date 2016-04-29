@@ -1,4 +1,4 @@
-AC_INIT([alacrity], [0.1.0], [nagiza.samatova@gmail.com])
+AC_INIT([alacrity], [1.0.0], [nagiza.samatova@gmail.com])
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([config])
@@ -22,10 +22,8 @@ AM_PROG_AR
 
 #AC_CHECK_LIB([stdc++],[main],,[AC_MSG_ERROR(ALACRITY requires libstdc++)])
 
-m4_include([m4/ac_timer.m4])
 m4_include([m4/ac_ridcompress.m4])
 
-AX_LIBTIMER
 AX_LIBRIDCOMPRESS
 
 AC_OUTPUT
