@@ -13,7 +13,7 @@ extern "C" {
 #include <alacrity-serialization.h>
 #include <alacrity-serialization-legacy.h>
 #include <alacrity-store.h>
-#include <uniquery.h>
+#include "alacrity-uniquery.h"
 
 /* Error handling functions */
 #include <alacrity-serialization-debug.h>

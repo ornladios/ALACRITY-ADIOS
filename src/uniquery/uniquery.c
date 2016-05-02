@@ -11,12 +11,12 @@
 #include <assert.h>
 
 #include <alacrity.h>
-#include <uniquery.h>
 #include <sys/stat.h>
 #include <sys/time.h>
 
 // Internal headers under src/
 #include <uniquery/helpers.h>
+#include "../include/alacrity-uniquery.h"
 #include "../include/alacrity-util.h"
 
 /*

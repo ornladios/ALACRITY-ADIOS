@@ -9,7 +9,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <uniquery.h>
+#include "../src/include/alacrity-uniquery.h"
 #include "../src/include/alacrity-util.h"
 
 const _Bool USE_LEGACY_FORMAT = false;

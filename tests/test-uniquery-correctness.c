@@ -9,7 +9,7 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <uniquery.h>
+#include "../src/include/alacrity-uniquery.h"
 #include "../src/include/alacrity-util.h"
 
 const int N = (1<<20);

@@ -19,11 +19,11 @@ ALACRITY_EXT_INCLUDES = \
 	include/alacrity-types.h \
 	include/alacrity-datatype.h \
 	include/alacrity-util.h \
-	include/memstream.h 
+	include/alacrity-uniquery.h \
+	include/alacrity-memstream.h 
 
 ALACRITY_INT_INCLUDES = \
-	include/uniquery.h \
-        include/timer.h \
+    include/timer.h \
 	uniquery/helpers.h
 
 lib_LIBRARIES = libalacrity.a

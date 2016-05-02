@@ -5,8 +5,8 @@
  *      Author: David A. Boyuka II
  */
 
-#ifndef UNIQUERY_H_
-#define UNIQUERY_H_
+#ifndef ALACRITY_UNIQUERY_H_
+#define ALACRITY_UNIQUERY_H_
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -69,10 +69,10 @@ void ALQueryResultDestroy(ALUnivariateQueryResult *result);
 /*
  * required by multi-variate query
  */
- void ensureMetadataReady(ALQueryEngine *qe);
+ void ALQueryEnsureMetadataReady(ALQueryEngine *qe);
 
- const ALMetadata * getPartitionMetadata(ALQueryEngine *qe, ALPartitionStore *ps);
+ const ALMetadata * ALQueryGetPartitionMetadata(ALQueryEngine *qe, ALPartitionStore *ps);
 
- void readIndex(ALPartitionStore *ps, const ALMetadata *meta, bin_id_t start_bin, bin_id_t end_bin, ALIndex *index);
+ void ALQueryReadIndex(ALPartitionStore *ps, const ALMetadata *meta, bin_id_t start_bin, bin_id_t end_bin, ALIndex *index);
 
-#endif /* UNIQUERY_H_ */
+#endif /* ALACRITY_UNIQUERY_H_ */

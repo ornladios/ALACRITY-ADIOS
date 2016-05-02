@@ -1,5 +1,5 @@
-#ifndef MEMSTREAM_H_
-#define MEMSTREAM_H_
+#ifndef ALACRITY_MEMSTREAM_H_
+#define ALACRITY_MEMSTREAM_H_
 
 #include <stdint.h>
 #include <stdbool.h>

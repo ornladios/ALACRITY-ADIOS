@@ -2,10 +2,10 @@
 #define ALACRITY_SERIALIZATION_H_
 
 #include <stdint.h>
-#include <memstream.h>
 #include <alacrity-types.h>
 
 #include <alacrity-serialization-legacy.h>
+#include "alacrity-memstream.h"
 #include "alacrity-util.h"
 
 ALError ALSerializePartitionData(const ALPartitionData *input, memstream_t *ms);
@@ -50,7 +50,7 @@ static inline uint64_t ALGetDataBinOffset(const ALMetadata *metadata, bin_id_t b
 }
 
 static inline uint64_t ALGetIndexBinOffset(const ALMetadata *metadata, bin_id_t bin) {
-    const uint8_t sigbytes = alacrity_util_sigBytesCeil(metadata);
+    /*const uint8_t sigbytes = alacrity_util_sigBytesCeil(metadata); //unused variable*/
     switch (metadata->indexMeta.indexForm) {
     case ALInvertedIndex:
         return metadata->binLayout.binStartOffsets[bin] * sizeof(rid_t);

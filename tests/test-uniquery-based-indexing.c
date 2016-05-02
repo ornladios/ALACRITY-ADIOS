@@ -9,9 +9,9 @@
 #include <string.h>
 
 #include <alacrity.h>
-#include <uniquery.h>
 #include <sys/time.h>
 
+#include "../src/include/alacrity-uniquery.h"
 #include "../src/include/alacrity-util.h"
 double dclock1(void) {
 	struct timeval tv;

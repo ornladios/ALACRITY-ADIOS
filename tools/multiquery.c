@@ -19,8 +19,8 @@
 
 
 #include <alacrity.h>
-#include <uniquery.h>
 #include <trycatch.h>
+#include "../src/include/alacrity-uniquery.h"
 #include "../src/include/alacrity-util.h"
 
 double dclock(void) {

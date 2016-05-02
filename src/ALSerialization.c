@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h> // Needed for memcpy
 
-#include <memstream.h>
 #include <alacrity-types.h>
 #include <alacrity-serialization.h>
 #include <alacrity-serialization-debug.h>
+#include "include/alacrity-memstream.h"
 #include "include/alacrity-util.h"
 
 //

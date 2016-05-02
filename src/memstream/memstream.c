@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#include <memstream.h>
+
+#include "../include/alacrity-memstream.h"
 
 // TODO: Add conditionally-compiled bounds checking
 
