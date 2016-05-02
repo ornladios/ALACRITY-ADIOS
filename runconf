@@ -1,15 +1,16 @@
-# A default way to call configure. Will cause ALACRITY to
-# be installed in <current directory>/build. You must
-# modify the paths to timer and indexcompression as needed
-# below
+#!/bin/bash
+#
+# This script is for configuring alacrity on the authors' machines
 # NOTE: assumes no spaces in paths; if spaces exist in your
 #       environment, you must fix this file for yourself
 
-INSTALL_DIR=./build
-TIMER_DIR=../timer/
-RIDCOMP_DIR=~/svn/branches/saurabh/indexcompression
+SRCDIR=`dirname ${BASH_SOURCE[0]}`
 
-mkdir -p "$INSTALL_DIR"
-echo ./configure --prefix=`readlink -f $INSTALL_DIR` --with-timer=`readlink -f $TIMER_DIR` --with-ridcompress=`readlink -f $RIDCOMP_DIR`
-./configure --prefix=`readlink -f $INSTALL_DIR` --with-timer=`readlink -f $TIMER_DIR` --with-ridcompress=`readlink -f $RIDCOMP_DIR`
+INSTALL_DIR=build
+#INSTALL_DIR=/opt/alacrity
+
+FULL_INSTALL_PATH=$(cd $(dirname "${INSTALL_DIR}") && pwd)/$(basename "${INSTALL_DIR}")
+
+echo ${SRCDIR}/configure --prefix=${FULL_INSTALL_PATH}
+${SRCDIR}/configure --prefix=${FULL_INSTALL_PATH}
 
