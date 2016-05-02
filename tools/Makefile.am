@@ -3,7 +3,8 @@ AM_LDFLAGS = -static-libstdc++
 #AM_CPPFLAGS =  -I$(top_srcdir)/src/include
 #AM_CPPFLAGS = 
 
-bin_PROGRAMS = alac uniquery multiquery
+noinst_bin_PROGRAMS = alac uniquery multiquery
+noinst_bindir =
 
 alac_SOURCES = alacrity.c
 alac_LDFLAGS = $(RIDCOMPRESS_LDFLAGS) $(TIMER_LDFLAGS) -static-libstdc++

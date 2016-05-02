@@ -1,4 +1,5 @@
-AM_CPPFLAGS = -I$(srcdir) -I$(srcdir)/include $(TIMER_CPPFLAGS) $(RIDCOMPRESS_CPPFLAGS)
+#AM_CPPFLAGS = -I$(srcdir) -I$(srcdir)/include $(RIDCOMPRESS_CPPFLAGS)
+AM_CPPFLAGS = -I$(srcdir)/include $(RIDCOMPRESS_CPPFLAGS)
 AM_CFLAGS = -g
 AM_CXXFLAGS = -fno-exceptions -fno-rtti
 

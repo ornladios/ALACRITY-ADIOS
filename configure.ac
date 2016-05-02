@@ -2,7 +2,7 @@ AC_INIT([alacrity], [1.0.0], [nagiza.samatova@gmail.com])
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([config])
-AC_CONFIG_FILES([Makefile src/Makefile tools/Makefile tests/Makefile])
+AC_CONFIG_FILES([Makefile ridcompress/Makefile src/Makefile tools/Makefile tests/Makefile])
 AC_CONFIG_SRCDIR([src/ALEncode.c])
 
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
@@ -22,8 +22,15 @@ AM_PROG_AR
 
 #AC_CHECK_LIB([stdc++],[main],,[AC_MSG_ERROR(ALACRITY requires libstdc++)])
 
-m4_include([m4/ac_ridcompress.m4])
+#m4_include([m4/ac_ridcompress.m4])
 
-AX_LIBRIDCOMPRESS
+#AX_LIBRIDCOMPRESS
+
+RIDCOMPRESS_CPPFLAGS="-I\${top_srcdir}/ridcompress"
+RIDCOMPRESS_LDFLAGS="-L\${top_builddir}/ridcompress"
+RIDCOMPRESS_LIBS="-lridcompress -lstdc++"
+AC_SUBST(RIDCOMPRESS_CPPFLAGS)
+AC_SUBST(RIDCOMPRESS_LDFLAGS)
+AC_SUBST(RIDCOMPRESS_LIBS)
 
 AC_OUTPUT

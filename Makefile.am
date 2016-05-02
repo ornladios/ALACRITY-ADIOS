@@ -1,1 +1,1 @@
-SUBDIRS = src tools tests
+SUBDIRS = ridcompress src tools tests
