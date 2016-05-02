@@ -1,8 +1,3 @@
-AM_CFLAGS = -g
-#AM_LDFLAGS = -static-libstdc++
-#AM_CPPFLAGS =  -I$(top_srcdir)/src/include
-#AM_CPPFLAGS = 
-
 noinst_bin_PROGRAMS = alac uniquery multiquery
 noinst_bindir =
 

@@ -4,6 +4,7 @@
 #include <assert.h>
 
 #include <alacrity-part-manip.h>
+#include <alacrity-datatype.h>
 #include <alacrity-types.h>
 #include "include/alacrity-util.h"
 

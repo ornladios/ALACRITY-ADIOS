@@ -1,7 +1,4 @@
-#AM_CPPFLAGS = -I$(srcdir) -I$(srcdir)/include $(RIDCOMPRESS_CPPFLAGS)
 AM_CPPFLAGS = -I$(srcdir)/include $(RIDCOMPRESS_CPPFLAGS)
-AM_CFLAGS = -g
-AM_CXXFLAGS = -fno-exceptions -fno-rtti
 
 AUTOMAKE_OPTIONS = subdir-objects
 
@@ -24,7 +21,7 @@ ALACRITY_EXT_INCLUDES = \
 
 ALACRITY_INT_INCLUDES = \
     include/timer.h \
-	uniquery/helpers.h
+    uniquery/helpers.h
 
 lib_LIBRARIES = libalacrity.a
 libalacrity_a_SOURCES = \

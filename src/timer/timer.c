@@ -355,8 +355,8 @@ int timer_comp(const void *t1, const void *t2) {
 ALTimer_result_t * ALTimer_get_results_sorted()
 {
     uint32_t numTimers = ALTimer_get_num_timers ();
-    ALTimer_id_t *sortedTimers = calloc(numTimers, sizeof(ALTimer_id_t));
-    ALTimer_result_t *results = calloc(numTimers, sizeof(ALTimer_result_t));
+    ALTimer_id_t *sortedTimers = (ALTimer_id_t *)calloc(numTimers, sizeof(ALTimer_id_t));
+    ALTimer_result_t *results = (ALTimer_result_t *)calloc(numTimers, sizeof(ALTimer_result_t));
 
     int timerIdx = 0;
     for (_timerIter = kh_begin (_timerTable); _timerIter != kh_end(_timerTable); _timerIter ++) {
@@ -461,7 +461,7 @@ void ALTimer_print_results_tree(int excludeChildTime) {
         }
     }
 
-    char *siblingBridgePending = calloc(sizeof(char), numTimers);
+    char *siblingBridgePending = (char*)calloc(sizeof(char), numTimers);
 
     for (i = 0; i < numTimers; ++i) {
         ALTimer_tree_t *curNode = &tree[i];

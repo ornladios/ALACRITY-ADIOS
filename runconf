@@ -5,12 +5,63 @@
 #       environment, you must fix this file for yourself
 
 SRCDIR=`dirname ${BASH_SOURCE[0]}`
+if [ `hostname | cut -c 1-4` == "sith" ]; then
 
-INSTALL_DIR=build
-#INSTALL_DIR=/opt/alacrity
+    ########
+    # Sith #
+    ########
+    source /etc/profile.d/modules.sh
+    TARGET=`module list 2>&1 | grep "PE"- | sed "s/^.*PE-\([a-z]*\).*/\1/"`
 
-FULL_INSTALL_PATH=$(cd $(dirname "${INSTALL_DIR}") && pwd)/$(basename "${INSTALL_DIR}")
+    if [ -z "$TARGET" ]; then
+        echo "Cannot determine Programming environment. Exit"
+        exit 1
+    fi
+    echo "Configure on SITH for $TARGET env. for user ${USER}"
+    INSTALL_DIR=build.$TARGET
+    FULL_INSTALL_PATH=$(cd $(dirname "${INSTALL_DIR}") && pwd)/$(basename "${INSTALL_DIR}")
 
-echo ${SRCDIR}/configure --prefix=${FULL_INSTALL_PATH}
-${SRCDIR}/configure --prefix=${FULL_INSTALL_PATH}
+    if [ "$TARGET" == "pgi" ]; then
+        export CC=pgCC
+        export CXX=pgCC
+        CFLAGS="-g -fPIC"
+        CXXFLAGS="-g -fPIC"
+    elif [ "$TARGET" == "gnu" ]; then
+        export CC=gcc
+        export CXX=g++
+        CFLAGS="-g -fPIC"
+        CXXFLAGS="-g -fPIC -fno-exceptions -fno-rtti"
+    elif [ "$TARGET" == "intel" ]; then
+        export CC=icc
+        export CXX=icpc
+        CFLAGS="-g -fPIC"
+        CXXFLAGS="-g -fPIC"
+    else
+        echo "TARGET must be pgi or gnu or intel. Use default"
+        unset CC
+        unset CXX
+    fi
 
+    echo ${SRCDIR}/configure --prefix=${FULL_INSTALL_PATH}
+    CFLAGS=${CFLAGS} CXXFLAGS=${CXXFLAGS} ${SRCDIR}/configure --prefix=${FULL_INSTALL_PATH}
+
+elif [ `hostname | cut -c 1-4` == "dyn9" -o `hostname | cut -c 1-3` == "pnb" ]; then
+
+    #######
+    # Mac #
+    #######
+    echo "Configure on Mac"
+    export CFLAGS="-g -O0 -DO_LARGEFILE=0 -fno-common -Wall"
+    INSTALL_DIR=/opt/alacrity
+    CFLAGS="-g -fPIC -fno-common -Wall"
+    CXXFLAGS="-g -fPIC -fno-exceptions -fno-rtti"
+    FULL_INSTALL_PATH=$(cd $(dirname "${INSTALL_DIR}") && pwd)/$(basename "${INSTALL_DIR}")
+    echo ${SRCDIR}/configure --prefix=${FULL_INSTALL_PATH}
+    CFLAGS=${CFLAGS} CXXFLAGS=${CXXFLAGS} ${SRCDIR}/configure --prefix=${FULL_INSTALL_PATH}
+
+else
+    echo "Could not determine what machine is this. Configure with default settings"
+    CFLAGS="-g -fPIC"
+    CXXFLAGS="-g -fPIC -fno-exceptions -fno-rtti"
+    CFLAGS=${CFLAGS} CXXFLAGS=${CXXFLAGS} ${SRCDIR}/configure 
+fi
