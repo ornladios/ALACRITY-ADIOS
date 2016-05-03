@@ -589,8 +589,12 @@ double s = dclock();
 total_query_time += (dclock() - s);
 //timer_stop("total");
 
-printf("total: %9.3lf    index_read: %9.3lf    decode: %9.3lf  lob_read_reconstruct_orig: %9.3lf   candidate_check: %9.3lf    bit_op: %9.3lf     bits_to_rids: %9.3lf   setup: %9.3lf   partition_close: %9.3lf   total_result_number: %"PRIu64"\n",
-		total_query_time, io_time, decode_time, lob_read_reconstruct_orig_time, candidate_check_time, bit_inter_time, bit_to_rids_time, setup_time, store_close_time, total_result_count);
+printf("total: %9.3lf    index_read: %9.3lf    decode: %9.3lf  lob_read_reconstruct_orig: %9.3lf"
+        "   candidate_check: %9.3lf    bit_op: %9.3lf     bits_to_rids: %9.3lf   setup: %9.3lf"
+        "   partition_close: %9.3lf   total_result_number: %llu\n",
+        total_query_time, io_time, decode_time, lob_read_reconstruct_orig_time,
+		candidate_check_time, bit_inter_time, bit_to_rids_time, setup_time,
+		store_close_time, (unsigned long long)total_result_count);
 /*	printf("total: %9.3lf    index_read: %9.3lf    decode: %9.3lf   candidate_check: %9.3lf    bit_op: %9.3lf     bits_to_rids: %9.3lf\n",
 			timer_get_total_interval("total"),	timer_get_total_interval("index_read"), timer_get_total_interval("decode"),
 			timer_get_total_interval("candidateCheck"), timer_get_total_interval("bit_op"), timer_get_total_interval("bits_to_rids")); */
