@@ -1,6 +1,10 @@
 #ifndef ALACRITY_MEMSTREAM_H_
 #define ALACRITY_MEMSTREAM_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -49,5 +53,10 @@ void memstreamFill(memstream_t *ms, char val, uint64_t num);
 uint64_t memstreamGetPosition(const memstream_t *ms);
 
 void memstreamDestroy(memstream_t *ms, _Bool freeBuf);
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
+
 
 #endif

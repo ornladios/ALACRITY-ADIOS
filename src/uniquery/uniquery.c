@@ -18,6 +18,7 @@
 #include <uniquery/helpers.h>
 #include "../include/alacrity-uniquery.h"
 #include "../include/alacrity-util.h"
+#include "../include/timer.h"
 
 /*
 
@@ -29,7 +30,15 @@ double dclock(void) {
 }
 */
 
-void ensureMetadataReady(ALQueryEngine *qe);
+void ALQueryEnsureMetadataReady(ALQueryEngine *qe) {
+   if (!qe->gmeta) {
+       qe->gmeta = (ALGlobalMetadata*)malloc(sizeof(ALGlobalMetadata));
+       ALStoreGetGlobalMetadata(qe->store, qe->gmeta);
+   }
+
+   if (!qe->metadatas)
+       qe->metadatas = (ALMetadata**)calloc(qe->gmeta->num_partitions, sizeof(ALMetadata*));
+}
 
 void ALQueryEngineInit(ALQueryEngine *qe, ALStore *store, _Bool preload_metadata) {
     qe->store = store;
@@ -38,7 +47,7 @@ void ALQueryEngineInit(ALQueryEngine *qe, ALStore *store, _Bool preload_metadata
     qe->metadatas = NULL;
 
     if (preload_metadata) {
-        ensureMetadataReady(qe);
+        ALQueryEnsureMetadataReady(qe);
     }
 }
 
@@ -54,16 +63,6 @@ void ALQueryEngineDestroy(ALQueryEngine *qe) {
 		}
 		FREE(qe->gmeta);
 	}
-}
-
- void ensureMetadataReady(ALQueryEngine *qe) {
-    if (!qe->gmeta) {
-        qe->gmeta = malloc(sizeof(ALGlobalMetadata));
-        ALStoreGetGlobalMetadata(qe->store, qe->gmeta);
-    }
-
-    if (!qe->metadatas)
-        qe->metadatas = (ALMetadata**)calloc(qe->gmeta->num_partitions, sizeof(ALMetadata*));
 }
 
 void ALQueryEngineStartUnivariateDoubleQuery(ALQueryEngine *qe, double lval, double uval, ALQueryType queryType, ALUnivariateQuery *uniquery) {
@@ -86,14 +85,14 @@ void ALQueryDestroy(ALUnivariateQuery *uniquery) {
 	uniquery->ub.asUint64 = 0;
 }
 
- const ALMetadata * getPartitionMetadata(ALQueryEngine *qe, ALPartitionStore *ps) {
+ const ALMetadata * ALQueryGetPartitionMetadata(ALQueryEngine *qe, ALPartitionStore *ps) {
     const uint64_t partnum = ps->partition_num; // TODO: Accessor function
 
-    ensureMetadataReady(qe);
+    ALQueryEnsureMetadataReady(qe);
 
     // Read the metadata if necessary
     if (!qe->metadatas[partnum]) {
-        qe->metadatas[partnum] = malloc(sizeof(ALMetadata));
+        qe->metadatas[partnum] = (ALMetadata*) malloc(sizeof(ALMetadata));
         ALPartitionStoreReadMetadata(ps, qe->metadatas[partnum]);
     }
 
@@ -132,12 +131,12 @@ _Bool ALQueryNextResult(ALUnivariateQuery *uniquery, ALUnivariateQueryResult *re
     if (ALStoreEOF(qe->store))
         return false;
 
-    ensureMetadataReady(qe);
+    ALQueryEnsureMetadataReady(qe);
 
     ALPartitionStore ps;
     ALStoreOpenPartition(qe->store, &ps, true);
 ALTimer_start("metadata_read");
-    const ALMetadata * const meta = getPartitionMetadata(qe, &ps);
+    const ALMetadata * const meta = ALQueryGetPartitionMetadata(qe, &ps);
 ALTimer_stop("metadata_read");
     const ALBinLayout * const bl = &meta->binLayout;
     bin_id_t start_bin, end_bin;

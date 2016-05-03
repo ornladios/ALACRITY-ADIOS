@@ -22,6 +22,8 @@
 #include <trycatch.h>
 #include "../src/include/alacrity-uniquery.h"
 #include "../src/include/alacrity-util.h"
+#include "../src/include/alacrity-rid-compress.h"
+#include <../src/uniquery/helpers.h>
 
 double dclock(void) {
 	struct timeval tv;
@@ -237,7 +239,7 @@ _Bool doMultiQueryValueConstraint(const int varnums, char filebases[][1024],
 
 			ALQueryEngineInit(&engines[x], &stores[x], true);
 			/*load partition meta info */
-			ensureMetadataReady(&engines[x]);
+			ALQueryEnsureMetadataReady(&engines[x]);
 
 		}
 		 CATCH(tc1){
@@ -310,7 +312,7 @@ setup_time += (dclock() - setup_s);
 setup_s = dclock();
 			/* Open partition & load meta */
 			ALStoreOpenPartition(&stores[i], &partitions[i], true);
-			getPartitionMetadata(&engines[i], &partitions[i]);
+			ALQueryGetPartitionMetadata(&engines[i], &partitions[i]);
 
 
 			// if previous variable constraint doesn't touch any bins, this variable constraint doesn't need to do the process,
@@ -378,13 +380,13 @@ io_time = io_time + index_time;
 					 bin_id_t low_bin = start_bins[i];
 					 bin_id_t hi_bin = end_bins[i];
 
-					 const ALBinLayout const *bl = &meta->binLayout;
+					 const ALBinLayout* const bl = &meta->binLayout;
 					 const bin_offset_t lo_bin_off = bl->binStartOffsets[low_bin];
 					 const bin_offset_t hi_bin_off = bl->binStartOffsets[hi_bin];
 					 const bin_offset_t outputCount = hi_bin_off - lo_bin_off;
 
 					 const char * input_index = (char*)*indexPtr;
-					 const char *inputCurPtr = input_index;
+					 char *inputCurPtr = (char*)*indexPtr; // not const as we change this pointer in candidateCheck() subroutine
 					 const uint64_t *compBinStartOffs = meta->indexMeta.u.ciim.indexBinStartOffsets;
 					 uint64_t binCompressedLen;
 
@@ -400,25 +402,25 @@ decode_s = dclock();
 						 if (oldForm == ALCompressedMixInvertedIndex ) { //BRBE
 							 for (bin_id_t bin = low_bin + 1; bin < hi_bin -1 ; bin++) {
 								 binCompressedLen = compBinStartOffs[bin + 1] - compBinStartOffs[bin];
-								 ALERPFDDecompressRIDs_set_bmap(inputCurPtr, binCompressedLen,  &var_tmp_bitmap );
+								 ALERPFDDecompressRIDs_set_bmap(inputCurPtr, binCompressedLen, (void **)&var_tmp_bitmap );
 								 inputCurPtr += binCompressedLen;
 							 }
 						 }else  if (oldForm == ALCompressedHybridInvertedIndex ){ // run-length Bit-Run
 							 for (bin_id_t bin = low_bin + 1; bin < hi_bin -1; bin++) {
 								 binCompressedLen = compBinStartOffs[bin + 1] - compBinStartOffs[bin];
-								 ALRLEDecompressRIDs(inputCurPtr, binCompressedLen,  &var_tmp_bitmap );
+								 ALRLEDecompressRIDs(inputCurPtr, binCompressedLen, (void **)&var_tmp_bitmap );
 								 inputCurPtr += binCompressedLen;
 							 }
 						 }else if  (oldForm == ALCompressedExpansionII ){ // expanding Bit-Exp
 								 for (bin_id_t bin = low_bin + 1; bin < hi_bin - 1; bin++) {
 									 binCompressedLen = compBinStartOffs[bin + 1] - compBinStartOffs[bin];
-									 ALExpandDecompressRIDs_set_bmap(inputCurPtr, binCompressedLen,&var_tmp_bitmap );
+									 ALExpandDecompressRIDs_set_bmap(inputCurPtr, binCompressedLen, (void **)&var_tmp_bitmap );
 									 inputCurPtr += binCompressedLen;
 								 }
 						 }else if  (oldForm == ALCompressedInvertedIndex ){ // pfd
 							 for (bin_id_t bin = low_bin + 1; bin < hi_bin - 1 ; bin++) {
 								 binCompressedLen = compBinStartOffs[bin + 1] - compBinStartOffs[bin];
-								 ALDecompressRIDs_set_bmap(inputCurPtr, binCompressedLen,&var_tmp_bitmap );
+								 ALDecompressRIDs_set_bmap(inputCurPtr, binCompressedLen, (void **)&var_tmp_bitmap );
 								 inputCurPtr += binCompressedLen;
 							 }
 						 }
@@ -442,8 +444,8 @@ decode_time += de_time;
 
 				 //decode_time = decode_time + (dclock()- decode_s);
 //timer_start("bit_op");
-bit_inter_s = dclock();
-				int k = 0;
+			 bit_inter_s = dclock();
+			 uint64_t k = 0;
 				for (; k < BITNSLOTS64(psize); k++) {
 					p_bitmap[k] = p_bitmap[k] & var_tmp_bitmap[k];
 				}
@@ -465,7 +467,7 @@ bit_recover_s = dclock();
 
 		uint64_t pcount  = 0, count = 0;
 		if ( are_bins_touched ) {
-			int kk = 0;
+			uint64_t kk = 0;
 			for (; kk < BITNSLOTS64(psize); kk++) {
 
 					count =  bits_in_char [p_bitmap[kk] & 0xff]
@@ -489,7 +491,7 @@ bit_recover_s = dclock();
 				// g_rid_t * recovered_rids = (g_rid_t *) malloc(sizeof(g_rid_t)* pcount);
 				uint32_t rcount =0;
 				uint32_t reconstct_rid ;
-				int k = 0;
+				uint64_t k = 0;
 				for (; k < BITNSLOTS64(psize); k++) {
 						uint64_t offset_long_int = k * 64; // original index offset
 						// 2 bytes (unsigned short int)  = 16 bits
@@ -533,8 +535,11 @@ bit_to_rids_time += (dclock() - bit_recover_s);
 printf("==Start Var Specifics\n");
 x = 0;
 for ( ; x < varnums; x ++ ){
-	printf("==var[%9.8lf, %9.8lf]: %s  index_read: %9.3lf   decode: %9.3lf  lob_read_reconstruct_orig: %9.3lf  candidate_check: %9.3lf\n", varnames[x], lbs[x], hbs[x],
-			index_decode_candidate[x].index_read, index_decode_candidate[x].decode, index_decode_candidate[x].lob_read_reconstruct_orig, index_decode_candidate[x].candidate_check);
+	printf("==var[%9.8lf, %9.8lf]: %s  index_read: %9.3lf   decode: %9.3lf  "
+	        "lob_read_reconstruct_orig: %9.3lf  candidate_check: %9.3lf\n",
+	        lbs[x], hbs[x], varnames[x],
+			index_decode_candidate[x].index_read, index_decode_candidate[x].decode,
+			index_decode_candidate[x].lob_read_reconstruct_orig, index_decode_candidate[x].candidate_check);
 }
 printf("==End Var Specifics\n");
 	free(index_decode_candidate);

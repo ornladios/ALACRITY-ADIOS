@@ -114,7 +114,7 @@ void determineBinLayout(const ALEncoderConfig    *config,
     if (buildLookupTable) {
         dbprintf("Building an inverted lookup table...\n");
         // Use calloc to CLEAR the memory first (how did this never trigger a bug until now?)
-        bin_offset_t *countTable = calloc(num_possible_bins, sizeof(bin_offset_t)); // countTable[hibytes] = count, sizeof(bin_offset_t) == max possible values in a bin
+        bin_offset_t *countTable = (bin_offset_t *)calloc(num_possible_bins, sizeof(bin_offset_t)); // countTable[hibytes] = count, sizeof(bin_offset_t) == max possible values in a bin
 
         //*invertedLookupTable = malloc(num_possible_bins * config->significantBytes); // invertedLookupTable[hibytes] = binID
 
@@ -122,7 +122,7 @@ void determineBinLayout(const ALEncoderConfig    *config,
         high_order_bytes_t hi = 0;
         low_order_bytes_t lo = 0;
         bin_id_t numBins = 0;
-        for (const char *dataptr = input; dataptr != endptr; dataptr += elemsize) {
+        for (const char *dataptr = (const char *)input; dataptr != endptr; dataptr += elemsize) {
             SPLIT_DATUM_BITS(dataptr, elemsize, sigbits, hi, lo);
             countTable[hi]++;
             if (countTable[hi] == 1) {
@@ -132,8 +132,8 @@ void determineBinLayout(const ALEncoderConfig    *config,
 
         dbprintf("%lu bins detected\n", numBins);
         binLayout->numBins = numBins;
-        binLayout->binValues = malloc(numBins * sizeof (bin_id_t));
-        binLayout->binStartOffsets = malloc((numBins + 1) * sizeof(bin_offset_t));
+        binLayout->binValues = (bin_offset_t *)malloc(numBins * sizeof (bin_id_t));
+        binLayout->binStartOffsets = (bin_offset_t *)malloc((numBins + 1) * sizeof(bin_offset_t));
 
         *invertedLookupTable = (ALBinLookupTable)countTable; // Reuse the count table as an inverted lookup table. Possible since sizeof(bin_id_t) <= sizeof(partition_length_t) and the lists are read/written sequentially
 
@@ -171,11 +171,11 @@ void initMetadataAndAllocateBuffers(ALPartitionData *part, const ALEncoderConfig
     const char insigbytes = ((elemsize << 3) - config->significantBits + 0x07) >> 3;
     ALMetadata *meta = &part->metadata;
 
-    part->data = malloc(inputCount * insigbytes);
+    part->data = (ALData) malloc(inputCount * insigbytes);
     if (config->indexForm == ALCompressionIndex)
-        part->index = malloc(inputCount * sigbytes);
+        part->index = (ALIndex) malloc(inputCount * sigbytes);
     else if (config->indexForm == ALInvertedIndex)
-        part->index = malloc(inputCount * sizeof(rid_t));
+        part->index = (ALIndex) malloc(inputCount * sizeof(rid_t));
     else
         fprintf(stderr, "Unknown index form %d\n", config->indexForm);
 
@@ -223,7 +223,7 @@ ALError encodeWithInvertedIndex(ALPartitionData *part, const ALEncoderConfig *co
     bin_offset_t *binCurOffsets = (bin_offset_t *) malloc (sizeof (bin_offset_t) * binLayout->numBins);
     memcpy (binCurOffsets, binLayout->binStartOffsets, sizeof (bin_offset_t) * binLayout->numBins);
 
-    for (dataptr = input, rID = 0; dataptr != endptr; dataptr += elemsize, rID ++) {
+    for (dataptr = (const char *)input, rID = 0; dataptr != endptr; dataptr += elemsize, rID ++) {
 
         // Split the datum into hi- and low-order bytes
         SPLIT_DATUM_BITS(dataptr, elemsize, sigbits, hi, lo);
@@ -283,7 +283,7 @@ ALError encodeWithCompressionIndex(    ALPartitionData *part, const ALEncoderCon
     high_order_bytes_t hi;
     low_order_bytes_t lo;
 
-    for (const char *dataptr = input; dataptr != endptr; dataptr += elemsize) {
+    for (const char *dataptr = (const char *)input; dataptr != endptr; dataptr += elemsize) {
         // Split the datum into hi- and low-order bytes
         SPLIT_DATUM_BITS(dataptr, elemsize, sigbits, hi, lo);
 

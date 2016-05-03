@@ -98,9 +98,9 @@ ALError ALStoreOpenPOSIX(ALStore *store, const char *basename, const char *acces
 
     // Set the various parameter files of the struct, and malloc necessary lists
     params->partition_capacity = ALSTORE_POSIX_INITIAL_PARTITION_CAPACITY;
-    params->meta_offsets = malloc(params->partition_capacity * sizeof(uint64_t));
-    params->data_offsets = malloc(params->partition_capacity * sizeof(uint64_t));
-    params->index_offsets = malloc(params->partition_capacity * sizeof(uint64_t));
+    params->meta_offsets = (uint64_t *) malloc(params->partition_capacity * sizeof(uint64_t));
+    params->data_offsets = (uint64_t *) malloc(params->partition_capacity * sizeof(uint64_t));
+    params->index_offsets = (uint64_t *) malloc(params->partition_capacity * sizeof(uint64_t));
 
     params->cur_meta_offset = 0;
     params->cur_data_offset = 0;
@@ -117,16 +117,16 @@ static void extendOffsetBuffers(ALStorePOSIXState *params, uint64_t new_capacity
         new_capacity = params->partition_capacity * 2;
 
     if (copy_contents) {
-        params->meta_offsets = realloc(params->meta_offsets, new_capacity * sizeof(uint64_t));
-        params->index_offsets = realloc(params->index_offsets, new_capacity * sizeof(uint64_t));
-        params->data_offsets = realloc(params->data_offsets, new_capacity * sizeof(uint64_t));
+        params->meta_offsets = (uint64_t *) realloc(params->meta_offsets, new_capacity * sizeof(uint64_t));
+        params->index_offsets = (uint64_t *) realloc(params->index_offsets, new_capacity * sizeof(uint64_t));
+        params->data_offsets = (uint64_t *) realloc(params->data_offsets, new_capacity * sizeof(uint64_t));
     } else {
         free(params->meta_offsets);
         free(params->index_offsets);
         free(params->data_offsets);
-        params->meta_offsets = malloc(new_capacity * sizeof(uint64_t));
-        params->index_offsets = malloc(new_capacity * sizeof(uint64_t));
-        params->data_offsets = malloc(new_capacity * sizeof(uint64_t));
+        params->meta_offsets = (uint64_t *) malloc(new_capacity * sizeof(uint64_t));
+        params->index_offsets = (uint64_t *) malloc(new_capacity * sizeof(uint64_t));
+        params->data_offsets = (uint64_t *) malloc(new_capacity * sizeof(uint64_t));
     }
     params->partition_capacity = new_capacity;
 }
@@ -334,7 +334,7 @@ ALError ALStoreWritePartitionPOSIX(ALStore *store, const ALPartitionData *part) 
 
 ALError ALStoreClosePOSIX(ALStore *store) {
     if (store->access_mode == ACCESS_MODE_WRITE) {
-        int err = finalizeMetadata(store);
+        ALError err = finalizeMetadata(store);
         if (err != ALErrorNone) return err;
     }
 
@@ -519,7 +519,7 @@ ALError ALPartitionStoreReadDataBinsPOSIX(ALPartitionStore *ps, const ALMetadata
     const uint64_t bin_read_len = last_bin_off - first_bin_off;
 
     if (*data == NULL)
-        *data = malloc(bin_read_len);
+        *data = (ALData) malloc(bin_read_len);
 
     fseek(params->datafp, first_bin_off, SEEK_SET);
     fread(*data, 1, bin_read_len, params->datafp);
@@ -539,7 +539,7 @@ ALError ALPartitionStoreReadIndexBinsPOSIX(ALPartitionStore *ps, const ALMetadat
     FILE *fp = use_cindex_fp ? params->cindexfp : params->iindexfp;
 
     if (*index == NULL)
-        *index = malloc(bin_read_len);
+        *index = (ALIndex) malloc(bin_read_len);
 
     fseek(fp, first_bin_off, SEEK_SET);
     fread(*index, 1, bin_read_len, fp);

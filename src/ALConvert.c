@@ -10,7 +10,7 @@
 
 static ALError convertIIToCII(ALMetadata *metadata,
                               ALIndex *indexPtr, ALIndexForm toindexForm ) {
-    const ALBinLayout const *bl = &metadata->binLayout;
+    const ALBinLayout* const bl = &metadata->binLayout;
     const int elemsize = metadata->elementSize;
     const int sigbytes = alacrity_util_sigBytesCeil(metadata);
     const int insigbytes = alacrity_util_insigBytesCeil(metadata);
@@ -33,7 +33,7 @@ static ALError convertIIToCII(ALMetadata *metadata,
         	return ALErrorSomething;
         }
     }
-    char *output_index = malloc(new_index_wcsize);
+    char *output_index = (char *)malloc(new_index_wcsize);
 
     const rid_t *inputCurPtr = input_index;
     char *outputCurPtr = *indexPtr = output_index;
@@ -84,7 +84,7 @@ static ALError convertIIToCII(ALMetadata *metadata,
     metadata->indexMeta.indexForm = toindexForm;
 
     assert(new_index_wcsize >= outputCurPtr - output_index); // Ensure we didn't overrun
-    output_index = realloc(output_index, outputCurPtr - output_index); // Shrink the index down to max size
+    output_index = (char *)realloc(output_index, outputCurPtr - output_index); // Shrink the index down to max size
 
     // Bugfix: ensure we capture the new output_index pointer. Previously, it was assumed that since we're
     // shrinking the buffer, it would never move, but this appears not to be the case on some systems...
@@ -101,13 +101,13 @@ static ALError convertCIIToII(ALMetadata *metadata,
                               bin_id_t lo_bin,
                               bin_id_t hi_bin,
                               _Bool updateMeta) {
-    const ALBinLayout const *bl = &metadata->binLayout;
+    const ALBinLayout* const bl = &metadata->binLayout;
     const bin_offset_t lo_bin_off = bl->binStartOffsets[lo_bin];
     const bin_offset_t hi_bin_off = bl->binStartOffsets[hi_bin];
     const bin_offset_t outputCount = hi_bin_off - lo_bin_off;
 
     const char * input_index = (char*)*indexPtr;
-    rid_t *output_index = malloc(outputCount * sizeof(rid_t));
+    rid_t *output_index = (rid_t *) malloc(outputCount * sizeof(rid_t));
 
     const char *inputCurPtr = input_index;
     rid_t *outputCurPtr = output_index;

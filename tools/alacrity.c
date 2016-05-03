@@ -530,7 +530,7 @@ int showbinsCommandShowBins(ALStore *infile) {
     ALError err;
 
     bin_id_t i;
-    double *d = malloc(sizeof(double));
+    double *d = (double *) malloc(sizeof(double));
     uint64_t zero = 0;
     while (!ALStoreEOF(infile)) {
         ALStoreOpenPartition(infile, &pstore, true);
@@ -589,7 +589,7 @@ int showbinlensCommandShowBins(ALStore *infile) {
     int PFD_chunksizes[3] = {32,64,128};
     bin_id_t bin_lens_counts[3] = {0}; // the number of bins whose length is less than 32, 64, or 128
     bin_id_t i;
-    double *d = malloc(sizeof(double));
+    double *d = (double *) malloc(sizeof(double));
     uint64_t zero = 0;
     while (!ALStoreEOF(infile)) {
         ALStoreOpenPartition(infile, &pstore, true);
@@ -655,7 +655,7 @@ int bidtovCommandConvert(ALStore *infile) {
     ALError err;
 
     bin_id_t i;
-    double *d = calloc(1, sizeof(double));
+    double *d = (double *) calloc(1, sizeof(double));
     uint64_t zero = 0;
     while (!ALStoreEOF(infile)) {
         ALStoreOpenPartition(infile, &pstore, true);

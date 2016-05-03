@@ -61,7 +61,7 @@ static ALError ALDecodeWithInvertedIndex(const ALPartitionData *input,
                                          void            *output,
                                          uint64_t        *outputCount) {
 
-    const ALBinLayout const *bl = &input->metadata.binLayout;
+    const ALBinLayout* const bl = &input->metadata.binLayout;
     const int elemsize = input->metadata.elementSize;
     const int sigbits = input->metadata.significantBits;
     const int sigbytes = alacrity_util_sigBytesCeil(&input->metadata);
@@ -106,8 +106,8 @@ static ALError ALDecodeWithCompressedInvertedIndex(const ALPartitionData *input,
                                                    void            *output,
                                                    uint64_t        *outputCount) {
 
-    const ALBinLayout const *bl = &input->metadata.binLayout;
-    const ALCompressedInvertedIndexMetadata const *ciim = &input->metadata.indexMeta.u.ciim;
+    const ALBinLayout* const bl = &input->metadata.binLayout;
+    const ALCompressedInvertedIndexMetadata* const ciim = &input->metadata.indexMeta.u.ciim;
     const int elemsize = input->metadata.elementSize;
     const int sigbits = input->metadata.significantBits;
     const int sigbytes = (input->metadata.significantBits + 0x07) >> 3;
@@ -137,7 +137,7 @@ static ALError ALDecodeWithCompressedInvertedIndex(const ALPartitionData *input,
         if (decompressBinBufLen < binLen) {
             FREE(decompressedBinBuf);
             decompressBinBufLen = binLen;
-            decompressedBinBuf = malloc(decompressBinBufLen * sizeof(rid_t));
+            decompressedBinBuf = (rid_t *)malloc(decompressBinBufLen * sizeof(rid_t));
         }
 
 		assert (decompressedBinBuf != 0);

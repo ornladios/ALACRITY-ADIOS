@@ -1,6 +1,10 @@
 #ifndef ALACRITY_STORE_H_
 #define ALACRITY_STORE_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 #include <stdbool.h>
 #include <alacrity-types.h>
@@ -93,5 +97,9 @@ ALError ALPartitionStoreReadMetadata(ALPartitionStore *ps, ALMetadata *meta);
 ALError ALPartitionStoreReadDataBins(ALPartitionStore *ps, const ALMetadata *meta, bin_id_t low_bin, bin_id_t hi_bin, ALData *data);
 ALError ALPartitionStoreReadIndexBins(ALPartitionStore *ps, const ALMetadata *meta, bin_id_t low_bin, bin_id_t hi_bin, ALIndex *index);
 ALError ALPartitionStoreClose(ALPartitionStore *pstore);
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 #endif

@@ -21,6 +21,8 @@ extern "C" {
  * ADIOS RID decompression. RID compression is through index building
  * 1: PG space is fully contained in the selection box, 0: intersected
  */
+ALError ALDecompressDeltas(const char *input, uint64_t inputLength, uint32_t *output, uint32_t *outputCount);
+
 uint32_t ALDecompressRIDtoSelBox(bool isPGContained
 		, const char *input
 		, uint64_t inputLength
@@ -51,6 +53,12 @@ ALError ALRLEDecompressRIDs(const char *input, uint64_t inputLength,  void **bma
 // NOTE: outputLength should hold the maximum output buffer length
 ALError ALCompressRIDs(const uint32_t *input, uint32_t inputCount, char *output, uint64_t *outputLength);
 
+/************ EPFD + RPFD METHOD ****************/
+ALError ALERPFDCompressRIDs(const uint32_t *input, uint32_t inputCount, char *output, uint64_t *outputLength);
+ALError ALERPFDDecompressRIDs(const char *input, uint64_t inputLength, uint32_t *output, uint32_t *outputCount);
+ALError ALERPFDDecompressRIDs_set_bmap(const char *input, uint64_t inputLength,void **bmap);
+/************ end of EPFD + RPFD METHOD ****************/
+
 // NOTE: outputCount should hold the maximum output buffer count
 ALError ALDecompressRIDs(const char *input, uint64_t inputLength, uint32_t *output, uint32_t *outputCount);
 
@@ -69,6 +77,7 @@ ALError ALDecompressRIDs_set_bmap(const char *input, uint64_t inputLength, void 
 
 uint64_t ALGetMaxCompressedRIDLength(uint32_t inputCount);
 
+ALError ALTranslateCompressedRIDs(char *input, uint64_t inputLength, int32_t rid_offset);
 
 #ifdef __cplusplus
 }

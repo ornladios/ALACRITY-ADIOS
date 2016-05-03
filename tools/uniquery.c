@@ -38,6 +38,8 @@ void parse_options(int *argc, char ***argv) {
 	//*argv += optind;
 }
 
+int doQuery(const char *filebase, double lb, double ub);
+
 #define SHIFTN(n) { argc -= (n); argv += (n); }
 #define SHIFT SHIFTN(1)
 

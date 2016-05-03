@@ -8,6 +8,10 @@
 #ifndef ALACRITY_UNIQUERY_H_
 #define ALACRITY_UNIQUERY_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 #include <stdbool.h>
 #include <alacrity-store.h>
@@ -74,5 +78,10 @@ void ALQueryResultDestroy(ALUnivariateQueryResult *result);
  const ALMetadata * ALQueryGetPartitionMetadata(ALQueryEngine *qe, ALPartitionStore *ps);
 
  void ALQueryReadIndex(ALPartitionStore *ps, const ALMetadata *meta, bin_id_t start_bin, bin_id_t end_bin, ALIndex *index);
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
+
 
 #endif /* ALACRITY_UNIQUERY_H_ */

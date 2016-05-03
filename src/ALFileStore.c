@@ -16,7 +16,7 @@
 
 static uint64_t ALFileStoreGetGlobalHeaderSize(ALFileStore *fs);
 static int ALFileStorePreallocateGlobalHeader(ALFileStore *fs);
-static int ALFileStoreWriteGlobalHeader(ALFileStore *fs);
+static ALError ALFileStoreWriteGlobalHeader(ALFileStore *fs);
 
 
 ALError ALFileStoreOpen(ALFileStore *fs, const char *basename, uint64_t num_partitions, ALIndexForm indexForm, _Bool legacyFormat) {
@@ -41,9 +41,9 @@ ALError ALFileStoreOpen(ALFileStore *fs, const char *basename, uint64_t num_part
     fs->partition_size = 0;
 
     fs->cur_partition = 0;
-    fs->meta_offsets = malloc(num_partitions * sizeof(uint64_t));
-    fs->data_offsets = malloc(num_partitions * sizeof(uint64_t));
-    fs->index_offsets = malloc(num_partitions * sizeof(uint64_t));
+    fs->meta_offsets = (uint64_t *) malloc(num_partitions * sizeof(uint64_t));
+    fs->data_offsets = (uint64_t *) malloc(num_partitions * sizeof(uint64_t));
+    fs->index_offsets = (uint64_t *) malloc(num_partitions * sizeof(uint64_t));
 
     fs->cur_meta_offset = 0;
     fs->cur_data_offset = 0;
@@ -123,7 +123,7 @@ ALError ALFileStoreClose(ALFileStore *fs) {
     }
 #endif
 
-    int err = ALFileStoreWriteGlobalHeader(fs);
+    ALError err = ALFileStoreWriteGlobalHeader(fs);
     if (err != ALErrorNone)
         return err;
 
@@ -152,7 +152,7 @@ static int ALFileStorePreallocateGlobalHeader(ALFileStore *fs) {
     return ALErrorNone;
 }
 
-static int ALFileStoreWriteGlobalHeader(ALFileStore *fs) {
+static ALError ALFileStoreWriteGlobalHeader(ALFileStore *fs) {
     fseek(fs->metadatafp, 0, SEEK_SET); // Return to the beginning of the file
 
     memstream_t ms = memstreamInitReturn(malloc(ALFileStoreGetGlobalHeaderSize(fs)));

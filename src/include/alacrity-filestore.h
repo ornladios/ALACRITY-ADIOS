@@ -1,6 +1,10 @@
 #ifndef ALACRITY_FILESTORE_H_
 #define ALACRITY_FILESTORE_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 #include <alacrity-types.h>
 
@@ -28,5 +32,10 @@ typedef struct {
 ALError ALFileStoreOpen(ALFileStore *fs, const char *basename, uint64_t num_partitions, ALIndexForm indexForm, _Bool legacyFormat);
 ALError ALFileStoreAppend(ALFileStore *fs, const ALPartitionData *part);
 ALError ALFileStoreClose(ALFileStore *fs);
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
+
 
 #endif

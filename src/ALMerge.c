@@ -42,17 +42,17 @@ ALError ALMerge(const ALPartitionData *part1, const ALPartitionData *part2, ALPa
     metaMerged->partitionLength = partlenMerged;
 
     // Next allocate the necessary buffers
-    binlayoutMerged->binValues = malloc((numBins1 + numBins2) * sizeof (bin_offset_t)); // Worst-case size
-    binlayoutMerged->binStartOffsets = malloc((numBins1 + numBins2) * sizeof(bin_offset_t)); // Worst-case size
-    partMerged->data = malloc(partlenMerged * insigbytes);
-    partMerged->index = malloc(partlenMerged * (indexForm == ALInvertedIndex ? sizeof(rid_t) : sigbytes));
+    binlayoutMerged->binValues = (bin_offset_t*) malloc((numBins1 + numBins2) * sizeof (bin_offset_t)); // Worst-case size
+    binlayoutMerged->binStartOffsets = (bin_offset_t*) malloc((numBins1 + numBins2) * sizeof(bin_offset_t)); // Worst-case size
+    partMerged->data = (ALData) malloc(partlenMerged * insigbytes);
+    partMerged->index = (ALIndex) malloc(partlenMerged * (indexForm == ALInvertedIndex ? sizeof(rid_t) : sigbytes));
 
     // Now iterate over the bin layouts and merge them, along with the data and index
 
     // Each of these arrays is indexed using constants PART1, PART2, MERGEDPART
     // One-per-bin variables
     int curBin[3] = { 0, 0, 0 };
-    char *binValuePtr[3] = { binlayout1->binValues, binlayout2->binValues, binlayoutMerged->binValues };
+    high_order_bytes_t *binValuePtr[3] = { binlayout1->binValues, binlayout2->binValues, binlayoutMerged->binValues };
     bin_offset_t *binEndOffPtr[3] = { binlayout1->binStartOffsets, binlayout2->binStartOffsets, binlayoutMerged->binStartOffsets };
     // Location variables
     bin_offset_t curBinOffset[3] = { 0, 0, 0 };

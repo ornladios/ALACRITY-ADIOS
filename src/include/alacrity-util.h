@@ -1,6 +1,10 @@
 #ifndef ALACRITY_UTIL_H_
 #define ALACRITY_UTIL_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -227,5 +231,10 @@ static inline ALEndianness alacrity_util_detectEndianness() {
 #else
 #define eprintf(...) (void)0
 #endif
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
+
 
 #endif

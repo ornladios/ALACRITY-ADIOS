@@ -53,6 +53,8 @@ elif [ `hostname | cut -c 1-4` == "dyn9" -o `hostname | cut -c 1-3` == "pnb" ]; 
     echo "Configure on Mac"
     export CFLAGS="-g -O0 -DO_LARGEFILE=0 -fno-common -Wall"
     INSTALL_DIR=/opt/alacrity
+    export CC=/usr/local/bin/gcc-5
+    export CXX=/usr/local/bin/g++-5
     CFLAGS="-g -fPIC -fno-common -Wall"
     CXXFLAGS="-g -fPIC -fno-exceptions -fno-rtti"
     FULL_INSTALL_PATH=$(cd $(dirname "${INSTALL_DIR}") && pwd)/$(basename "${INSTALL_DIR}")

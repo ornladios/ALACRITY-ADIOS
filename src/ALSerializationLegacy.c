@@ -74,7 +74,7 @@ ALError ALSerializeMetadataLegacy(const ALMetadata *metadata, memstream_t *ms) {
     //////
     // Calculate legacy-translated bin byte offsets
     // (scale to byte, instead of element, offsets)
-    uint64_t *bin_offsets = malloc(metadata->binLayout.numBins * sizeof(uint64_t));
+    uint64_t *bin_offsets = (uint64_t *) malloc(metadata->binLayout.numBins * sizeof(uint64_t));
     for (bin_id_t i = 0; i < metadata->binLayout.numBins; i++)
         bin_offsets[i] = metadata->binLayout.binStartOffsets[i] * 6; // Offset is scaled by the low-byte element size (6)
 
@@ -112,8 +112,8 @@ ALError ALDeserializeMetadataLegacy(ALMetadata *metadata, memstream_t *ms) {
     metadata->partitionLength = memstreamReadUint64(ms);
     metadata->binLayout.numBins = memstreamReadUint16(ms);
 
-    metadata->binLayout.binValues = malloc(metadata->binLayout.numBins * (metadata->significantBits >> 3));
-    metadata->binLayout.binStartOffsets = malloc((metadata->binLayout.numBins + 1) * sizeof(bin_offset_t));
+    metadata->binLayout.binValues = (bin_offset_t*)malloc(metadata->binLayout.numBins * (metadata->significantBits >> 3));
+    metadata->binLayout.binStartOffsets = (bin_offset_t*)malloc((metadata->binLayout.numBins + 1) * sizeof(bin_offset_t));
 
     // Serialize bin values
     memstreamReadArray(ms, metadata->binLayout.binValues, sizeof(unsigned short int), metadata->binLayout.numBins);
@@ -125,7 +125,7 @@ ALError ALDeserializeMetadataLegacy(ALMetadata *metadata, memstream_t *ms) {
     memstreamSkip(ms, sizeof(uint64_t) * metadata->binLayout.numBins);
 
     // Deserialize the bin element offsets (start offsets)
-    uint64_t *bin_offsets = malloc(metadata->binLayout.numBins * sizeof(uint64_t));
+    uint64_t *bin_offsets = (uint64_t *) malloc(metadata->binLayout.numBins * sizeof(uint64_t));
     memstreamReadArray(ms, bin_offsets, sizeof(uint64_t), metadata->binLayout.numBins);
 
     // Now left-shift all offsets to make them end offsets instead

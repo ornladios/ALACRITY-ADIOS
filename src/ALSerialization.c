@@ -197,7 +197,7 @@ ALError ALDeserializeBinLayout(ALBinLayout *binLayout, uint8_t significantBits, 
     binLayout->numBins = memstreamReadBinID(ms);
 
     // Allocate and read bin value list
-    binLayout->binValues = malloc(binLayout->numBins * sizeof (bin_offset_t));
+    binLayout->binValues = (bin_offset_t *) malloc(binLayout->numBins * sizeof (bin_offset_t));
     memstreamReadArray(ms, binLayout->binValues, sizeof (bin_offset_t), binLayout->numBins);
 
     binLayout->binStartOffsets = (bin_offset_t*)malloc((binLayout->numBins + 1) * sizeof(bin_offset_t));
@@ -234,7 +234,7 @@ ALError ALDeserializeIndexMetadata(ALIndexMetadata *indexMeta, const ALBinLayout
     case ALCompressedSkipInvertedIndex: //  skipping inverted index compressed by p4d
     case ALCompressedMixInvertedIndex :  // skipping inverted index compressed by p4d + RLE
     case ALCompressedExpansionII:
-        indexMeta->u.ciim.indexBinStartOffsets = malloc((bl->numBins + 1) * sizeof(uint64_t));
+        indexMeta->u.ciim.indexBinStartOffsets = (uint64_t *) malloc((bl->numBins + 1) * sizeof(uint64_t));
         memstreamReadArray(ms, indexMeta->u.ciim.indexBinStartOffsets, sizeof(uint64_t), bl->numBins + 1);
         break;
     default:

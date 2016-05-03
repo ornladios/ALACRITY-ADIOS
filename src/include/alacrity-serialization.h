@@ -1,6 +1,10 @@
 #ifndef ALACRITY_SERIALIZATION_H_
 #define ALACRITY_SERIALIZATION_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 #include <alacrity-types.h>
 
@@ -37,8 +41,8 @@ uint64_t ALGetIndexMetadataSize(const ALIndexMetadata *indexMeta, const ALMetada
 // uint64_t ALGetIndexBinOffset(const ALMetadata *metadata, bin_id_t bin);
 
 // In-place deserializeation
-static inline ALError ALDeserializeBinLayoutInPlace (ALBinLayout *binLayout, uint8_t significantBytes, memstream_t *binLayoutBuffer);
-static inline ALError ALDeserializeMetadataInPlace (ALMetadata *metadata, memstream_t *metadataBuffer);
+// static inline ALError ALDeserializeBinLayoutInPlace (ALBinLayout *binLayout, uint8_t significantBytes, memstream_t *binLayoutBuffer);
+// static inline ALError ALDeserializeMetadataInPlace (ALMetadata *metadata, memstream_t *metadataBuffer);
 
 // uint64_t ALGetDataBinSize(const ALMetadata *metadata, bin_id_t binID);
 // 
@@ -80,5 +84,10 @@ static inline uint64_t ALGetIndexBinSize(const ALMetadata *metadata, bin_id_t bi
 {
     return ALGetIndexBinOffset(metadata, binID + 1) - ALGetIndexBinOffset(metadata, binID);
 }
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
+
 
 #endif /*ALACRITY_SERIALIZATION_H_*/

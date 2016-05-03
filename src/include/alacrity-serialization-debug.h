@@ -1,6 +1,10 @@
 #ifndef ALACRITY_SERIALIZATION_DEBUG_H_
 #define ALACRITY_SERIALIZATION_DEBUG_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "alacrity-util.h"
 
 #define ALPrintData(data, n) \
@@ -37,5 +41,10 @@
     printf ("[%s] significantBytes = %d\n", __FUNCTION__, metadata.significantBits); \
     /*printf ("[%s] indexForm = %d\n", __FUNCTION__, metadata.indexForm);*/ \
 }
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
+
 
 #endif /*ALACRITY_SERIALIZATION_DEBUG_H_*/

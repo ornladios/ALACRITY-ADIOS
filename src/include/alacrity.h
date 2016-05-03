@@ -9,11 +9,15 @@ extern "C" {
 #include <alacrity-datatype.h>
 #include <alacrity-core.h>
 #include <alacrity-filestore.h>
+#include <alacrity-memstream.h>
+#include <alacrity-util.h>
+#include <alacrity-rid-compress.h>
 #include <alacrity-part-manip.h>
 #include <alacrity-serialization.h>
 #include <alacrity-serialization-legacy.h>
 #include <alacrity-store.h>
-#include "alacrity-uniquery.h"
+#include <alacrity-uniquery.h>
+
 
 /* Error handling functions */
 #include <alacrity-serialization-debug.h>
