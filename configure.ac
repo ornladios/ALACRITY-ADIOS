@@ -20,15 +20,18 @@ AM_PROG_CC_C_O
 m4_pattern_allow([AM_PROG_AR])
 AM_PROG_AR 
 
-#AC_CHECK_LIB([stdc++],[main],,[AC_MSG_ERROR(ALACRITY requires libstdc++)])
+dnl AC_CHECK_LIB([stdc++],[main],,[AC_MSG_ERROR(ALACRITY requires libstdc++)])
 
-#m4_include([m4/ac_ridcompress.m4])
-
-#AX_LIBRIDCOMPRESS
+dnl m4_include([m4/ac_ridcompress.m4])
+dnl AX_LIBRIDCOMPRESS
 
 RIDCOMPRESS_CPPFLAGS="-I\${top_srcdir}/ridcompress"
 RIDCOMPRESS_LDFLAGS="-L\${top_builddir}/ridcompress"
 RIDCOMPRESS_LIBS="-lridcompress -lstdc++"
+
+dnl check if -lm is needed to be added
+AC_SEARCH_LIBS([ceil], [m], [], [AC_MSG_ERROR([unable to find the ceil() function])])
+
 AC_SUBST(RIDCOMPRESS_CPPFLAGS)
 AC_SUBST(RIDCOMPRESS_LDFLAGS)
 AC_SUBST(RIDCOMPRESS_LIBS)
