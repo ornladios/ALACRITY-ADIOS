@@ -1,7 +1,8 @@
-#Thu Apr 18 10:26:09 EDT 2013
 eclipse.preferences.version=1
 environment/project/cdt.managedbuild.toolchain.gnu.base.1938274984/SHARED_LIB/delimiter=\:
 environment/project/cdt.managedbuild.toolchain.gnu.base.1938274984/SHARED_LIB/operation=replace
 environment/project/cdt.managedbuild.toolchain.gnu.base.1938274984/SHARED_LIB/value=${LD_LIBRARY_PATH}
 environment/project/cdt.managedbuild.toolchain.gnu.base.1938274984/append=true
 environment/project/cdt.managedbuild.toolchain.gnu.base.1938274984/appendContributed=true
+environment/project/cdt.managedbuild.toolchain.gnu.macosx.base.323327120/append=true
+environment/project/cdt.managedbuild.toolchain.gnu.macosx.base.323327120/appendContributed=false

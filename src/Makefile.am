@@ -21,7 +21,8 @@ ALACRITY_EXT_INCLUDES = \
 
 ALACRITY_INT_INCLUDES = \
     include/timer.h \
-    uniquery/helpers.h
+    uniquery/helpers.h \
+    timer/khash.h
 
 lib_LIBRARIES = libalacrity.a
 libalacrity_a_SOURCES = \

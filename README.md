@@ -10,10 +10,7 @@ http://ftp.gnu.org/gnu/automake/
 http://ftp.gnu.org/gnu/autoconf/
 https://ftp.gnu.org/gnu/libtool/
 
-1. Build PForDelta package [git@github.com:ncsu-samatova/PForDelta.git]
-   1.1 cd [PForDelta PATH] 
-   1.2 make libridcompress.a    // this will produce libridcompress.a in current folder
-2. Build ALACRITY [git@github.com:ncsu-samatova/ALACRITY.git]
+1. Build ALACRITY [git@github.com:ornladios/ALACRITY-ADIOS.git]
    1.1 cd [ALACRITY PATH]
    1.2 ./autogen.sh
    1.2 Copy ./runconf to ./myrunconf
@@ -31,7 +28,7 @@ https://ftp.gnu.org/gnu/libtool/
          [input data path]
          [output data path] : this path require a prefix of the files the alarity will produce
     For example, if we want to build compressed inverted indexes for 2GB double `temp` precision data  by binning 16 significant bits
-    csc$ ./build/bin/alac encode -p268435456E -x -edouble -s16 ~/sigmod_2012_2GB/temp ~/data/ii_index/s3d/1part_2G/pfd/temp 
+    $ ./build/bin/alac encode -p268435456E -x -edouble -s16 ~/sigmod_2012_2GB/temp ~/data/ii_index/s3d/1part_2G/pfd/temp 
     Using partition size of 268435456(not accounting for element size, but WILL later)
     Using legacy format n 
     Encoding complete, 2147483648 bytes of input data successfully encoded into 1 partitions
@@ -43,7 +40,7 @@ https://ftp.gnu.org/gnu/libtool/
         [low boundary value]
         [high boundary value]
      For example, if we want to query the `temp` data  is between 35.65  and 663.6, we do:
-        csc$ ./build/bin/uniquery ~/data/ii_index/s3d/1part_2G/pfd/temp 35.65 663.6
+        $ ./build/bin/uniquery ~/data/ii_index/s3d/1part_2G/pfd/temp 35.65 663.6
         Total results: 11041898 (4.1134% selectivity, 1/1 partitions had results)
         uniquery avg. time 0.261354 
 
